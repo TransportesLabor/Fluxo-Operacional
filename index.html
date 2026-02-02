@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="refresh" content="600">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Painel de Fluxo Operacional – Indicador</title>
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --muted:#9aa4c0;
+      --text:#e9ecf5;
+
+      --good:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+
+      --shadow: 0 14px 30px rgba(0,0,0,.25);
+      --radius:18px;
+
+      --ink:#0b1b3a;
+
+      --topRowMinH: 360px;
+
+      /* Destaques pedidos */
+      --mustard:#D4A017;         /* mostarda */
+      --totalGreen:#22c55e;      /* verde vivo */
+      --blinkYellow:#FFE731;     /* rgb(255,231,49) */
+
+      /* Gestão de pedidos (refino TV) */
+      --icon: rgba(11,27,58,.72);
+      --dividerStrong: rgba(11,27,58,.22);
+
+      /* Badge staleness */
+      --staleWarnBg: rgba(245,158,11,.22);
+      --staleWarnBd: rgba(245,158,11,.45);
+      --staleBadBg:  rgba(239,68,68,.22);
+      --staleBadBd:  rgba(239,68,68,.45);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 30% 0%, rgba(11,134,255,.22), transparent 55%),
+                  radial-gradient(900px 700px at 80% 20%, rgba(34,197,94,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+
+    .wrap{ max-width: min(1800px, 96vw); margin: 28px auto 60px; padding: 0 18px; }
+
+    header{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; margin-bottom:18px; flex-wrap:wrap;
+    }
+    h1{ margin:0; font-size:38px; letter-spacing:.2px; }
+
+    .rightHead{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+
+    .updated{
+      color:var(--muted);
+      font-size:13px;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(8px);
+      white-space:nowrap;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .updated.stale-warn{
+      background: var(--staleWarnBg);
+      border-color: var(--staleWarnBd);
+      color: rgba(233,236,245,.92);
+    }
+    .updated.stale-bad{
+      background: var(--staleBadBg);
+      border-color: var(--staleBadBd);
+      color: rgba(233,236,245,.92);
+    }
+
+    .filter{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(8px);
+    }
+    .filter label{ font-size:12px; color: rgba(233,236,245,.80); }
+    select{
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      outline: none;
+    }
+
+    .topRow{
+      margin:16px 0 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .leftCol{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      height: auto;
+    }
+
+    .cardsBox{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.35);
+      box-shadow: var(--shadow);
+      padding: 16px 16px;
+      position:relative;
+      color: var(--ink);
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .cardsBox::before{
+      content:"";
+      position:absolute; inset:-80px -120px auto auto;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle at 30% 30%, rgba(11,27,58,.10), transparent 60%);
+      transform: rotate(10deg);
+      opacity:.70;
+      pointer-events:none;
+    }
+
+    .miniKpis{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      width: 100%;
+    }
+    .miniKpi{
+      border-radius: 14px;
+      border: 1px solid rgba(11,27,58,.10);
+      background: rgba(255,255,255,.85);
+      padding: 9px 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.10);
+      min-height: 62px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .miniKpi .t{
+      font-size: 12px;
+      color: rgba(11,27,58,.72);
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .miniKpi .v{
+      margin-top: 5px;
+      font-weight: 900;
+      font-size: clamp(21px, 2.1vw, 33px);
+      line-height: 1.05;
+      color: var(--ink);
+      white-space:nowrap;
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: var(--topRowMinH);
+    }
+    .panel .ph{
+      padding: 14px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border-bottom:1px solid rgba(11,27,58,.10);
+      background: rgba(255,255,255,.70);
+      flex: 0 0 auto;
+    }
+    .ph .ttl{ font-weight:800; display:flex; align-items:center; gap:10px; }
+
+    .badge{
+      font-size:12px;
+      padding: 6px 10px;
+      border-radius:999px;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(11,27,58,.06);
+      color: rgba(11,27,58,.82);
+      white-space:nowrap;
+    }
+
+    table{ width:100%; border-collapse:collapse; }
+    th, td{
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(11,27,58,.10);
+      vertical-align:middle;
+      font-size:13px;
+      color: var(--ink);
+    }
+
+    .scroll{
+      overflow:auto;
+      position: relative;
+      background: rgba(0,0,0,.04);
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    .panelLight{
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.35);
+      color: var(--ink);
+    }
+    .panelLight .ph{
+      background: rgba(255,255,255,.70);
+      border-bottom: 1px solid rgba(11,27,58,.10);
+    }
+
+    /* Cabeçalho dos pedidos: azul escuro igual fundo do site */
+    .tblPedidos thead th{
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--bg);
+      color: rgba(233,236,245,.95);
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      font-size:11px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    /* ======== GESTÃO DE PEDIDOS (REFINOS TV) ======== */
+    .tblPedidos td:nth-child(2),
+    .tblPedidos td:nth-child(3),
+    .tblPedidos thead th:nth-child(2),
+    .tblPedidos thead th:nth-child(3){
+      text-align: right;
+    }
+    .tblPedidos td:nth-child(2){ font-weight: 500; }
+    .tblPedidos td:nth-child(3){ font-weight: 650; }
+
+    .pedidoCell{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .pedidoIcon{
+      width:16px;
+      height:16px;
+      flex: 0 0 16px;
+      color: var(--icon);
+    }
+    .pedidoText{
+      font-weight: 800;
+      letter-spacing:.1px;
+    }
+
+    .rowFaturado{
+      background: color-mix(in srgb, var(--mustard) 35%, transparent);
+    }
+
+    /* (mantido) Total antigo, se algum dia quiser usar */
+    .rowTotalGreen{
+      background: color-mix(in srgb, var(--totalGreen) 35%, transparent);
+      font-weight: 950;
+    }
+    .rowTotalGreen td{
+      padding-top: 14px;
+      padding-bottom: 14px;
+      border-top: 2px solid var(--dividerStrong);
+    }
+    .rowTotalGreen td:nth-child(3){
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .rowTotalGreen td:nth-child(2){
+      font-weight: 900;
+    }
+
+    /* ===== NOVOS TOTAIS DO QUADRO ===== */
+    .rowDisputaTotal{
+      background: color-mix(in srgb, var(--mustard) 22%, transparent);
+      font-weight: 900;
+    }
+    .rowDisputaTotal td{
+      border-top: 2px solid var(--dividerStrong);
+    }
+    .rowDisputaTotal td:nth-child(3){
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .rowPrevistoTotal{
+      background: color-mix(in srgb, var(--totalGreen) 28%, transparent);
+      font-weight: 950;
+    }
+    .rowPrevistoTotal td{
+      padding-top: 14px;
+      padding-bottom: 14px;
+      border-top: 2px solid var(--dividerStrong);
+    }
+    .rowPrevistoTotal td:nth-child(3){
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .rowPrevistoTotal td:nth-child(2){
+      font-weight: 900;
+    }
+    /* ================================ */
+
+    @keyframes blinkWarn {
+      0%, 100% { background: transparent; }
+      50% { background: rgba(255,231,49,.45); }
+    }
+    .blinkWarn{ animation: blinkWarn 1.45s ease-in-out infinite; }
+    /* =============================================== */
+
+    /* ===== Transportadores: menos contraste + fonte menor ===== */
+    .panelTranspSoft .scroll{
+      background: rgba(11,27,58,.03);
+    }
+    .panelTranspSoft td, .panelTranspSoft th{
+      font-size: 12px;
+    }
+    .panelTranspSoft th{
+      color: rgba(11,27,58,.70);
+    }
+    .panelTranspSoft td{
+      color: rgba(11,27,58,.90);
+    }
+    /* ========================================================= */
+
+    .panelDark{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+    }
+    .panelDark .ph{
+      background: rgba(0,0,0,.14);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .panelDark .badge{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(233,236,245,.92);
+    }
+    .headDark thead th{
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(12,18,38,.96);
+      color: rgba(233,236,245,.85);
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      font-size:11px;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .headDark th, .headDark td{
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: rgba(233,236,245,.92);
+    }
+    .headDark td .muted{ color: var(--muted); font-size:12px; }
+
+    .rowArrived{ background: rgba(245,158,11,.16); }
+    .rowLeft{ background: rgba(34,197,94,.18); }
+    .rowDelivered{ background: rgba(34,197,94,.18); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+      align-items: start;
+    }
+
+    .foot{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1200px){
+      .topRow{ grid-template-columns: 1fr; }
+      .miniKpis{ grid-template-columns: 1fr; }
+      .leftCol{ height:auto !important; }
+    }
+    @media (max-width: 980px){
+      .grid2{ grid-template-columns: 1fr; }
+      h1{ font-size:30px; }
+    }
+
+    /* ================= TV ALERT OVERLAY ================= */
+    .tvAlertOverlay{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(11,16,32,.86);
+      backdrop-filter: blur(8px);
+    }
+
+    .tvAlertCard{
+      width: min(980px, 92vw);
+      border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.94);
+      color: #0b1b3a;
+      overflow: hidden;
+    }
+
+    .tvAlertTop{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(239,68,68,.12);
+      border-bottom: 1px solid rgba(11,27,58,.12);
+    }
+
+    .tvAlertTitle{
+      font-weight: 950;
+      font-size: 18px;
+      letter-spacing: .2px;
+      text-transform: uppercase;
+    }
+
+    .tvAlertBadge{
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.14);
+      white-space: nowrap;
+    }
+
+    .tvAlertBody{
+      padding: 18px 18px 16px;
+    }
+
+    .tvAlertMsg{
+      font-size: clamp(18px, 2.2vw, 26px);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .tvAlertSub{
+      margin-top: 10px;
+      color: rgba(11,27,58,.72);
+      font-size: 13px;
+    }
+    /* ==================================================== */
+
+    /* Pills (atraso) */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(245,158,11,.18);
+      color: rgba(233,236,245,.95);
+      min-width: 36px;
+    }
+    .pill.good{ background: rgba(34,197,94,.18); }
+    .pill.bad{ background: rgba(239,68,68,.20); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Painel de Fluxo Operacional</h1>
+      </div>
+
+      <div class="rightHead">
+        <div class="filter">
+          <label for="carrierFilter">Transportador</label>
+          <select id="carrierFilter">
+            <option value="__ALL__">Todos</option>
+          </select>
+        </div>
+        <div class="updated" id="updatedAt">Atualizado em: --/--/----</div>
+      </div>
+    </header>
+
+    <section class="topRow">
+      <div class="leftCol" id="leftCol">
+        <div class="cardsBox" id="cardsBox">
+          <div class="miniKpis" aria-label="KPIs do dia">
+            <div class="miniKpi">
+              <div class="t">Notas em Atraso</div>
+              <div class="v" id="kpiAtraso">—</div>
+            </div>
+            <div class="miniKpi">
+              <div class="t">Previstas para Hoje</div>
+              <div class="v" id="kpiPrevistasHoje">—</div>
+            </div>
+            <div class="miniKpi">
+              <div class="t">Entregas Realizadas Hoje</div>
+              <div class="v" id="kpiEntreguesHoje">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panelLight panelTranspSoft" id="panelTransp" style="min-height: 0; flex: 1 1 auto;">
+          <div class="ph">
+            <div class="ttl">Status de Coleta Transportadores</div>
+            <div class="badge" id="transpCount">— itens</div>
+          </div>
+
+          <div class="scroll" id="scrollTransp">
+            <table>
+              <thead>
+                <tr>
+                  <th>Transportador</th>
+                  <th>Chegada</th>
+                  <th>Saída</th>
+                  <th>Horário da coleta</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyTransp"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panelLight" id="panelPedidos">
+        <div class="ph">
+          <div class="ttl">Gestão de Pedidos</div>
+          <div class="badge" id="pedidosCount">— itens</div>
+        </div>
+
+        <div style="flex:1 1 auto;">
+          <table class="tblPedidos">
+            <thead>
+              <tr>
+                <th>Pedidos</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyPedidos"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="panel panelDark" id="panelAtraso">
+        <div class="ph">
+          <div class="ttl">Notas em Atraso</div>
+          <div class="badge" id="atrasoCount">— itens</div>
+        </div>
+        <div class="scroll headDark" id="scrollAtraso">
+          <table>
+            <thead>
+              <tr>
+                <th>NF</th>
+                <th>Destinatário</th>
+                <th>Transportador</th>
+                <th>Prev. Entrega</th>
+                <th>Ocorrência</th>
+                <th>Atraso</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyAtraso"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panelDark" id="panelHoje">
+        <div class="ph">
+          <div class="ttl">Notas Previstas para Hoje</div>
+          <div class="badge" id="hojeCount">— itens</div>
+        </div>
+        <div class="scroll headDark" id="scrollHoje">
+          <table>
+            <thead>
+              <tr>
+                <th>NF</th>
+                <th>Destinatário</th>
+                <th>Transportador</th>
+                <th>Cidade destino</th>
+                <th>Data de entrega</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyHoje"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">
+      <div>Observação: painel alimentado via <strong>data.json</strong>.</div>
+      <div>Labor • Fluxo Operacional • Indicadores</div>
+    </div>
+  </div>
+
+  <!-- TV Alert Overlay (aparece apenas se tv_alert.enabled === true) -->
+  <div class="tvAlertOverlay" id="tvAlertOverlay" aria-live="assertive" aria-atomic="true">
+    <div class="tvAlertCard">
+      <div class="tvAlertTop">
+        <div class="tvAlertTitle" id="tvAlertTitle">Atenção</div>
+        <div class="tvAlertBadge" id="tvAlertTimer">20s</div>
+      </div>
+      <div class="tvAlertBody">
+        <div class="tvAlertMsg" id="tvAlertMsg">—</div>
+        <div class="tvAlertSub">Mensagem operacional • Some automaticamente</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fmtBRL = new Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL' });
+
+    function parseUpdatedDate(updatedAtStr){
+      const parts = String(updatedAtStr || '').split(" ");
+      const datePart = parts[0] || "01/01/1970";
+      const timePart = parts[1] || "00:00";
+      const [dd, mm, yyyy] = datePart.split("/").map(Number);
+      const [HH, MM] = timePart.split(":").map(Number);
+      return new Date(yyyy, (mm || 1)-1, dd || 1, HH || 0, MM || 0, 0, 0);
+    }
+
+    function formatUpdatedAtToBadge(data){
+      const el = document.getElementById('updatedAt');
+      if (!el) return;
+
+      el.classList.remove('stale-warn','stale-bad');
+      el.textContent = 'Atualizado em: ' + (data.updated_at || '--/--/----');
+
+      const updated = parseUpdatedDate(data.updated_at);
+      const diffMs = Date.now() - updated.getTime();
+      if (!Number.isFinite(diffMs)) return;
+
+      const diffMin = Math.floor(diffMs / 60000);
+
+      if (diffMin > 120){
+        el.classList.add('stale-bad');
+      } else if (diffMin > 60){
+        el.classList.add('stale-warn');
+      }
+    }
+
+    function parseISODateSafe(iso){
+      const t = Date.parse(String(iso || ''));
+      return Number.isFinite(t) ? t : NaN;
+    }
+
+    function isExpired(createdAtISO, ttlMinutes){
+      const createdMs = parseISODateSafe(createdAtISO);
+      if (!Number.isFinite(createdMs)) return false;
+      const ttl = Number(ttlMinutes) || 0;
+      if (ttl <= 0) return false;
+      return (Date.now() - createdMs) > (ttl * 60 * 1000);
+    }
+
+    /* =================== TV ALERT (CONTROLADO PELO data.json) =================== */
+    const TV_ALERT_STORAGE_KEY = "last_tv_alert_id_v1";
+
+    function showTvAlert(alertObj){
+      const overlay = document.getElementById('tvAlertOverlay');
+      const titleEl = document.getElementById('tvAlertTitle');
+      const msgEl   = document.getElementById('tvAlertMsg');
+      const timerEl = document.getElementById('tvAlertTimer');
+      if (!overlay || !titleEl || !msgEl || !timerEl) return;
+
+      const title = String(alertObj.title || 'Atenção').trim();
+      const msg   = String(alertObj.message || '').trim();
+      const secs  = Math.max(5, Math.min(60, Number(alertObj.duration_seconds) || 20));
+
+      titleEl.textContent = title;
+      msgEl.textContent = msg;
+
+      overlay.style.display = 'flex';
+
+      let remaining = secs;
+      timerEl.textContent = `${remaining}s`;
+
+      const t = setInterval(() => {
+        remaining -= 1;
+        timerEl.textContent = `${Math.max(0, remaining)}s`;
+        if (remaining <= 0){
+          clearInterval(t);
+          overlay.style.display = 'none';
+        }
+      }, 1000);
+    }
+
+    function tryShowTvAlert(data){
+      const a = data?.tv_alert;
+      if (!a || a.enabled !== true) return;
+
+      const id = String(a.id || '').trim();
+      const msg = String(a.message || '').trim();
+      if (!id || !msg) return;
+
+      if (isExpired(a.created_at, a.ttl_minutes)) return;
+
+      // Mostra 1x por refresh (volta no próximo refresh/F5),
+      // ou se mudar o id.
+      const lastId = sessionStorage.getItem(TV_ALERT_STORAGE_KEY);
+      if (lastId === id) return;
+
+      sessionStorage.setItem(TV_ALERT_STORAGE_KEY, id);
+      showTvAlert(a);
+    }
+    /* =========================================================================== */
+
+    function isoToBR(iso){
+      const [y,m,d] = String(iso || '').split("-").map(Number);
+      const dt = new Date(y, (m||1)-1, d||1);
+      return dt.toLocaleDateString('pt-BR');
+    }
+
+    function daysDiff(later, earlier){
+      const ms = later.getTime() - earlier.getTime();
+      return Math.floor(ms / (1000*60*60*24));
+    }
+
+    function normalizeCarrier(s){
+      return String(s || '').trim();
+    }
+
+    function applyCarrierFilter(list, carrier){
+      if (!carrier || carrier === '__ALL__') return list;
+      return list.filter(it => normalizeCarrier(it.transportador) === carrier);
+    }
+
+    function buildCarrierOptions(data){
+      const carriers = new Set();
+      for (const it of (data.notas_em_atraso || [])) carriers.add(normalizeCarrier(it.transportador));
+      for (const it of (data.notas_previstas_hoje || [])) carriers.add(normalizeCarrier(it.transportador));
+      for (const it of (data.transportadores || [])) carriers.add(normalizeCarrier(it.transportador || it.nome));
+
+      const sorted = Array.from(carriers).filter(Boolean).sort((a,b) => a.localeCompare(b, 'pt-BR'));
+      const sel = document.getElementById('carrierFilter');
+
+      sel.querySelectorAll('option:not([value="__ALL__"])').forEach(o => o.remove());
+
+      for (const c of sorted){
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        sel.appendChild(opt);
+      }
+    }
+
+    function parseBRLValue(v){
+      if (typeof v === 'number' && Number.isFinite(v)) return v;
+
+      const s = String(v ?? '').trim();
+      if (!s) return 0;
+
+      const cleaned = s
+        .replace(/\s+/g,' ')
+        .replace(/R\$\s?/i,'')
+        .replace(/\./g,'')
+        .replace(',','.');
+
+      const n = Number(cleaned);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function svgIcon(kind){
+      const common = 'xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+
+      if (kind === 'cart') {
+        return `<svg ${common}><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M3 4h2l2.2 10.5a2 2 0 0 0 2 1.5h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>`;
+      }
+      if (kind === 'stop') {
+        return `<svg ${common}><path d="M7 3h10l4 4v10l-4 4H7l-4-4V7z"/><path d="M9 9l6 6"/><path d="M15 9l-6 6"/></svg>`;
+      }
+      if (kind === 'doc') {
+        return `<svg ${common}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>`;
+      }
+      if (kind === 'hourglass') {
+        return `<svg ${common}><path d="M6 2h12"/><path d="M6 22h12"/><path d="M8 2c0 6 8 6 8 12"/><path d="M16 2c0 6-8 6-8 12"/></svg>`;
+      }
+      return `<svg ${common}><path d="M20.6 13.4 12 22l-10-10V2h10z"/><path d="M7 7h.01"/></svg>`;
+    }
+
+    function iconKindForStatus(status){
+      const s = String(status || '').toLowerCase();
+      if (s.includes('ecommerce') || s.includes('e-commerce')) return 'cart';
+      if (s.includes('bloque')) return 'stop';
+      if (s.includes('fatur')) return 'doc';
+      if (s.includes('análise de crédito') || s.includes('analise de credito')) return 'hourglass';
+      return 'tag';
+    }
+
+    function renderTransportadores(data){
+      const list = Array.isArray(data.transportadores) ? data.transportadores : [];
+      const body = document.getElementById('tbodyTransp');
+      body.innerHTML = '';
+
+      document.getElementById('transpCount').textContent = `${list.length} itens`;
+
+      for (const it of list){
+        const nome = (it.transportador ?? it.nome ?? '').toString().trim();
+        const chegada = (it.chegada ?? '').toString().trim();
+        const saida = (it.saida ?? '').toString().trim();
+        const agendado = (it.agendado ?? '').toString().trim();
+
+        let cls = '';
+        if (saida) cls = 'rowLeft';
+        else if (chegada) cls = 'rowArrived';
+
+        const tr = document.createElement('tr');
+        tr.className = cls;
+        tr.innerHTML = `
+          <td><strong>${nome || '—'}</strong></td>
+          <td>${chegada || '—'}</td>
+          <td>${saida || '—'}</td>
+          <td>${agendado || '—'}</td>
+        `;
+        body.appendChild(tr);
+      }
+    }
+
+    /* ======= GESTÃO DE PEDIDOS (ATUALIZADA) =======
+       - Total em Disputa = Aguard. Liberação + Alvará + Bloqueado + Análise
+       - Total Faturamento Previsto = Aguard. Envio Sep + Em Sep + Separado + Faturado
+       - Pisca: Alvará, Análise e Bloqueado
+       - Ordem fixa conforme solicitado
+    */
+    function renderPedidos(data){
+      const raw = Array.isArray(data.pedidos_status) ? data.pedidos_status : [];
+      const body = document.getElementById('tbodyPedidos');
+      body.innerHTML = '';
+
+      const normKey = (s) => String(s || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+
+      const map = new Map();
+      for (const it of raw){
+        const label = (it.status ?? it.pedidos ?? '').toString().trim();
+        if (!label) continue;
+
+        const key = normKey(label);
+        const qtd = Number(it.quantidade ?? it.qtd ?? 0) || 0;
+        const valorNum = parseBRLValue(it.valor);
+
+        map.set(key, { label, qtd, valorNum });
+      }
+
+      const get = (expectedLabel) => {
+        const key = normKey(expectedLabel);
+        return map.get(key) || { label: expectedLabel, qtd: 0, valorNum: 0 };
+      };
+
+      const aguardLib = get('Aguardando Liberação');
+      const alvara    = get('Alvará Sanitário');
+      const bloqueado = get('Bloqueado por regra');
+      const analise   = get('Análise de Crédito');
+
+      const aguardEnv = get('Aguard. Envio Separação');
+      const emSep     = get('Em Separação');
+      const separado  = get('Separado');
+      const faturado  = get('Faturado');
+
+      const totalDisputa = {
+        label: 'Total em Disputa',
+        qtd: aguardLib.qtd + alvara.qtd + bloqueado.qtd + analise.qtd,
+        valorNum: aguardLib.valorNum + alvara.valorNum + bloqueado.valorNum + analise.valorNum
+      };
+
+      const totalPrevisto = {
+        label: 'Total Faturamento Previsto',
+        qtd: aguardEnv.qtd + emSep.qtd + separado.qtd + faturado.qtd,
+        valorNum: aguardEnv.valorNum + emSep.valorNum + separado.valorNum + faturado.valorNum
+      };
+
+      const ordered = [
+        aguardLib,
+        alvara,
+        bloqueado,
+        analise,
+        totalDisputa,
+        aguardEnv,
+        emSep,
+        separado,
+        faturado,
+        totalPrevisto
+      ];
+
+      document.getElementById('pedidosCount').textContent = `${ordered.length} itens`;
+
+      for (const it of ordered){
+        const status = it.label || '—';
+        const qtd = Number(it.qtd) || 0;
+        const valorNum = Number(it.valorNum) || 0;
+
+        const key = normKey(status);
+
+        const isBlink =
+          key.includes('analise de credito') ||
+          key.includes('alvara sanitario') ||
+          key.includes('bloqueado por regra');
+
+        const isFaturado = key === 'faturado';
+        const isTotalDisputa = key === 'total em disputa';
+        const isTotalPrevisto = key === 'total faturamento previsto';
+
+        const tr = document.createElement('tr');
+
+        if (isTotalPrevisto) tr.classList.add('rowPrevistoTotal');
+        else if (isTotalDisputa) tr.classList.add('rowDisputaTotal');
+        else if (isFaturado) tr.classList.add('rowFaturado');
+
+        if (isBlink) tr.classList.add('blinkWarn');
+
+        const iconKind = iconKindForStatus(status);
+
+        tr.innerHTML = `
+          <td>
+            <div class="pedidoCell">
+              <span class="pedidoIcon">${svgIcon(iconKind)}</span>
+              <span class="pedidoText">${status}</span>
+            </div>
+          </td>
+          <td>${qtd.toLocaleString('pt-BR')}</td>
+          <td>${fmtBRL.format(valorNum)}</td>
+        `;
+
+        body.appendChild(tr);
+      }
+    }
+
+    function renderTables(data, carrier){
+      const now = parseUpdatedDate(data.updated_at);
+
+      const atrasoAll = (data.notas_em_atraso || []).slice()
+        .sort((a,b) => (a.previsao_entrega > b.previsao_entrega ? 1 : -1));
+      const hojeAll = (data.notas_previstas_hoje || []).slice();
+
+      const atrasoList = applyCarrierFilter(atrasoAll, carrier);
+      const hojeList   = applyCarrierFilter(hojeAll, carrier);
+
+      document.getElementById('atrasoCount').textContent = `${atrasoList.length} itens`;
+      document.getElementById('hojeCount').textContent   = `${hojeList.length} itens`;
+
+      const atrasoBody = document.getElementById('tbodyAtraso');
+      atrasoBody.innerHTML = '';
+
+      for (const it of atrasoList){
+        const prev = new Date(String(it.previsao_entrega) + "T00:00:00");
+        const lateDays = Math.max(0, daysDiff(now, prev));
+        const pillClass = lateDays >= 10 ? 'pill bad' : (lateDays >= 5 ? 'pill' : 'pill good');
+
+        const ocorr = (it.ocorrencia && String(it.ocorrencia).trim()) ? String(it.ocorrencia).trim() : '—';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${it.nota_fiscal}</strong></td>
+          <td>${it.destinatario}</td>
+          <td><span class="muted">${it.transportador}</span></td>
+          <td>${isoToBR(it.previsao_entrega)}</td>
+          <td>${ocorr}</td>
+          <td><span class="${pillClass}">${lateDays}d</span></td>
+        `;
+        atrasoBody.appendChild(tr);
+      }
+
+      const hojeBody = document.getElementById('tbodyHoje');
+      hojeBody.innerHTML = '';
+
+      for (const it of hojeAll){
+        const dataEntrega = (it.data_entrega ?? '').toString().trim();
+        const tr = document.createElement('tr');
+        if (dataEntrega) tr.className = 'rowDelivered';
+
+        tr.innerHTML = `
+          <td><strong>${it.nota_fiscal}</strong></td>
+          <td>${it.destinatario}</td>
+          <td><span class="muted">${it.transportador}</span></td>
+          <td>${it.cidade_destino || '—'}</td>
+          <td>${dataEntrega || '—'}</td>
+        `;
+        hojeBody.appendChild(tr);
+      }
+    }
+
+    function startAutoScroll(el, opts = {}) {
+      if (!el) return;
+
+      const speedPxPerTick = opts.speedPxPerTick ?? 1;
+      const tickMs = opts.tickMs ?? 40;
+      const pauseAtEndMs = opts.pauseAtEndMs ?? 1400;
+      const pauseAtTopMs = opts.pauseAtTopMs ?? 700;
+      const resetThresholdPx = opts.resetThresholdPx ?? 2;
+
+      let timer = null;
+      let paused = false;
+
+      const canScroll = () => el.scrollHeight > el.clientHeight + 5;
+
+      const step = () => {
+        if (paused) return;
+        if (!canScroll()) return;
+
+        const maxScrollTop = el.scrollHeight - el.clientHeight;
+        const next = el.scrollTop + speedPxPerTick;
+
+        if (next >= maxScrollTop - resetThresholdPx) {
+          el.scrollTop = maxScrollTop;
+
+          paused = true;
+          setTimeout(() => {
+            el.scrollTop = 0;
+            setTimeout(() => { paused = false; }, pauseAtTopMs);
+          }, pauseAtEndMs);
+
+          return;
+        }
+
+        el.scrollTop = next;
+      };
+
+      const start = () => {
+        stop();
+        timer = setInterval(step, tickMs);
+      };
+
+      const stop = () => {
+        if (timer) clearInterval(timer);
+        timer = null;
+      };
+
+      el.addEventListener('mouseenter', () => { paused = true; });
+      el.addEventListener('mouseleave', () => { paused = false; });
+      el.addEventListener('touchstart', () => { paused = !paused; }, { passive:true });
+
+      start();
+      return { start, stop };
+    }
+
+    function syncLeftToPedidosHeight(){
+      const leftCol = document.getElementById('leftCol');
+      const panelPedidos = document.getElementById('panelPedidos');
+      const cardsBox = document.getElementById('cardsBox');
+      const panelTransp = document.getElementById('panelTransp');
+      const scrollTransp = document.getElementById('scrollTransp');
+      if (!leftCol || !panelPedidos || !cardsBox || !panelTransp || !scrollTransp) return;
+
+      leftCol.style.height = 'auto';
+      panelTransp.style.height = 'auto';
+
+      const pedidosH = panelPedidos.offsetHeight;
+      leftCol.style.height = pedidosH + 'px';
+
+      const gap = 14;
+      const cardsH = cardsBox.offsetHeight;
+      const transpH = Math.max(160, pedidosH - cardsH - gap);
+
+      panelTransp.style.height = transpH + 'px';
+
+      const ph = panelTransp.querySelector('.ph');
+      const phH = ph ? ph.offsetHeight : 56;
+      scrollTransp.style.maxHeight = (transpH - phH) + 'px';
+    }
+
+    function syncNotesToPedidosHeight(){
+      const panelPedidos = document.getElementById('panelPedidos');
+      const panelAtraso = document.getElementById('panelAtraso');
+      const panelHoje = document.getElementById('panelHoje');
+      const scrollAtraso = document.getElementById('scrollAtraso');
+      const scrollHoje = document.getElementById('scrollHoje');
+
+      if (!panelPedidos || !panelAtraso || !panelHoje || !scrollAtraso || !scrollHoje) return;
+
+      const h = panelPedidos.offsetHeight;
+
+      panelAtraso.style.height = h + 'px';
+      panelHoje.style.height = h + 'px';
+
+      const phA = panelAtraso.querySelector('.ph');
+      const phH_A = phA ? phA.offsetHeight : 56;
+      scrollAtraso.style.maxHeight = (h - phH_A) + 'px';
+
+      const phB = panelHoje.querySelector('.ph');
+      const phH_B = phB ? phB.offsetHeight : 56;
+      scrollHoje.style.maxHeight = (h - phH_B) + 'px';
+    }
+
+    function initAutoScrollTV() {
+      startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 });
+      startAutoScroll(document.getElementById('scrollHoje'),   { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 });
+      startAutoScroll(document.getElementById('scrollTransp'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 2200, pauseAtTopMs: 900 });
+    }
+
+    async function load(){
+      const res = await fetch(`data.json?t=${Date.now()}`, { cache: 'no-store' });
+      const data = await res.json();
+
+      formatUpdatedAtToBadge(data);
+
+      // ✅ Mostra o alerta APENAS se tv_alert.enabled === true
+      tryShowTvAlert(data);
+
+      document.getElementById('kpiAtraso').textContent = Number(data.kpis?.notas_em_atraso || 0).toLocaleString('pt-BR');
+      document.getElementById('kpiPrevistasHoje').textContent = Number(data.kpis?.previstas_para_hoje || 0).toLocaleString('pt-BR');
+      document.getElementById('kpiEntreguesHoje').textContent = Number(data.kpis?.entregues_hoje || 0).toLocaleString('pt-BR');
+
+      buildCarrierOptions(data);
+
+      renderTransportadores(data);
+      renderPedidos(data);
+
+      const sel = document.getElementById('carrierFilter');
+      const render = () => renderTables(data, sel.value);
+
+      sel.addEventListener('change', () => {
+        render();
+        document.getElementById('scrollAtraso').scrollTop = 0;
+        document.getElementById('scrollHoje').scrollTop = 0;
+      });
+
+      render();
+
+      syncLeftToPedidosHeight();
+      syncNotesToPedidosHeight();
+
+      setTimeout(() => {
+        syncLeftToPedidosHeight();
+        syncNotesToPedidosHeight();
+        initAutoScrollTV();
+      }, 350);
+
+      window.addEventListener('resize', () => {
+        syncLeftToPedidosHeight();
+        syncNotesToPedidosHeight();
+      });
+    }
+
+    load().catch(err => {
+      console.error(err);
+      alert('Erro ao carregar data.json. Verifique se index.html e data.json estão na mesma pasta.');
+    });
+  </script>
+</body>
+</html>
