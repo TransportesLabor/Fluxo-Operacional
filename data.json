@@ -1365,12 +1365,12 @@
       "frete_pago": "8550,38",
       "frete_repassado": "26668,49",
       "entrega_realizada": "4",
-      "entrega_no_prazo": "3"
+      "entrega_no_prazo": "4"
     },
     "mes_anterior": {
       "periodo": "Abril/2026",
-      "entrega_realizada": "1513",
-      "entrega_no_prazo": "53"
+      "entrega_realizada": "1573",
+      "entrega_no_prazo": "1513"
     }
   }
 }
