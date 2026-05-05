@@ -737,6 +737,8 @@
 
     .painelGerencial{
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+      height: 520px;
+      min-height: 520px;
     }
 
     .gerencialBody{
@@ -785,7 +787,7 @@
       flex:1 1 auto;
       min-height:0;
       display:grid;
-      grid-template-columns: .92fr 1.08fr;
+      grid-template-columns: .95fr 1.05fr;
       gap: 14px;
     }
 
@@ -800,12 +802,13 @@
     }
 
     .slaBox{
-      padding: 14px;
+      padding: 16px 16px 18px;
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start;
       min-height:0;
+      overflow: visible;
     }
 
     .slaTitle{
@@ -817,7 +820,7 @@
     }
 
     .slaGauge{
-      width: min(370px, 100%);
+      width: min(390px, 100%);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -863,7 +866,8 @@
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin-top: 6px;
+      margin-top: 10px;
+      padding-bottom: 2px;
     }
 
     .slaLegendItem{
@@ -915,13 +919,17 @@
     }
 
     .deltaBox{
-      padding: 14px;
+      padding: 16px;
       text-align:center;
+      background: linear-gradient(180deg, #24344d, #18253a) !important;
+      color: rgba(233,236,245,.96) !important;
+      border: 1px solid rgba(255,255,255,.12) !important;
+      box-shadow: 0 14px 28px rgba(0,0,0,.22);
     }
 
     .deltaLabel{
       font-size: 12px;
-      color: rgba(11,27,58,.66);
+      color: rgba(233,236,245,.74);
       font-weight: 800;
     }
 
@@ -936,7 +944,7 @@
       margin-top: 4px;
       font-size: 13px;
       font-weight: 800;
-      color: rgba(11,27,58,.70);
+      color: rgba(233,236,245,.78);
     }
 
     .topEstadosBox{
@@ -944,6 +952,12 @@
       padding: 12px 14px;
       display:flex;
       flex-direction:column;
+    }
+
+    .emptyGerencialSpace{
+      background: linear-gradient(180deg, rgba(36,52,77,.72), rgba(24,37,58,.56)) !important;
+      border: 1px dashed rgba(255,255,255,.16) !important;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.035);
     }
 
     .topEstadosTitle{
@@ -1149,9 +1163,8 @@
                 <div class="deltaSub" id="deltaSlaSub">—</div>
               </div>
 
-              <div class="topEstadosBox">
-                <div class="topEstadosTitle">Top 5 estados por performance</div>
-                <div id="topEstadosList" class="topEstadosList"></div>
+              <div class="topEstadosBox emptyGerencialSpace" aria-label="Espaço reservado">
+                <div id="topEstadosList" class="topEstadosList" style="display:none;"></div>
               </div>
             </div>
           </div>
@@ -1845,7 +1858,6 @@
             </filter>
           </defs>
 
-          <text x="110" y="16" class="slaSmallText" style="font-size:15px; fill:rgba(11,27,58,.92); font-weight:950;">Performance</text>
 
           <path d="${describeArc(cx, cy, r, -90, 90)}" fill="none" stroke="rgba(11,27,58,.09)" stroke-width="${stroke + 8}" stroke-linecap="round"/>
           <g filter="url(#gaugeShadow)">
@@ -1976,25 +1988,7 @@
         : 'Necessário alimentar mês atual e mês anterior';
 
       const listEl = document.getElementById('topEstadosList');
-      listEl.innerHTML = '';
-
-      if (!topEstados.length){
-        listEl.innerHTML = '<div class="estadoSub">Sem dados por estado para o período.</div>';
-      } else {
-        topEstados.forEach((it, idx) => {
-          const row = document.createElement('div');
-          row.className = 'estadoItem';
-          row.innerHTML = `
-            <div class="estadoPos">${idx+1}º</div>
-            <div>
-              <div class="estadoUf">${it.uf}</div>
-              <div class="estadoSub">${it.prazo}/${it.total} no prazo</div>
-            </div>
-            <div class="estadoSla" style="color:${slaColor(it.sla)}">${pctText(it.sla)}</div>
-          `;
-          listEl.appendChild(row);
-        });
-      }
+      if (listEl) listEl.innerHTML = '';
     }
 
     function getPedidosFiltradosPorTipo(tipo){
