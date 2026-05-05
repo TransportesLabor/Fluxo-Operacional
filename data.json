@@ -1,5 +1,5 @@
 {
-  "updated_at": "05/05/2026 15:18",
+  "updated_at": "05/05/2026 11:18",
   "kpis": {
     "notas_em_atraso": 29,
     "previstas_para_hoje": 118,
@@ -1362,10 +1362,10 @@
   "performance_gerencial": {
     "mes_atual": {
       "periodo": "Maio/2026",
-      "frete_pago": "8667,32",
-      "frete_repassado": "6325,20",
-      "entrega_realizada": "4",
-      "entrega_no_prazo": "4"
+      "frete_pago": "165233",
+      "frete_repassado": "35262,20",
+      "entrega_realizada": "30",
+      "entrega_no_prazo": "26"
     },
     "mes_anterior": {
       "periodo": "Abril/2026",
