@@ -751,32 +751,32 @@
 
     .gerencialTop{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
     .gerencialKpi{
       border-radius: 16px;
-      background: rgba(255,255,255,.92);
-      color: var(--ink);
-      border: 1px solid rgba(255,255,255,.30);
-      box-shadow: 0 12px 24px rgba(0,0,0,.16);
+      background: linear-gradient(180deg, #172337, #101a2a);
+      color: rgba(233,236,245,.96);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 24px rgba(0,0,0,.24);
       padding: 14px 16px;
       text-align:center;
     }
 
     .gerencialKpiLabel{
       font-size: 13px;
-      color: rgba(11,27,58,.70);
+      color: rgba(233,236,245,.72);
       font-weight: 800;
       letter-spacing:.2px;
     }
 
     .gerencialKpiValue{
       margin-top: 8px;
-      font-size: clamp(22px, 2.1vw, 34px);
+      font-size: clamp(18px, 1.65vw, 30px);
       line-height: 1.05;
-      color: var(--ink);
+      color: rgba(233,236,245,.98);
       font-weight: 950;
       white-space:nowrap;
     }
@@ -992,6 +992,7 @@
     }
 
     @media (max-width: 980px){
+      .gerencialTop{ grid-template-columns: 1fr; }
       .gerencialGrid{ grid-template-columns: 1fr; }
     }
 
@@ -1123,6 +1124,10 @@
             <div class="gerencialKpi">
               <div class="gerencialKpiLabel">Frete Pago</div>
               <div class="gerencialKpiValue" id="fretePagoKpi">—</div>
+            </div>
+            <div class="gerencialKpi">
+              <div class="gerencialKpiLabel">R$ Frete Repassado</div>
+              <div class="gerencialKpiValue" id="freteRepassadoValorKpi">—</div>
             </div>
             <div class="gerencialKpi">
               <div class="gerencialKpiLabel">% Frete Repassado</div>
@@ -1857,7 +1862,6 @@
           <circle cx="${cx}" cy="${cy}" r="6" fill="rgba(255,255,255,.20)"/>
 
           <text x="110" y="163" class="slaValueText" fill="${color}">${baseValue}</text>
-          <text x="110" y="186" class="slaSmallText">Performance Média</text>
         </svg>
         <div class="slaLegend" aria-label="Legenda de performance">
           <div class="slaLegendItem">
@@ -1876,28 +1880,83 @@
       `;
     }
 
-    function renderGerencial(data, carrier){
-      const raw = Array.isArray(data.base_entregas) ? data.base_entregas : [];
-      let base = raw.map(normalizeEntrega).filter(it => it.data_emissao);
+    function getPerformanceGerencial(data){
+      const pg = data.performance_gerencial || data.performanceGerencial || data.resumo_gerencial || null;
+      if (!pg) return null;
 
-      if (carrier && carrier !== '__ALL__'){
-        const withCarrier = base.filter(it => it.transportador);
-        if (withCarrier.length){
-          base = base.filter(it => it.transportador === carrier);
+      const atual = pg.mes_atual || pg.atual || pg;
+      const anterior = pg.mes_anterior || pg.anterior || {};
+
+      const normalizeAgg = (obj) => {
+        const fretePago = parseBRLValue(obj.frete_pago ?? obj.frete ?? obj.valor_frete_pago ?? 0);
+        const freteRepassado = parseBRLValue(obj.frete_repassado ?? obj.valor_frete_repassado ?? obj.repassado ?? 0);
+        const entregas = parseBRLValue(obj.entrega_realizada ?? obj.entregas_realizadas ?? obj.entregues ?? obj.total_entregas ?? 0);
+        const noPrazo = parseBRLValue(obj.entrega_no_prazo ?? obj.entregas_no_prazo ?? obj.no_prazo ?? 0);
+        const sla = entregas > 0 ? (noPrazo / entregas) * 100 : NaN;
+        const repasse = fretePago > 0 ? (freteRepassado / fretePago) * 100 : NaN;
+        return {
+          periodo: obj.periodo || obj.mes || '',
+          fretePago,
+          freteRepassado,
+          entregues: { length: entregas },
+          noPrazo: { length: noPrazo },
+          sla,
+          repasse
+        };
+      };
+
+      const topRaw = pg.top_estados || pg.estados || pg.top5_estados || [];
+      const topEstados = Array.isArray(topRaw) ? topRaw.map(it => {
+        const total = parseBRLValue(it.entrega_realizada ?? it.entregas_realizadas ?? it.entregues ?? it.total ?? 0);
+        const prazo = parseBRLValue(it.entrega_no_prazo ?? it.entregas_no_prazo ?? it.no_prazo ?? it.prazo ?? 0);
+        return {
+          uf: String(it.estado ?? it.uf ?? '—').trim().toUpperCase(),
+          total,
+          prazo,
+          sla: total > 0 ? (prazo / total) * 100 : NaN
+        };
+      }).filter(it => it.total > 0)
+        .sort((a,b) => (b.sla - a.sla) || (b.total - a.total) || a.uf.localeCompare(b.uf, 'pt-BR'))
+        .slice(0,5) : [];
+
+      return { current: normalizeAgg(atual), previous: normalizeAgg(anterior), topEstados };
+    }
+
+    function renderGerencial(data, carrier){
+      const resumo = getPerformanceGerencial(data);
+      let current, previous, topEstados, periodo;
+
+      if (resumo){
+        current = resumo.current;
+        previous = resumo.previous;
+        topEstados = resumo.topEstados;
+        periodo = current.periodo || (parseUpdatedDate(data.updated_at || '') || new Date()).toLocaleDateString('pt-BR', { month:'long', year:'numeric' });
+      } else {
+        const raw = Array.isArray(data.base_entregas) ? data.base_entregas : [];
+        let base = raw.map(normalizeEntrega).filter(it => it.data_emissao);
+
+        if (carrier && carrier !== '__ALL__'){
+          const withCarrier = base.filter(it => it.transportador);
+          if (withCarrier.length){
+            base = base.filter(it => it.transportador === carrier);
+          }
         }
+
+        const ref = parseUpdatedDate(data.updated_at || '') || new Date();
+        const currentKey = monthKeyFromDate(ref);
+        const prevKey = previousMonthKey(ref);
+        current = metricsForMonth(base, currentKey);
+        previous = metricsForMonth(base, prevKey);
+        topEstados = topEstadosForMonth(current.list);
+        periodo = ref.toLocaleDateString('pt-BR', { month:'long', year:'numeric' });
       }
 
-      const ref = parseUpdatedDate(data.updated_at || '') || new Date();
-      const currentKey = monthKeyFromDate(ref);
-      const prevKey = previousMonthKey(ref);
-      const current = metricsForMonth(base, currentKey);
-      const previous = metricsForMonth(base, prevKey);
       const delta = Number.isFinite(current.sla) && Number.isFinite(previous.sla) ? current.sla - previous.sla : NaN;
-      const topEstados = topEstadosForMonth(current.list);
 
-      const periodo = ref.toLocaleDateString('pt-BR', { month:'long', year:'numeric' });
-      document.getElementById('gerencialPeriodo').textContent = periodo.charAt(0).toUpperCase() + periodo.slice(1);
+      document.getElementById('gerencialPeriodo').textContent = periodo ? periodo.charAt(0).toUpperCase() + periodo.slice(1) : '—';
       document.getElementById('fretePagoKpi').textContent = fmtBRL.format(current.fretePago || 0);
+      const repassadoValorEl = document.getElementById('freteRepassadoValorKpi');
+      if (repassadoValorEl) repassadoValorEl.textContent = fmtBRL.format(current.freteRepassado || 0);
       document.getElementById('freteRepassadoKpi').textContent = pctText(current.repasse);
 
       renderSlaGauge(current.sla);
