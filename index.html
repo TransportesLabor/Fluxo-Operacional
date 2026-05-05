@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8"/>
-  <meta http-equiv="refresh" content="600">
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Painel de Fluxo Operacional – Indicador</title>
 
@@ -21,44 +20,66 @@
 
       --ink:#0b1b3a;
 
-      --topRowMinH: 360px;
+      --topRowMinH: 430px;
+      --bottomPanelH: 430px;
 
-      /* Destaques pedidos */
-      --mustard:#D4A017;         /* mostarda */
-      --totalGreen:#22c55e;      /* verde vivo */
-      --blinkYellow:#FFE731;     /* rgb(255,231,49) */
+      --mustard:#D4A017;
+      --totalGreen:#22c55e;
+      --blinkYellow:#FFE731;
 
-      /* Gestão de pedidos (refino TV) */
       --icon: rgba(11,27,58,.72);
       --dividerStrong: rgba(11,27,58,.22);
 
-      /* Badge staleness */
       --staleWarnBg: rgba(245,158,11,.22);
       --staleWarnBd: rgba(245,158,11,.45);
       --staleBadBg:  rgba(239,68,68,.22);
       --staleBadBd:  rgba(239,68,68,.45);
+
+      --perfBadBg: rgba(236, 72, 153, .18);
+      --perfBadBd: rgba(236, 72, 153, .35);
+      --perfGoodBg: rgba(34, 197, 94, .14);
+      --perfGoodBd: rgba(34, 197, 94, .28);
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 30% 0%, rgba(11,134,255,.22), transparent 55%),
-                  radial-gradient(900px 700px at 80% 20%, rgba(34,197,94,.12), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 30% 0%, rgba(11,134,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 80% 20%, rgba(34,197,94,.12), transparent 60%),
+        var(--bg);
       color:var(--text);
     }
 
-    .wrap{ max-width: min(1800px, 96vw); margin: 28px auto 60px; padding: 0 18px; }
+    .wrap{
+      max-width: min(1800px, 96vw);
+      margin: 18px auto 28px;
+      padding: 0 18px;
+    }
 
     header{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:16px; margin-bottom:18px; flex-wrap:wrap;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
     }
-    h1{ margin:0; font-size:38px; letter-spacing:.2px; }
+
+    h1{
+      margin:0;
+      font-size:38px;
+      letter-spacing:.2px;
+    }
 
     .rightHead{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .updated{
@@ -84,14 +105,20 @@
     }
 
     .filter{
-      display:flex; align-items:center; gap:8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
       padding:8px 10px;
       border:1px solid rgba(255,255,255,.10);
       border-radius:999px;
       background: rgba(255,255,255,.04);
       backdrop-filter: blur(8px);
     }
-    .filter label{ font-size:12px; color: rgba(233,236,245,.80); }
+    .filter label{
+      font-size:12px;
+      color: rgba(233,236,245,.80);
+    }
+
     select{
       background: rgba(0,0,0,.25);
       color: var(--text);
@@ -103,18 +130,20 @@
     }
 
     .topRow{
-      margin:16px 0 16px;
+      margin:14px 0 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      align-items: start;
+      align-items: stretch;
+      min-height: var(--topRowMinH);
     }
 
     .leftCol{
       display:flex;
       flex-direction:column;
       gap: 14px;
-      height: auto;
+      height: var(--topRowMinH);
+      min-height: var(--topRowMinH);
     }
 
     .cardsBox{
@@ -122,16 +151,19 @@
       background: rgba(255,255,255,.92);
       border:1px solid rgba(255,255,255,.35);
       box-shadow: var(--shadow);
-      padding: 16px 16px;
+      padding: 14px 16px;
       position:relative;
       color: var(--ink);
       overflow:hidden;
       flex: 0 0 auto;
     }
+
     .cardsBox::before{
       content:"";
-      position:absolute; inset:-80px -120px auto auto;
-      width: 360px; height: 360px;
+      position:absolute;
+      inset:-80px -120px auto auto;
+      width: 360px;
+      height: 360px;
       background: radial-gradient(circle at 30% 30%, rgba(11,27,58,.10), transparent 60%);
       transform: rotate(10deg);
       opacity:.70;
@@ -146,6 +178,7 @@
       gap: 10px;
       width: 100%;
     }
+
     .miniKpi{
       border-radius: 14px;
       border: 1px solid rgba(11,27,58,.10);
@@ -157,6 +190,7 @@
       flex-direction:column;
       justify-content:center;
     }
+
     .miniKpi .t{
       font-size: 12px;
       color: rgba(11,27,58,.72);
@@ -165,6 +199,7 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
+
     .miniKpi .v{
       margin-top: 5px;
       font-weight: 900;
@@ -181,9 +216,11 @@
       display:flex;
       flex-direction:column;
       min-height: var(--topRowMinH);
+      height:100%;
     }
+
     .panel .ph{
-      padding: 14px 14px;
+      padding: 12px 14px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -192,7 +229,13 @@
       background: rgba(255,255,255,.70);
       flex: 0 0 auto;
     }
-    .ph .ttl{ font-weight:800; display:flex; align-items:center; gap:10px; }
+
+    .ph .ttl{
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
     .badge{
       font-size:12px;
@@ -204,7 +247,35 @@
       white-space:nowrap;
     }
 
-    table{ width:100%; border-collapse:collapse; }
+    .headerActions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .miniBtn{
+      border: 1px solid rgba(11,27,58,.14);
+      background: rgba(11,27,58,.08);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+    .miniBtn:hover{
+      background: rgba(11,27,58,.14);
+      transform: translateY(-1px);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
     th, td{
       padding: 10px 12px;
       border-bottom: 1px solid rgba(11,27,58,.10);
@@ -219,6 +290,11 @@
       background: rgba(0,0,0,.04);
       flex: 1 1 auto;
       min-height: 0;
+      scrollbar-width: none;
+    }
+    .scroll::-webkit-scrollbar{
+      width:0;
+      height:0;
     }
 
     .panelLight{
@@ -226,12 +302,12 @@
       border:1px solid rgba(255,255,255,.35);
       color: var(--ink);
     }
+
     .panelLight .ph{
       background: rgba(255,255,255,.70);
       border-bottom: 1px solid rgba(11,27,58,.10);
     }
 
-    /* Cabeçalho dos pedidos: azul escuro igual fundo do site */
     .tblPedidos thead th{
       position: sticky;
       top: 0;
@@ -240,17 +316,21 @@
       color: rgba(233,236,245,.95);
       text-transform:uppercase;
       letter-spacing:.35px;
-      font-size:11px;
+      font-size:14px !important;
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
 
-    /* ======== GESTÃO DE PEDIDOS (REFINOS TV) ======== */
     .tblPedidos td:nth-child(2),
     .tblPedidos td:nth-child(3),
     .tblPedidos thead th:nth-child(2),
     .tblPedidos thead th:nth-child(3){
       text-align: right;
     }
+
+    .tblPedidos td{
+      font-size:16px !important;
+    }
+
     .tblPedidos td:nth-child(2){ font-weight: 500; }
     .tblPedidos td:nth-child(3){ font-weight: 650; }
 
@@ -259,47 +339,33 @@
       align-items:center;
       gap:10px;
     }
+
     .pedidoIcon{
       width:16px;
       height:16px;
       flex: 0 0 16px;
       color: var(--icon);
     }
+
     .pedidoText{
       font-weight: 800;
       letter-spacing:.1px;
+      font-size:16px !important;
     }
 
     .rowFaturado{
       background: color-mix(in srgb, var(--mustard) 35%, transparent);
     }
 
-    /* (mantido) Total antigo, se algum dia quiser usar */
-    .rowTotalGreen{
-      background: color-mix(in srgb, var(--totalGreen) 35%, transparent);
-      font-weight: 950;
-    }
-    .rowTotalGreen td{
-      padding-top: 14px;
-      padding-bottom: 14px;
-      border-top: 2px solid var(--dividerStrong);
-    }
-    .rowTotalGreen td:nth-child(3){
-      font-size: 16px;
-      font-weight: 950;
-    }
-    .rowTotalGreen td:nth-child(2){
-      font-weight: 900;
-    }
-
-    /* ===== NOVOS TOTAIS DO QUADRO ===== */
     .rowDisputaTotal{
       background: color-mix(in srgb, var(--mustard) 22%, transparent);
       font-weight: 900;
     }
+
     .rowDisputaTotal td{
       border-top: 2px solid var(--dividerStrong);
     }
+
     .rowDisputaTotal td:nth-child(3){
       font-size: 15px;
       font-weight: 950;
@@ -309,56 +375,119 @@
       background: color-mix(in srgb, var(--totalGreen) 28%, transparent);
       font-weight: 950;
     }
+
     .rowPrevistoTotal td{
       padding-top: 14px;
       padding-bottom: 14px;
       border-top: 2px solid var(--dividerStrong);
     }
+
     .rowPrevistoTotal td:nth-child(3){
       font-size: 16px;
       font-weight: 950;
     }
+
     .rowPrevistoTotal td:nth-child(2){
       font-weight: 900;
     }
-    /* ================================ */
 
     @keyframes blinkWarn {
       0%, 100% { background: transparent; }
       50% { background: rgba(255,231,49,.45); }
     }
     .blinkWarn{ animation: blinkWarn 1.45s ease-in-out infinite; }
-    /* =============================================== */
 
-    /* ===== Transportadores: menos contraste + fonte menor ===== */
-    .panelTranspSoft .scroll{
-      background: rgba(11,27,58,.03);
+    .panelPerfSoft .scroll{ background: rgba(11,27,58,.03); }
+    .panelPerfSoft th, .panelPerfSoft td{ font-size: 16px !important; }
+    .panelPerfSoft th{ color: rgba(11,27,58,.70); }
+    .panelPerfSoft td{ color: rgba(11,27,58,.92); }
+
+    .tblPerf thead th{
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(12,18,38,.96);
+      color: rgba(233,236,245,.92);
+      text-transform: uppercase;
+      letter-spacing: .35px;
+      font-size: 14px !important;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      text-align:center !important;
     }
-    .panelTranspSoft td, .panelTranspSoft th{
-      font-size: 12px;
+
+    .tblPerf td, .tblPerf th{
+      text-align: center !important;
     }
-    .panelTranspSoft th{
-      color: rgba(11,27,58,.70);
+
+    .tblPerf tbody td{
+      color: var(--ink) !important;
     }
-    .panelTranspSoft td{
-      color: rgba(11,27,58,.90);
+
+    .perfBadge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center !important;
+      gap:8px;
+      font-weight: 950;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(11,27,58,.06);
+      min-width: 104px;
+      color: var(--ink);
     }
-    /* ========================================================= */
+
+    .perfBadge.good{
+      border-color: var(--perfGoodBd);
+      background: var(--perfGoodBg);
+    }
+
+    .perfBadge.bad{
+      border-color: var(--perfBadBd);
+      background: var(--perfBadBg);
+    }
+
+    .perfDot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background: rgba(34,197,94,.85);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+    }
+
+    .perfDot.bad{
+      background: rgba(239,68,68,.85);
+      box-shadow: 0 0 0 4px rgba(239,68,68,.12);
+    }
+
+    .rowPerfBad{
+      background: linear-gradient(90deg,
+        rgba(236, 72, 153, .12),
+        rgba(239, 68, 68, .10)
+      );
+    }
 
     .panelDark{
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.10);
       color: var(--text);
+      min-height: var(--bottomPanelH);
+      height: var(--bottomPanelH);
     }
+
     .panelDark .ph{
       background: rgba(0,0,0,.14);
       border-bottom:1px solid rgba(255,255,255,.10);
     }
+
     .panelDark .badge{
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       color: rgba(233,236,245,.92);
     }
+
     .headDark thead th{
       position: sticky;
       top: 0;
@@ -371,11 +500,16 @@
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
+
     .headDark th, .headDark td{
       border-bottom: 1px solid rgba(255,255,255,.08);
       color: rgba(233,236,245,.92);
     }
-    .headDark td .muted{ color: var(--muted); font-size:12px; }
+
+    .headDark td .muted{
+      color: var(--muted);
+      font-size:12px;
+    }
 
     .rowArrived{ background: rgba(245,158,11,.16); }
     .rowLeft{ background: rgba(34,197,94,.18); }
@@ -385,12 +519,12 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-top: 14px;
-      align-items: start;
+      margin-top: 12px;
+      align-items: stretch;
     }
 
     .foot{
-      margin-top: 16px;
+      margin-top: 12px;
       color: var(--muted);
       font-size: 12px;
       display:flex;
@@ -399,17 +533,6 @@
       flex-wrap:wrap;
     }
 
-    @media (max-width: 1200px){
-      .topRow{ grid-template-columns: 1fr; }
-      .miniKpis{ grid-template-columns: 1fr; }
-      .leftCol{ height:auto !important; }
-    }
-    @media (max-width: 980px){
-      .grid2{ grid-template-columns: 1fr; }
-      h1{ font-size:30px; }
-    }
-
-    /* ================= TV ALERT OVERLAY ================= */
     .tvAlertOverlay{
       position: fixed;
       inset: 0;
@@ -459,9 +582,7 @@
       white-space: nowrap;
     }
 
-    .tvAlertBody{
-      padding: 18px 18px 16px;
-    }
+    .tvAlertBody{ padding: 18px 18px 16px; }
 
     .tvAlertMsg{
       font-size: clamp(18px, 2.2vw, 26px);
@@ -474,9 +595,7 @@
       color: rgba(11,27,58,.72);
       font-size: 13px;
     }
-    /* ==================================================== */
 
-    /* Pills (atraso) */
     .pill{
       display:inline-flex;
       align-items:center;
@@ -490,8 +609,343 @@
       color: rgba(233,236,245,.95);
       min-width: 36px;
     }
+
     .pill.good{ background: rgba(34,197,94,.18); }
     .pill.bad{ background: rgba(239,68,68,.20); }
+
+    .modalOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(11,16,32,.82);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .modalCard{
+      width: min(1400px, 96vw);
+      max-height: 88vh;
+      background: rgba(255,255,255,.97);
+      color: var(--ink);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,.38);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modalHead{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(11,27,58,.10);
+      background: rgba(255,255,255,.92);
+    }
+
+    .modalTitle{
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .modalActions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .modalClose{
+      border:none;
+      background: rgba(11,27,58,.08);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .modalBody{
+      overflow:auto;
+      background: rgba(11,27,58,.03);
+    }
+
+    .modalTable{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    .modalTable th{
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      color: rgba(233,236,245,.95);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      z-index: 2;
+    }
+
+    .modalTable th,
+    .modalTable td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(11,27,58,.10);
+      font-size: 14px;
+      color: var(--ink);
+      background: rgba(255,255,255,.92);
+    }
+
+    .modalTable td:nth-child(1),
+    .modalTable td:nth-child(7){
+      white-space: nowrap;
+    }
+
+    .modalEmpty{
+      padding: 22px;
+      text-align:center;
+      color: rgba(11,27,58,.72);
+      font-weight: 700;
+    }
+
+    .statusTag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(11,27,58,.06);
+      white-space: nowrap;
+    }
+
+    .statusTag.alvara{
+      background: rgba(245,158,11,.18);
+      border-color: rgba(245,158,11,.30);
+    }
+
+    .statusTag.credito{
+      background: rgba(59,130,246,.14);
+      border-color: rgba(59,130,246,.28);
+    }
+
+
+    /* ===== NOVO CARD GERENCIAL ===== */
+    .executivePanel{
+      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .executiveBody{
+      flex:1 1 auto;
+      min-height:0;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      background: radial-gradient(600px 260px at 70% 15%, rgba(59,130,246,.12), transparent 62%);
+    }
+
+    .execKpis{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .execKpiBox{
+      border-radius:16px;
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.45);
+      color:var(--ink);
+      padding:14px 16px;
+      text-align:center;
+      box-shadow:0 14px 28px rgba(0,0,0,.18);
+    }
+
+    .execKpiTitle{
+      color:rgba(11,27,58,.72);
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .execKpiValue{
+      margin-top:6px;
+      font-size:clamp(22px, 2vw, 31px);
+      font-weight:950;
+      color:var(--ink);
+      white-space:nowrap;
+    }
+
+    .execGrid{
+      flex:1 1 auto;
+      min-height:0;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:12px;
+    }
+
+    .slaCard, .deltaCard, .topEstadosCard{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(15,23,42,.72);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .slaCard{
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:0;
+    }
+
+    .execSectionTitle{
+      width:100%;
+      color:rgba(233,236,245,.92);
+      font-size:14px;
+      font-weight:900;
+      text-align:center;
+      margin-bottom:8px;
+    }
+
+    .gaugeWrap{
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .slaGauge{ width:min(285px, 92%); height:auto; overflow:visible; }
+    .gaugeTrack{ fill:none; stroke:rgba(255,255,255,.15); stroke-width:22; stroke-linecap:round; }
+    .gaugeProgress{ fill:none; stroke:var(--warn); stroke-width:22; stroke-linecap:round; stroke-dasharray:251.3; stroke-dashoffset:251.3; transition:.4s ease; }
+    .gaugeNeedle{ stroke:#dbeafe; stroke-width:5; stroke-linecap:round; transform-origin:110px 105px; transition:.4s ease; filter: drop-shadow(0 4px 5px rgba(0,0,0,.35)); }
+    .gaugeNeedleBase{ fill:#dbeafe; stroke:rgba(15,23,42,.95); stroke-width:4; }
+
+    .slaValue{
+      margin-top:-8px;
+      font-size:clamp(30px, 3vw, 46px);
+      line-height:1;
+      font-weight:950;
+      color:var(--warn);
+      letter-spacing:.2px;
+    }
+
+    .slaSub{
+      margin-top:6px;
+      color:rgba(233,236,245,.72);
+      font-size:12px;
+      text-align:center;
+    }
+
+    .insightStack{
+      display:grid;
+      grid-template-rows:auto 1fr;
+      gap:12px;
+      min-height:0;
+    }
+
+    .deltaCard{
+      padding:14px;
+      text-align:center;
+    }
+
+    .deltaLabel{
+      color:rgba(233,236,245,.72);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .deltaValue{
+      margin-top:5px;
+      font-size:clamp(20px, 2vw, 30px);
+      font-weight:950;
+      color:var(--bad);
+    }
+
+    .deltaSub{
+      margin-top:3px;
+      font-size:13px;
+      color:rgba(233,236,245,.86);
+    }
+
+    .topEstadosCard{
+      padding:14px;
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .topEstadosList{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      overflow:hidden;
+    }
+
+    .estadoRow{
+      display:grid;
+      grid-template-columns: 28px 1fr auto;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.08);
+      color:rgba(233,236,245,.94);
+    }
+
+    .estadoRank{
+      width:24px;
+      height:24px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.10);
+      font-size:12px;
+      font-weight:950;
+    }
+
+    .estadoUf{ font-weight:950; letter-spacing:.4px; }
+    .estadoMeta{ color:rgba(233,236,245,.62); font-size:11px; margin-top:1px; }
+    .estadoSla{ font-weight:950; font-size:15px; }
+    .emptyState{ color:rgba(233,236,245,.66); text-align:center; font-weight:800; padding:20px 8px; }
+
+    @media (max-width: 980px){
+      .execGrid{ grid-template-columns:1fr; }
+      .execKpis{ grid-template-columns:1fr; }
+    }
+
+    @media (max-width: 1200px){
+      .topRow{ grid-template-columns: 1fr; min-height: auto; }
+      .miniKpis{ grid-template-columns: 1fr; }
+      .leftCol{
+        height:auto !important;
+        min-height:auto !important;
+      }
+      #panelPedidos{
+        height:auto !important;
+        min-height:auto !important;
+      }
+      .panelDark{
+        height:auto !important;
+        min-height: 360px !important;
+      }
+    }
+
+    @media (max-width: 980px){
+      .grid2{ grid-template-columns: 1fr; }
+      h1{ font-size:30px; }
+      .modalCard{ width: 98vw; }
+    }
   </style>
 </head>
 
@@ -515,40 +969,25 @@
 
     <section class="topRow">
       <div class="leftCol" id="leftCol">
-        <div class="cardsBox" id="cardsBox">
-          <div class="miniKpis" aria-label="KPIs do dia">
-            <div class="miniKpi">
-              <div class="t">Notas em Atraso</div>
-              <div class="v" id="kpiAtraso">—</div>
-            </div>
-            <div class="miniKpi">
-              <div class="t">Previstas para Hoje</div>
-              <div class="v" id="kpiPrevistasHoje">—</div>
-            </div>
-            <div class="miniKpi">
-              <div class="t">Entregas Realizadas Hoje</div>
-              <div class="v" id="kpiEntreguesHoje">—</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panelLight panelTranspSoft" id="panelTransp" style="min-height: 0; flex: 1 1 auto;">
+        <div class="panel panelLight panelPerfSoft" id="panelRecebimento" style="min-height:0; flex:1 1 auto;">
           <div class="ph">
-            <div class="ttl">Status de Coleta Transportadores</div>
-            <div class="badge" id="transpCount">— itens</div>
+            <div class="ttl">Recebimento de Produtos</div>
+            <div class="badge" id="recebimentoCount">— itens</div>
           </div>
 
-          <div class="scroll" id="scrollTransp">
-            <table>
+          <div class="scroll" id="scrollRecebimento">
+            <table class="tblPerf">
               <thead>
                 <tr>
-                  <th>Transportador</th>
-                  <th>Chegada</th>
-                  <th>Saída</th>
-                  <th>Horário da coleta</th>
+                  <th>Embarque</th>
+                  <th>Tipo</th>
+                  <th>Recebimento</th>
+                  <th>Confirmado</th>
+                  <th>Chegada CD</th>
+                  <th>Status</th>
                 </tr>
               </thead>
-              <tbody id="tbodyTransp"></tbody>
+              <tbody id="tbodyRecebimento"></tbody>
             </table>
           </div>
         </div>
@@ -557,10 +996,14 @@
       <div class="panel panelLight" id="panelPedidos">
         <div class="ph">
           <div class="ttl">Gestão de Pedidos</div>
-          <div class="badge" id="pedidosCount">— itens</div>
+          <div class="headerActions">
+            <button class="miniBtn" onclick="openPedidosModal('alvara')">Ver Alvará</button>
+            <button class="miniBtn" onclick="openPedidosModal('credito')">Ver Crédito</button>
+            <div class="badge" id="pedidosCount">— itens</div>
+          </div>
         </div>
 
-        <div style="flex:1 1 auto;">
+        <div class="scroll" id="scrollPedidos" style="flex:1 1 auto; min-height:0;">
           <table class="tblPedidos">
             <thead>
               <tr>
@@ -598,24 +1041,54 @@
         </div>
       </div>
 
-      <div class="panel panelDark" id="panelHoje">
+      <div class="panel panelDark executivePanel" id="panelGerencial">
         <div class="ph">
-          <div class="ttl">Notas Previstas para Hoje</div>
-          <div class="badge" id="hojeCount">— itens</div>
+          <div class="ttl">Performance Gerencial</div>
+          <div class="badge" id="gerencialPeriodo">Mês atual</div>
         </div>
-        <div class="scroll headDark" id="scrollHoje">
-          <table>
-            <thead>
-              <tr>
-                <th>NF</th>
-                <th>Destinatário</th>
-                <th>Transportador</th>
-                <th>Cidade destino</th>
-                <th>Data de entrega</th>
-              </tr>
-            </thead>
-            <tbody id="tbodyHoje"></tbody>
-          </table>
+
+        <div class="executiveBody">
+          <div class="execKpis">
+            <div class="execKpiBox">
+              <div class="execKpiTitle">Frete Pago</div>
+              <div class="execKpiValue" id="fretePagoValue">—</div>
+            </div>
+            <div class="execKpiBox">
+              <div class="execKpiTitle">% Frete Repassado</div>
+              <div class="execKpiValue" id="freteRepassadoValue">—</div>
+            </div>
+          </div>
+
+          <div class="execGrid">
+            <div class="slaCard">
+              <div class="execSectionTitle">Performance SLA</div>
+              <div class="gaugeWrap">
+                <svg class="slaGauge" viewBox="0 0 220 128" aria-label="Performance SLA">
+                  <path class="gaugeTrack" d="M 30 105 A 80 80 0 0 1 190 105"/>
+                  <path class="gaugeProgress" id="slaGaugeProgress" d="M 30 105 A 80 80 0 0 1 190 105"/>
+                  <circle class="gaugeNeedleBase" cx="110" cy="105" r="8"/>
+                  <line class="gaugeNeedle" id="slaNeedle" x1="110" y1="105" x2="110" y2="43"/>
+                </svg>
+                <div class="slaValue" id="slaValue">—</div>
+                <div class="slaSub" id="slaSub">Notas entregues no prazo / notas entregues</div>
+              </div>
+            </div>
+
+            <div class="insightStack">
+              <div class="deltaCard">
+                <div class="deltaLabel">Comparação vs mês anterior</div>
+                <div class="deltaValue" id="slaDeltaValue">—</div>
+                <div class="deltaSub" id="slaDeltaSub">—</div>
+              </div>
+
+              <div class="topEstadosCard">
+                <div class="execSectionTitle">Top 5 estados por performance</div>
+                <div class="topEstadosList" id="topEstadosList">
+                  <div class="emptyState">Sem dados suficientes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -626,7 +1099,6 @@
     </div>
   </div>
 
-  <!-- TV Alert Overlay (aparece apenas se tv_alert.enabled === true) -->
   <div class="tvAlertOverlay" id="tvAlertOverlay" aria-live="assertive" aria-atomic="true">
     <div class="tvAlertCard">
       <div class="tvAlertTop">
@@ -640,16 +1112,145 @@
     </div>
   </div>
 
+  <div class="modalOverlay" id="pedidosModal">
+    <div class="modalCard">
+      <div class="modalHead">
+        <div class="modalTitle" id="pedidosModalTitle">Lista de Pedidos</div>
+        <div class="modalActions">
+          <div class="badge" id="pedidosModalCount">0 itens</div>
+          <button class="modalClose" onclick="closePedidosModal()">Fechar</button>
+        </div>
+      </div>
+
+      <div class="modalBody">
+        <table class="modalTable">
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Emissão</th>
+              <th>Cliente</th>
+              <th>UF</th>
+              <th>Tipo</th>
+              <th>Vendedor</th>
+              <th>Valor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="pedidosModalBody"></tbody>
+        </table>
+        <div class="modalEmpty" id="pedidosModalEmpty" style="display:none;">Nenhum pedido encontrado.</div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const fmtBRL = new Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL' });
+    let DATA_CACHE = null;
+
+    let autoScrollInstances = [];
+
+    function stopAllAutoScroll(){
+      autoScrollInstances.forEach(inst => inst && inst.stop && inst.stop());
+      autoScrollInstances = [];
+    }
+
+    function startAutoScroll(el, {
+      speedPxPerTick = 1,
+      tickMs = 90,
+      pauseAtEndMs = 2200,
+      pauseAtTopMs = 900
+    } = {}){
+      if (!el) return null;
+
+      let timer = null;
+      let pause = false;
+      let direction = 1;
+
+      const run = () => {
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+          if (pause) return;
+
+          const maxScroll = el.scrollHeight - el.clientHeight;
+          if (maxScroll <= 0) return;
+
+          el.scrollTop += speedPxPerTick * direction;
+
+          if (el.scrollTop >= maxScroll){
+            el.scrollTop = maxScroll;
+            direction = -1;
+            pause = true;
+            setTimeout(() => { pause = false; }, pauseAtEndMs);
+          } else if (el.scrollTop <= 0){
+            el.scrollTop = 0;
+            direction = 1;
+            pause = true;
+            setTimeout(() => { pause = false; }, pauseAtTopMs);
+          }
+        }, tickMs);
+      };
+
+      run();
+
+      return {
+        stop(){
+          clearInterval(timer);
+        }
+      };
+    }
+
+    function initAutoScrollTV() {
+      stopAllAutoScroll();
+
+      autoScrollInstances.push(
+        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 })
+      );
+      autoScrollInstances.push(
+        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 2200, pauseAtTopMs: 900 })
+      );
+    }
+
+    function parseDateFlex(s){
+      if(!s) return null;
+      s = String(s).trim();
+
+      let m = s.match(/^(\d{4})[-\/](\d{2})[-\/](\d{2})$/);
+      if(m){
+        const [_, yy, mm, dd] = m;
+        const d = new Date(`${yy}-${mm}-${dd}T00:00:00`);
+        return Number.isFinite(d.getTime()) ? d : null;
+      }
+
+      m = s.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      if(m){
+        const [_, dd, mm, yy] = m;
+        const d = new Date(`${yy}-${mm}-${dd}T00:00:00`);
+        return Number.isFinite(d.getTime()) ? d : null;
+      }
+
+      return null;
+    }
+
+    function formatBRDateFlex(s){
+      const d = parseDateFlex(s);
+      return d ? d.toLocaleDateString('pt-BR') : '—';
+    }
 
     function parseUpdatedDate(updatedAtStr){
       const parts = String(updatedAtStr || '').split(" ");
       const datePart = parts[0] || "01/01/1970";
       const timePart = parts[1] || "00:00";
-      const [dd, mm, yyyy] = datePart.split("/").map(Number);
+
+      let d = parseDateFlex(datePart);
+      if(!d){
+        const [dd, mm, yyyy] = datePart.split("/").map(Number);
+        d = new Date(yyyy || 1970, (mm || 1)-1, dd || 1);
+      }
+
       const [HH, MM] = timePart.split(":").map(Number);
-      return new Date(yyyy, (mm || 1)-1, dd || 1, HH || 0, MM || 0, 0, 0);
+      d.setHours(HH || 0, MM || 0, 0, 0);
+      return d;
     }
 
     function formatUpdatedAtToBadge(data){
@@ -685,7 +1286,6 @@
       return (Date.now() - createdMs) > (ttl * 60 * 1000);
     }
 
-    /* =================== TV ALERT (CONTROLADO PELO data.json) =================== */
     const TV_ALERT_STORAGE_KEY = "last_tv_alert_id_v1";
 
     function showTvAlert(alertObj){
@@ -701,7 +1301,6 @@
 
       titleEl.textContent = title;
       msgEl.textContent = msg;
-
       overlay.style.display = 'flex';
 
       let remaining = secs;
@@ -724,23 +1323,13 @@
       const id = String(a.id || '').trim();
       const msg = String(a.message || '').trim();
       if (!id || !msg) return;
-
       if (isExpired(a.created_at, a.ttl_minutes)) return;
 
-      // Mostra 1x por refresh (volta no próximo refresh/F5),
-      // ou se mudar o id.
       const lastId = sessionStorage.getItem(TV_ALERT_STORAGE_KEY);
       if (lastId === id) return;
 
       sessionStorage.setItem(TV_ALERT_STORAGE_KEY, id);
       showTvAlert(a);
-    }
-    /* =========================================================================== */
-
-    function isoToBR(iso){
-      const [y,m,d] = String(iso || '').split("-").map(Number);
-      const dt = new Date(y, (m||1)-1, d||1);
-      return dt.toLocaleDateString('pt-BR');
     }
 
     function daysDiff(later, earlier){
@@ -759,12 +1348,22 @@
 
     function buildCarrierOptions(data){
       const carriers = new Set();
-      for (const it of (data.notas_em_atraso || [])) carriers.add(normalizeCarrier(it.transportador));
-      for (const it of (data.notas_previstas_hoje || [])) carriers.add(normalizeCarrier(it.transportador));
-      for (const it of (data.transportadores || [])) carriers.add(normalizeCarrier(it.transportador || it.nome));
+
+      for (const it of (data.notas_em_atraso || [])){
+        carriers.add(normalizeCarrier(it.transportador));
+      }
+
+      for (const it of (data.notas_previstas_hoje || [])){
+        carriers.add(normalizeCarrier(it.transportador));
+      }
+
+      for (const it of (data.performance_transportadoras || [])){
+        carriers.add(normalizeCarrier(it.transportadora || it.transportador || it.nome));
+      }
 
       const sorted = Array.from(carriers).filter(Boolean).sort((a,b) => a.localeCompare(b, 'pt-BR'));
       const sel = document.getElementById('carrierFilter');
+      const currentValue = sel.value;
 
       sel.querySelectorAll('option:not([value="__ALL__"])').forEach(o => o.remove());
 
@@ -774,6 +1373,9 @@
         opt.textContent = c;
         sel.appendChild(opt);
       }
+
+      const exists = Array.from(sel.options).some(o => o.value === currentValue);
+      sel.value = exists ? currentValue : '__ALL__';
     }
 
     function parseBRLValue(v){
@@ -790,6 +1392,29 @@
 
       const n = Number(cleaned);
       return Number.isFinite(n) ? n : 0;
+    }
+
+    function parsePercentFlex(v){
+      if (typeof v === 'number' && Number.isFinite(v)) return v;
+      const s = String(v ?? '').trim();
+      if (!s) return NaN;
+
+      const cleaned = s
+        .replace('%','')
+        .replace(/\./g,'')
+        .replace(',','.')
+        .trim();
+
+      const n = Number(cleaned);
+      return Number.isFinite(n) ? n : NaN;
+    }
+
+    function normKey(s){
+      return String(s || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
     }
 
     function svgIcon(kind){
@@ -819,53 +1444,93 @@
       return 'tag';
     }
 
-    function renderTransportadores(data){
-      const list = Array.isArray(data.transportadores) ? data.transportadores : [];
-      const body = document.getElementById('tbodyTransp');
+    function renderRecebimento(data){
+      const list = Array.isArray(data.recebimento_produtos)
+        ? data.recebimento_produtos
+        : (Array.isArray(data.performance_transportadoras) ? data.performance_transportadoras : []);
+
+      const body = document.getElementById('tbodyRecebimento');
       body.innerHTML = '';
 
-      document.getElementById('transpCount').textContent = `${list.length} itens`;
+      document.getElementById('recebimentoCount').textContent = `${list.length} itens`;
 
       for (const it of list){
-        const nome = (it.transportador ?? it.nome ?? '').toString().trim();
-        const chegada = (it.chegada ?? '').toString().trim();
-        const saida = (it.saida ?? '').toString().trim();
-        const agendado = (it.agendado ?? '').toString().trim();
-
-        let cls = '';
-        if (saida) cls = 'rowLeft';
-        else if (chegada) cls = 'rowArrived';
+        const status = String(it.status ?? '').trim();
+        const statusKey = normKey(status);
 
         const tr = document.createElement('tr');
-        tr.className = cls;
+        tr.classList.remove('blinkWarn');
+
+        let statusDotClass = '';
+        let statusBadgeClass = '';
+
+        // ===== CORES AUTOMÁTICAS POR STATUS =====
+        if (statusKey.includes('aguardando programacao')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(107,114,128,.25), rgba(107,114,128,.05))';
+        }
+        else if (statusKey === 'programado' || statusKey.includes('programado')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(59,130,246,.18), rgba(59,130,246,.05))';
+        }
+        else if (statusKey.includes('transito')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(245,158,11,.18), rgba(245,158,11,.05))';
+          statusDotClass = 'bad';
+        }
+        else if (statusKey.includes('chegou')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(14,165,233,.18), rgba(14,165,233,.05))';
+        }
+        else if (statusKey.includes('descarregando')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(168,85,247,.18), rgba(168,85,247,.05))';
+        }
+        else if (statusKey.includes('finalizado')) {
+          tr.style.background = 'linear-gradient(90deg, rgba(34,197,94,.18), rgba(34,197,94,.05))';
+          statusBadgeClass = 'good';
+        }
+
+        // ===== EXCEÇÕES / ALERTA PISCANDO =====
+        if (
+          statusKey.includes('aguardando complementar') ||
+          statusKey.includes('aguardando nf mae') ||
+          statusKey.includes('divergencia')
+        ) {
+          tr.classList.add('blinkWarn');
+          tr.style.background = 'linear-gradient(90deg, rgba(239,68,68,.30), rgba(239,68,68,.10))';
+          statusDotClass = 'bad';
+          statusBadgeClass = 'bad';
+        }
+
+        const confirmado = String(it.confirmado ?? it.pendente_de_entrega ?? '—').trim();
+        const confirmadoKey = normKey(confirmado);
+        const confirmadoClass = confirmadoKey === 'sim' ? 'good' : (confirmadoKey === 'nao' ? 'bad' : '');
+
         tr.innerHTML = `
-          <td><strong>${nome || '—'}</strong></td>
-          <td>${chegada || '—'}</td>
-          <td>${saida || '—'}</td>
-          <td>${agendado || '—'}</td>
+          <td><strong>${String(it.embarque ?? '—').trim()}</strong></td>
+          <td>${String(it.tipo ?? '—').trim()}</td>
+          <td>${String(it.data_recebimento ?? '—').trim()}</td>
+          <td>
+            <span class="perfBadge ${confirmadoClass}">
+              <span class="perfDot ${confirmadoClass === 'bad' ? 'bad' : ''}"></span>
+              ${confirmado}
+            </span>
+          </td>
+          <td>${String(it.chegou_cd ?? '—').trim()}</td>
+          <td>
+            <span class="perfBadge ${statusBadgeClass}">
+              <span class="perfDot ${statusDotClass}"></span>
+              ${status || '—'}
+            </span>
+          </td>
         `;
         body.appendChild(tr);
       }
     }
 
-    /* ======= GESTÃO DE PEDIDOS (ATUALIZADA) =======
-       - Total em Disputa = Aguard. Liberação + Alvará + Bloqueado + Análise
-       - Total Faturamento Previsto = Aguard. Envio Sep + Em Sep + Separado + Faturado
-       - Pisca: Alvará, Análise e Bloqueado
-       - Ordem fixa conforme solicitado
-    */
     function renderPedidos(data){
       const raw = Array.isArray(data.pedidos_status) ? data.pedidos_status : [];
       const body = document.getElementById('tbodyPedidos');
       body.innerHTML = '';
 
-      const normKey = (s) => String(s || '')
-        .trim()
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-
       const map = new Map();
+
       for (const it of raw){
         const label = (it.status ?? it.pedidos ?? '').toString().trim();
         if (!label) continue;
@@ -923,7 +1588,6 @@
         const status = it.label || '—';
         const qtd = Number(it.qtd) || 0;
         const valorNum = Number(it.valorNum) || 0;
-
         const key = normKey(status);
 
         const isBlink =
@@ -955,7 +1619,6 @@
           <td>${qtd.toLocaleString('pt-BR')}</td>
           <td>${fmtBRL.format(valorNum)}</td>
         `;
-
         body.appendChild(tr);
       }
     }
@@ -964,192 +1627,372 @@
       const now = parseUpdatedDate(data.updated_at);
 
       const atrasoAll = (data.notas_em_atraso || []).slice()
-        .sort((a,b) => (a.previsao_entrega > b.previsao_entrega ? 1 : -1));
-      const hojeAll = (data.notas_previstas_hoje || []).slice();
+        .sort((a,b) => String(a.previsao_entrega || '').localeCompare(String(b.previsao_entrega || '')));
 
       const atrasoList = applyCarrierFilter(atrasoAll, carrier);
-      const hojeList   = applyCarrierFilter(hojeAll, carrier);
 
       document.getElementById('atrasoCount').textContent = `${atrasoList.length} itens`;
-      document.getElementById('hojeCount').textContent   = `${hojeList.length} itens`;
 
       const atrasoBody = document.getElementById('tbodyAtraso');
       atrasoBody.innerHTML = '';
 
       for (const it of atrasoList){
-        const prev = new Date(String(it.previsao_entrega) + "T00:00:00");
-        const lateDays = Math.max(0, daysDiff(now, prev));
+        const prev = parseDateFlex(it.previsao_entrega);
+        const lateDays = prev ? Math.max(0, daysDiff(now, prev)) : 0;
         const pillClass = lateDays >= 10 ? 'pill bad' : (lateDays >= 5 ? 'pill' : 'pill good');
-
         const ocorr = (it.ocorrencia && String(it.ocorrencia).trim()) ? String(it.ocorrencia).trim() : '—';
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${it.nota_fiscal}</strong></td>
-          <td>${it.destinatario}</td>
-          <td><span class="muted">${it.transportador}</span></td>
-          <td>${isoToBR(it.previsao_entrega)}</td>
+          <td><strong>${String(it.nota_fiscal ?? '—').trim()}</strong></td>
+          <td>${String(it.destinatario ?? '—').trim()}</td>
+          <td><span class="muted">${String(it.transportador ?? '—').trim()}</span></td>
+          <td>${formatBRDateFlex(it.previsao_entrega)}</td>
           <td>${ocorr}</td>
           <td><span class="${pillClass}">${lateDays}d</span></td>
         `;
         atrasoBody.appendChild(tr);
       }
+    }
 
-      const hojeBody = document.getElementById('tbodyHoje');
-      hojeBody.innerHTML = '';
+    function renderKpis(data, carrier){
+      const atrasoList = applyCarrierFilter((data.notas_em_atraso || []), carrier);
+      const hojeList = applyCarrierFilter((data.notas_previstas_hoje || []), carrier);
 
-      for (const it of hojeAll){
-        const dataEntrega = (it.data_entrega ?? '').toString().trim();
-        const tr = document.createElement('tr');
-        if (dataEntrega) tr.className = 'rowDelivered';
+      let entreguesHoje = 0;
+      for (const it of hojeList){
+        const dataEntrega = (it.data_entrega ?? it.Data_de_entrega ?? '').toString().trim();
+        if (!dataEntrega) continue;
 
-        tr.innerHTML = `
-          <td><strong>${it.nota_fiscal}</strong></td>
-          <td>${it.destinatario}</td>
-          <td><span class="muted">${it.transportador}</span></td>
-          <td>${it.cidade_destino || '—'}</td>
-          <td>${dataEntrega || '—'}</td>
-        `;
-        hojeBody.appendChild(tr);
+        const d = parseDateFlex(dataEntrega);
+        if (!d) continue;
+
+        const now = new Date();
+        if (
+          d.getDate() === now.getDate() &&
+          d.getMonth() === now.getMonth() &&
+          d.getFullYear() === now.getFullYear()
+        ){
+          entreguesHoje += 1;
+        }
+      }
+
+      const kpiAtraso = Number(data.kpis?.notas_em_atraso);
+      const kpiHoje = Number(data.kpis?.previstas_para_hoje);
+      const kpiEntregues = Number(data.kpis?.entregues_hoje);
+
+      document.getElementById('kpiAtraso').textContent =
+        Number.isFinite(kpiAtraso) && carrier === '__ALL__'
+          ? kpiAtraso.toLocaleString('pt-BR')
+          : atrasoList.length.toLocaleString('pt-BR');
+
+      document.getElementById('kpiPrevistasHoje').textContent =
+        Number.isFinite(kpiHoje) && carrier === '__ALL__'
+          ? kpiHoje.toLocaleString('pt-BR')
+          : hojeList.length.toLocaleString('pt-BR');
+
+      document.getElementById('kpiEntreguesHoje').textContent =
+        Number.isFinite(kpiEntregues) && carrier === '__ALL__'
+          ? kpiEntregues.toLocaleString('pt-BR')
+          : entreguesHoje.toLocaleString('pt-BR');
+    }
+
+
+    function getExecutiveSource(data){
+      const candidates = [
+        data.notas_entregues,
+        data.entregas_realizadas,
+        data.base_entregas,
+        data.notas_performance,
+        data.notas_previstas_hoje
+      ];
+      return candidates.find(Array.isArray) || [];
+    }
+
+    function getFirstValue(obj, keys){
+      for (const key of keys){
+        if (obj && obj[key] !== undefined && obj[key] !== null && String(obj[key]).trim() !== '') return obj[key];
+      }
+      return '';
+    }
+
+    function sameMonth(d, ref){
+      return d && ref && d.getMonth() === ref.getMonth() && d.getFullYear() === ref.getFullYear();
+    }
+
+    function previousMonth(ref){
+      return new Date(ref.getFullYear(), ref.getMonth() - 1, 1);
+    }
+
+    function getSlaColor(sla){
+      if (!Number.isFinite(sla)) return 'rgba(233,236,245,.55)';
+      if (sla < 90) return getComputedStyle(document.documentElement).getPropertyValue('--bad').trim();
+      if (sla <= 95) return getComputedStyle(document.documentElement).getPropertyValue('--warn').trim();
+      return getComputedStyle(document.documentElement).getPropertyValue('--good').trim();
+    }
+
+    function getDeltaColor(delta){
+      if (!Number.isFinite(delta)) return 'rgba(233,236,245,.55)';
+      return delta < 0
+        ? getComputedStyle(document.documentElement).getPropertyValue('--bad').trim()
+        : getComputedStyle(document.documentElement).getPropertyValue('--good').trim();
+    }
+
+    function deliveredInTime(item){
+      const delivery = parseDateFlex(getFirstValue(item, ['data_entrega','Data_de_entrega','entrega','dt_entrega','data_real_entrega']));
+      const due = parseDateFlex(getFirstValue(item, ['previsao_entrega','prev_entrega','prazo_entrega','data_prevista','dt_previsao']));
+      if (delivery && due) return delivery.getTime() <= due.getTime();
+
+      const status = normKey(getFirstValue(item, ['ocorrencia','status_entrega','sla','status_sla']));
+      if (status.includes('atras')) return false;
+      if (status.includes('prazo') || status.includes('no prazo')) return true;
+      return null;
+    }
+
+    function calcMetricsForMonth(list, refDate, carrier){
+      const monthItems = [];
+      for (const it of list){
+        const emissao = parseDateFlex(getFirstValue(it, ['data_emissao','emissao_nf','dt_emissao','emissao','data_nf']));
+        if (!emissao || !sameMonth(emissao, refDate)) continue;
+        if (carrier && carrier !== '__ALL__' && normalizeCarrier(it.transportador) !== carrier) continue;
+        monthItems.push(it);
+      }
+
+      let fretePago = 0;
+      let freteRepassado = 0;
+      let entregues = 0;
+      let noPrazo = 0;
+      const estados = new Map();
+
+      for (const it of monthItems){
+        fretePago += parseBRLValue(getFirstValue(it, ['frete','frete_pago','valor_frete','vlr_frete','frete_total']));
+        freteRepassado += parseBRLValue(getFirstValue(it, ['frete_repassado','valor_frete_repassado','vlr_frete_repassado','frete_cliente','frete_rep']));
+
+        const delivery = parseDateFlex(getFirstValue(it, ['data_entrega','Data_de_entrega','entrega','dt_entrega','data_real_entrega']));
+        const slaOk = deliveredInTime(it);
+        if (delivery && slaOk !== null){
+          entregues += 1;
+          if (slaOk) noPrazo += 1;
+
+          const uf = String(getFirstValue(it, ['uf','estado','uf_destino','cidade_destino','UF'])).trim() || '—';
+          if (!estados.has(uf)) estados.set(uf, { uf, entregues:0, noPrazo:0 });
+          const e = estados.get(uf);
+          e.entregues += 1;
+          if (slaOk) e.noPrazo += 1;
+        }
+      }
+
+      const sla = entregues ? (noPrazo / entregues) * 100 : NaN;
+      const percRepasse = fretePago ? (freteRepassado / fretePago) * 100 : NaN;
+      const topEstados = Array.from(estados.values())
+        .map(e => ({ ...e, sla: e.entregues ? (e.noPrazo / e.entregues) * 100 : NaN }))
+        .filter(e => Number.isFinite(e.sla))
+        .sort((a,b) => b.sla - a.sla || b.entregues - a.entregues)
+        .slice(0,5);
+
+      return { fretePago, freteRepassado, percRepasse, entregues, noPrazo, sla, topEstados };
+    }
+
+    function setText(id, value){
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    function formatPercentBR(n){
+      return Number.isFinite(n) ? `${n.toLocaleString('pt-BR', { minimumFractionDigits:2, maximumFractionDigits:2 })}%` : '—';
+    }
+
+    function renderExecutivePanel(data, carrier){
+      const source = getExecutiveSource(data);
+      const refDate = parseUpdatedDate(data.updated_at || new Date().toLocaleDateString('pt-BR'));
+      const current = calcMetricsForMonth(source, refDate, carrier);
+      const previous = calcMetricsForMonth(source, previousMonth(refDate), carrier);
+
+      setText('gerencialPeriodo', refDate.toLocaleDateString('pt-BR', { month:'long', year:'numeric' }));
+      setText('fretePagoValue', fmtBRL.format(current.fretePago));
+      setText('freteRepassadoValue', formatPercentBR(current.percRepasse));
+
+      const slaColor = getSlaColor(current.sla);
+      const slaValue = document.getElementById('slaValue');
+      const progress = document.getElementById('slaGaugeProgress');
+      const needle = document.getElementById('slaNeedle');
+      const boundedSla = Number.isFinite(current.sla) ? Math.max(0, Math.min(100, current.sla)) : 0;
+      const dash = 251.3;
+
+      if (slaValue){
+        slaValue.textContent = formatPercentBR(current.sla);
+        slaValue.style.color = slaColor;
+      }
+      if (progress){
+        progress.style.stroke = slaColor;
+        progress.style.strokeDashoffset = String(dash - (dash * boundedSla / 100));
+      }
+      if (needle){
+        const angle = -90 + (boundedSla * 1.8);
+        needle.style.transform = `rotate(${angle}deg)`;
+      }
+      setText('slaSub', `${current.noPrazo.toLocaleString('pt-BR')} no prazo / ${current.entregues.toLocaleString('pt-BR')} entregues`);
+
+      const delta = Number.isFinite(current.sla) && Number.isFinite(previous.sla) ? current.sla - previous.sla : NaN;
+      const deltaColor = getDeltaColor(delta);
+      const deltaEl = document.getElementById('slaDeltaValue');
+      if (deltaEl){
+        deltaEl.textContent = Number.isFinite(delta)
+          ? `${delta >= 0 ? '+' : ''}${delta.toLocaleString('pt-BR', { minimumFractionDigits:2, maximumFractionDigits:2 })} p.p. vs LM`
+          : '—';
+        deltaEl.style.color = deltaColor;
+      }
+      setText('slaDeltaSub', Number.isFinite(delta) ? `(de ${formatPercentBR(previous.sla)} para ${formatPercentBR(current.sla)})` : 'Sem base do mês anterior');
+
+      const list = document.getElementById('topEstadosList');
+      if (list){
+        list.innerHTML = '';
+        if (!current.topEstados.length){
+          list.innerHTML = '<div class="emptyState">Sem dados suficientes.</div>';
+        } else {
+          current.topEstados.forEach((e, idx) => {
+            const row = document.createElement('div');
+            const color = getSlaColor(e.sla);
+            row.className = 'estadoRow';
+            row.innerHTML = `
+              <div class="estadoRank">${idx + 1}</div>
+              <div>
+                <div class="estadoUf">${e.uf}</div>
+                <div class="estadoMeta">${e.noPrazo}/${e.entregues} no prazo</div>
+              </div>
+              <div class="estadoSla" style="color:${color}">${formatPercentBR(e.sla)}</div>
+            `;
+            list.appendChild(row);
+          });
+        }
       }
     }
 
-    function startAutoScroll(el, opts = {}) {
-      if (!el) return;
+    function getPedidosFiltradosPorTipo(tipo){
+      if (!DATA_CACHE || !Array.isArray(DATA_CACHE.pedidos_nao_faturados)) return [];
 
-      const speedPxPerTick = opts.speedPxPerTick ?? 1;
-      const tickMs = opts.tickMs ?? 40;
-      const pauseAtEndMs = opts.pauseAtEndMs ?? 1400;
-      const pauseAtTopMs = opts.pauseAtTopMs ?? 700;
-      const resetThresholdPx = opts.resetThresholdPx ?? 2;
+      const list = DATA_CACHE.pedidos_nao_faturados.slice();
 
-      let timer = null;
-      let paused = false;
+      if (tipo === 'alvara'){
+        return list.filter(it => normKey(it.ultimo_status) === normKey('Alvará Sanitário'));
+      }
 
-      const canScroll = () => el.scrollHeight > el.clientHeight + 5;
+      if (tipo === 'credito'){
+        return list.filter(it => normKey(it.ultimo_status) === normKey('Análise de Crédito'));
+      }
 
-      const step = () => {
-        if (paused) return;
-        if (!canScroll()) return;
+      return [];
+    }
 
-        const maxScrollTop = el.scrollHeight - el.clientHeight;
-        const next = el.scrollTop + speedPxPerTick;
+    function statusTagClass(status){
+      const k = normKey(status);
+      if (k === normKey('Alvará Sanitário')) return 'statusTag alvara';
+      if (k === normKey('Análise de Crédito')) return 'statusTag credito';
+      return 'statusTag';
+    }
 
-        if (next >= maxScrollTop - resetThresholdPx) {
-          el.scrollTop = maxScrollTop;
+    function closePedidosModal(){
+      document.getElementById('pedidosModal').style.display = 'none';
+    }
 
-          paused = true;
-          setTimeout(() => {
-            el.scrollTop = 0;
-            setTimeout(() => { paused = false; }, pauseAtTopMs);
-          }, pauseAtEndMs);
+    function openPedidosModal(tipo){
+      const body = document.getElementById('pedidosModalBody');
+      const empty = document.getElementById('pedidosModalEmpty');
+      const title = document.getElementById('pedidosModalTitle');
+      const count = document.getElementById('pedidosModalCount');
 
-          return;
+      let lista = [];
+      if (tipo === 'alvara'){
+        title.textContent = 'Pedidos em Alvará Sanitário';
+        lista = getPedidosFiltradosPorTipo('alvara');
+      } else if (tipo === 'credito'){
+        title.textContent = 'Pedidos em Análise de Crédito';
+        lista = getPedidosFiltradosPorTipo('credito');
+      }
+
+      lista.sort((a, b) => {
+       const va = parseBRLValue(a.vlr_total_produtos);
+       const vb = parseBRLValue(b.vlr_total_produtos);
+       return vb - va; // maior para menor
+      });
+
+      count.textContent = `${lista.length} itens`;
+      body.innerHTML = '';
+
+      if (!lista.length){
+        empty.style.display = 'block';
+      } else {
+        empty.style.display = 'none';
+        for (const item of lista){
+          const status = String(item.ultimo_status ?? '').trim() || '—';
+          const tr = document.createElement('tr');
+
+          tr.innerHTML = `
+            <td><strong>${String(item.numero_pedido ?? '—').trim()}</strong></td>
+            <td>${formatBRDateFlex(item.emissao_pv)}</td>
+            <td>${String(item.nome_cliente ?? '—').trim()}</td>
+            <td>${String(item.uf_cliente ?? '—').trim()}</td>
+            <td>${String(item.tipo_cliente ?? '—').trim()}</td>
+            <td>${String(item.vendedor ?? '—').trim()}</td>
+            <td>${fmtBRL.format(parseBRLValue(item.vlr_total_produtos))}</td>
+            <td><span class="${statusTagClass(status)}">${status}</span></td>
+          `;
+
+          body.appendChild(tr);
         }
+      }
 
-        el.scrollTop = next;
-      };
-
-      const start = () => {
-        stop();
-        timer = setInterval(step, tickMs);
-      };
-
-      const stop = () => {
-        if (timer) clearInterval(timer);
-        timer = null;
-      };
-
-      el.addEventListener('mouseenter', () => { paused = true; });
-      el.addEventListener('mouseleave', () => { paused = false; });
-      el.addEventListener('touchstart', () => { paused = !paused; }, { passive:true });
-
-      start();
-      return { start, stop };
+      document.getElementById('pedidosModal').style.display = 'flex';
     }
 
     function syncLeftToPedidosHeight(){
-      const leftCol = document.getElementById('leftCol');
       const panelPedidos = document.getElementById('panelPedidos');
-      const cardsBox = document.getElementById('cardsBox');
-      const panelTransp = document.getElementById('panelTransp');
-      const scrollTransp = document.getElementById('scrollTransp');
-      if (!leftCol || !panelPedidos || !cardsBox || !panelTransp || !scrollTransp) return;
+      const leftCol = document.getElementById('leftCol');
+      const panelRecebimento = document.getElementById('panelRecebimento');
+      const scrollRecebimento = document.getElementById('scrollRecebimento');
 
-      leftCol.style.height = 'auto';
-      panelTransp.style.height = 'auto';
+      if (!panelPedidos || !leftCol || !panelRecebimento || !scrollRecebimento) return;
+      if (window.innerWidth <= 1200) return;
 
-      const pedidosH = panelPedidos.offsetHeight;
-      leftCol.style.height = pedidosH + 'px';
+      const h = panelPedidos.offsetHeight;
+      leftCol.style.height = h + 'px';
+      leftCol.style.minHeight = h + 'px';
+      panelRecebimento.style.height = h + 'px';
+      panelRecebimento.style.minHeight = h + 'px';
 
-      const gap = 14;
-      const cardsH = cardsBox.offsetHeight;
-      const transpH = Math.max(160, pedidosH - cardsH - gap);
-
-      panelTransp.style.height = transpH + 'px';
-
-      const ph = panelTransp.querySelector('.ph');
+      const ph = panelRecebimento.querySelector('.ph');
       const phH = ph ? ph.offsetHeight : 56;
-      scrollTransp.style.maxHeight = (transpH - phH) + 'px';
+      scrollRecebimento.style.maxHeight = Math.max(120, h - phH) + 'px';
     }
 
     function syncNotesToPedidosHeight(){
       const panelPedidos = document.getElementById('panelPedidos');
       const panelAtraso = document.getElementById('panelAtraso');
-      const panelHoje = document.getElementById('panelHoje');
+      const panelGerencial = document.getElementById('panelGerencial');
       const scrollAtraso = document.getElementById('scrollAtraso');
-      const scrollHoje = document.getElementById('scrollHoje');
 
-      if (!panelPedidos || !panelAtraso || !panelHoje || !scrollAtraso || !scrollHoje) return;
+      if (!panelPedidos || !panelAtraso || !panelGerencial || !scrollAtraso) return;
+      if (window.innerWidth <= 980) return;
 
       const h = panelPedidos.offsetHeight;
-
       panelAtraso.style.height = h + 'px';
-      panelHoje.style.height = h + 'px';
+      panelGerencial.style.height = h + 'px';
+      panelAtraso.style.minHeight = h + 'px';
+      panelGerencial.style.minHeight = h + 'px';
 
       const phA = panelAtraso.querySelector('.ph');
       const phH_A = phA ? phA.offsetHeight : 56;
-      scrollAtraso.style.maxHeight = (h - phH_A) + 'px';
-
-      const phB = panelHoje.querySelector('.ph');
-      const phH_B = phB ? phB.offsetHeight : 56;
-      scrollHoje.style.maxHeight = (h - phH_B) + 'px';
+      scrollAtraso.style.maxHeight = Math.max(120, h - phH_A) + 'px';
     }
 
-    function initAutoScrollTV() {
-      startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 });
-      startAutoScroll(document.getElementById('scrollHoje'),   { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 });
-      startAutoScroll(document.getElementById('scrollTransp'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 2200, pauseAtTopMs: 900 });
-    }
-
-    async function load(){
-      const res = await fetch(`data.json?t=${Date.now()}`, { cache: 'no-store' });
-      const data = await res.json();
-
-      formatUpdatedAtToBadge(data);
-
-      // ✅ Mostra o alerta APENAS se tv_alert.enabled === true
-      tryShowTvAlert(data);
-
-      document.getElementById('kpiAtraso').textContent = Number(data.kpis?.notas_em_atraso || 0).toLocaleString('pt-BR');
-      document.getElementById('kpiPrevistasHoje').textContent = Number(data.kpis?.previstas_para_hoje || 0).toLocaleString('pt-BR');
-      document.getElementById('kpiEntreguesHoje').textContent = Number(data.kpis?.entregues_hoje || 0).toLocaleString('pt-BR');
-
-      buildCarrierOptions(data);
-
-      renderTransportadores(data);
+    function renderAll(data){
+      const carrier = document.getElementById('carrierFilter').value;
+      renderRecebimento(data);
       renderPedidos(data);
-
-      const sel = document.getElementById('carrierFilter');
-      const render = () => renderTables(data, sel.value);
-
-      sel.addEventListener('change', () => {
-        render();
-        document.getElementById('scrollAtraso').scrollTop = 0;
-        document.getElementById('scrollHoje').scrollTop = 0;
-      });
-
-      render();
+      renderTables(data, carrier);
+      renderExecutivePanel(data, carrier);
+      formatUpdatedAtToBadge(data);
+      tryShowTvAlert(data);
 
       syncLeftToPedidosHeight();
       syncNotesToPedidosHeight();
@@ -1159,17 +2002,64 @@
         syncNotesToPedidosHeight();
         initAutoScrollTV();
       }, 350);
+    }
+
+    async function load(){
+      const res = await fetch(`data.json?t=${Date.now()}`, { cache: 'no-store' });
+      const data = await res.json();
+      DATA_CACHE = data;
+
+      buildCarrierOptions(data);
+      renderAll(data);
+
+      const sel = document.getElementById('carrierFilter');
+      sel.onchange = () => {
+        renderTables(DATA_CACHE, sel.value);
+        renderExecutivePanel(DATA_CACHE, sel.value);
+
+        document.getElementById('scrollAtraso').scrollTop = 0;
+
+        setTimeout(() => {
+          syncLeftToPedidosHeight();
+          syncNotesToPedidosHeight();
+          initAutoScrollTV();
+        }, 220);
+      };
 
       window.addEventListener('resize', () => {
         syncLeftToPedidosHeight();
         syncNotesToPedidosHeight();
+
+        setTimeout(() => {
+          syncLeftToPedidosHeight();
+          syncNotesToPedidosHeight();
+        }, 180);
       });
     }
 
-    load().catch(err => {
-      console.error(err);
-      alert('Erro ao carregar data.json. Verifique se index.html e data.json estão na mesma pasta.');
+    document.getElementById('pedidosModal').addEventListener('click', (e) => {
+      if (e.target.id === 'pedidosModal'){
+        closePedidosModal();
+      }
     });
-  </script>
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape'){
+        closePedidosModal();
+      }
+    });
+
+async function atualizarPainel(){
+  try{
+    await load();
+  }catch(err){
+    console.error(err);
+  }
+}
+
+atualizarPainel();
+
+setInterval(atualizarPainel, 120000);
+      </script>
 </body>
 </html>
