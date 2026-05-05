@@ -474,7 +474,7 @@
       border: 1px solid rgba(255,255,255,.10);
       color: var(--text);
       min-height: var(--bottomPanelH);
-      height: auto;
+      height: var(--bottomPanelH);
     }
 
     .panelDark .ph{
@@ -737,8 +737,8 @@
 
     .painelGerencial{
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
-      height: 520px;
-      min-height: 520px;
+      height: var(--bottomPanelH);
+      min-height: var(--bottomPanelH);
     }
 
     .gerencialBody{
@@ -749,12 +749,14 @@
       flex-direction:column;
       gap: 14px;
       background: rgba(255,255,255,.06);
+      overflow: visible;
     }
 
     .gerencialTop{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
+      flex: 0 0 auto;
     }
 
     .gerencialKpi{
@@ -765,6 +767,10 @@
       box-shadow: 0 12px 24px rgba(0,0,0,.24);
       padding: 14px 16px;
       text-align:center;
+      min-height: 82px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
     .gerencialKpiLabel{
@@ -787,8 +793,9 @@
       flex:1 1 auto;
       min-height:0;
       display:grid;
-      grid-template-columns: .95fr 1.05fr;
+      grid-template-columns: .98fr 1.02fr;
       gap: 14px;
+      align-items: stretch;
     }
 
     .slaBox,
@@ -802,7 +809,7 @@
     }
 
     .slaBox{
-      padding: 16px 16px 18px;
+      padding: 18px 18px 26px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -814,17 +821,19 @@
     .slaTitle{
       font-weight:950;
       color: rgba(11,27,58,.88);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-size: 18px;
       letter-spacing:.2px;
+      flex: 0 0 auto;
     }
 
     .slaGauge{
-      width: min(390px, 100%);
+      width: min(360px, 100%);
       display:flex;
       align-items:center;
       justify-content:center;
       flex-direction:column;
+      flex: 0 0 auto;
     }
 
     .slaGauge svg{ width:100%; height:auto; overflow:visible; }
@@ -866,8 +875,9 @@
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
       padding-bottom: 10px;
+      flex: 0 0 auto;
     }
 
     .slaLegendItem{
@@ -904,11 +914,13 @@
     }
 
     .slaMeta{
-      margin-top: 6px;
+      margin-top: auto;
+      padding-top: 6px;
       color: rgba(11,27,58,.68);
       font-weight: 800;
       font-size: 12px;
       text-align:center;
+      flex: 0 0 auto;
     }
 
     .gerencialInsights{
@@ -919,12 +931,16 @@
     }
 
     .deltaBox{
-      padding: 20px 20px 28px 20px;
+      padding: 18px 16px;
       text-align:center;
-      background: linear-gradient(180deg, #24344d, #18253a) !important;
+      background: linear-gradient(180deg, #263955, #18263d) !important;
       color: rgba(233,236,245,.96) !important;
       border: 1px solid rgba(255,255,255,.12) !important;
       box-shadow: 0 14px 28px rgba(0,0,0,.22);
+      min-height: 122px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
     .deltaLabel{
