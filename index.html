@@ -1859,8 +1859,13 @@
       const attentionColor = 'var(--warn)';
       const excellentColor = 'var(--good)';
 
-      const needle = polarToCartesian(cx, cy, 64, needleAngle + 90);
-      const baseValue = Number.isFinite(sla) ? pctText(sla) : '—';
+     function polarToCartesian(cx, cy, r, angleDeg) {
+  const angleRad = (angleDeg - 90) * Math.PI / 180;
+  return {
+    x: cx + (r * Math.cos(angleRad)),
+    y: cy + (r * Math.sin(angleRad))
+  };
+}
 
       el.innerHTML = `
         <svg viewBox="0 0 220 166" role="img" aria-label="Performance em formato de velocímetro">
@@ -1884,9 +1889,17 @@
           <text x="32" y="128" class="slaScaleText">80,00%</text>
           <text x="188" y="128" class="slaScaleText">100,00%</text>
 
-          <line x1="${cx}" y1="${cy}" x2="${needle.x}" y2="${needle.y}" stroke="#0b1b3a" stroke-width="6" stroke-linecap="round" filter="url(#needleShadow)"/>
-          <circle cx="${cx}" cy="${cy}" r="14" fill="#0b1b3a" filter="url(#needleShadow)"/>
-          <circle cx="${cx}" cy="${cy}" r="6" fill="rgba(255,255,255,.20)"/>
+const minGauge = 80;
+const maxGauge = 100;
+
+const limitedSla = Math.max(minGauge, Math.min(maxGauge, sla));
+const percentGauge = (limitedSla - minGauge) / (maxGauge - minGauge);
+
+// -90 = vermelho à esquerda | 0 = topo/meio | 90 = verde à direita
+const needleAngle = -90 + (percentGauge * 180);
+
+const needleLength = r - 18;
+const needle = polarToCartesian(cx, cy, needleLength, needleAngle);
 
           <text x="110" y="150" class="slaValueText" fill="${color}">${baseValue}</text>
         </svg>
