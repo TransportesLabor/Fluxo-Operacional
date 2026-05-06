@@ -979,6 +979,66 @@
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.035);
     }
 
+    .notasMesBox{
+      min-height:0;
+      padding: 0;
+      display:flex;
+      align-items:stretch;
+      justify-content:stretch;
+      overflow:hidden;
+      background: linear-gradient(180deg, #263955, #18263d) !important;
+      border: 1px solid rgba(255,255,255,.12) !important;
+      box-shadow: 0 14px 28px rgba(0,0,0,.22);
+    }
+
+    .notasMesGrid{
+      width:100%;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items:stretch;
+      min-height: 100%;
+    }
+
+    .notasMesItem{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap: 14px;
+      padding: 14px 10px;
+      color: rgba(233,236,245,.94);
+      position:relative;
+      min-width:0;
+    }
+
+    .notasMesItem:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      top:18px;
+      bottom:18px;
+      right:0;
+      width:1px;
+      border-right:1px dashed rgba(255,255,255,.22);
+    }
+
+    .notasMesLabel{
+      font-size: clamp(12px, .92vw, 16px);
+      font-weight: 800;
+      line-height:1.18;
+      color: rgba(233,236,245,.96);
+    }
+
+    .notasMesValue{
+      font-size: clamp(28px, 2.8vw, 48px);
+      line-height:1;
+      font-weight: 950;
+      letter-spacing:.2px;
+    }
+
+    .notasMesValue.ok{ color:#9bd98a; }
+    .notasMesValue.bad{ color:#ff4b4b; }
+
     .topEstadosTitle{
       font-size: 13px;
       color: rgba(11,27,58,.78);
@@ -1176,8 +1236,21 @@
                 <div class="deltaSub" id="deltaSlaSub">—</div>
               </div>
 
-              <div class="topEstadosBox emptyGerencialSpace" aria-label="Espaço reservado">
-                <div id="topEstadosList" class="topEstadosList" style="display:none;"></div>
+              <div class="topEstadosBox notasMesBox" aria-label="Resumo de notas fiscais do mês atual">
+                <div class="notasMesGrid">
+                  <div class="notasMesItem">
+                    <div class="notasMesLabel">Qtd de Notas<br>Fiscais</div>
+                    <div class="notasMesValue" id="qtdNotasMesAtual">—</div>
+                  </div>
+                  <div class="notasMesItem">
+                    <div class="notasMesLabel">Entregue no<br>Prazo</div>
+                    <div class="notasMesValue ok" id="notasNoPrazoMesAtual">—</div>
+                  </div>
+                  <div class="notasMesItem">
+                    <div class="notasMesLabel">Entregue fora<br>do prazo</div>
+                    <div class="notasMesValue bad" id="notasForaPrazoMesAtual">—</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1925,8 +1998,11 @@ function renderSlaGauge(sla){
       const normalizeAgg = (obj) => {
         const fretePago = parseBRLValue(obj.frete_pago ?? obj.frete ?? obj.valor_frete_pago ?? 0);
         const freteRepassado = parseBRLValue(obj.frete_repassado ?? obj.valor_frete_repassado ?? obj.repassado ?? 0);
-        const entregas = parseBRLValue(obj.entrega_realizada ?? obj.entregas_realizadas ?? obj.entregues ?? obj.total_entregas ?? 0);
+        const entregas = parseBRLValue(obj.entrega_realizada ?? obj.entregas_realizadas ?? obj.entregues ?? obj.total_entregas ?? obj.qtd_notas_fiscais ?? obj.total_notas_fiscais ?? 0);
         const noPrazo = parseBRLValue(obj.entrega_no_prazo ?? obj.entregas_no_prazo ?? obj.no_prazo ?? 0);
+        const foraPrazoInformado = parseBRLValue(obj.entrega_fora_prazo ?? obj.entregas_fora_prazo ?? obj.fora_prazo ?? obj.notas_em_atraso ?? 0);
+        const foraPrazo = foraPrazoInformado > 0 ? foraPrazoInformado : Math.max(0, entregas - noPrazo);
+        const qtdNotasFiscais = parseBRLValue(obj.qtd_notas_fiscais ?? obj.total_notas_fiscais ?? obj.notas_fiscais ?? entregas);
         const sla = entregas > 0 ? (noPrazo / entregas) * 100 : NaN;
         const repasse = fretePago > 0 ? (freteRepassado / fretePago) * 100 : NaN;
         return {
@@ -1935,6 +2011,8 @@ function renderSlaGauge(sla){
           freteRepassado,
           entregues: { length: entregas },
           noPrazo: { length: noPrazo },
+          foraPrazo: { length: foraPrazo },
+          qtdNotasFiscais,
           sla,
           repasse
         };
@@ -2000,6 +2078,17 @@ function renderSlaGauge(sla){
       document.getElementById('slaMeta').textContent = current.entregues.length
         ? `${current.noPrazo.length} no prazo de ${current.entregues.length} entregues`
         : 'Sem entregas válidas para o mês';
+
+      const qtdNotasEl = document.getElementById('qtdNotasMesAtual');
+      const noPrazoEl = document.getElementById('notasNoPrazoMesAtual');
+      const foraPrazoEl = document.getElementById('notasForaPrazoMesAtual');
+      const qtdNotas = Number.isFinite(current.qtdNotasFiscais) ? current.qtdNotasFiscais : current.entregues.length;
+      const foraPrazo = current.foraPrazo && Number.isFinite(current.foraPrazo.length)
+        ? current.foraPrazo.length
+        : Math.max(0, current.entregues.length - current.noPrazo.length);
+      if (qtdNotasEl) qtdNotasEl.textContent = Number(qtdNotas || 0).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+      if (noPrazoEl) noPrazoEl.textContent = Number(current.noPrazo.length || 0).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+      if (foraPrazoEl) foraPrazoEl.textContent = Number(foraPrazo || 0).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
 
       const deltaEl = document.getElementById('deltaSla');
       const deltaSub = document.getElementById('deltaSlaSub');
