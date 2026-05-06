@@ -1024,6 +1024,27 @@
       font-weight: 800;
     }
 
+
+
+    /* Alinhamento fixo da primeira linha: Recebimento do mesmo tamanho de Gestão de Pedidos */
+    @media (min-width: 1201px){
+      .topRow{
+        height: var(--topRowMinH);
+        min-height: var(--topRowMinH);
+      }
+      .leftCol,
+      #panelRecebimento,
+      #panelPedidos{
+        height: var(--topRowMinH) !important;
+        min-height: var(--topRowMinH) !important;
+        max-height: var(--topRowMinH);
+      }
+      #scrollRecebimento,
+      #scrollPedidos{
+        min-height:0;
+      }
+    }
+
     @media (max-width: 980px){
       .gerencialTop{ grid-template-columns: 1fr; }
       .gerencialGrid{ grid-template-columns: 1fr; }
@@ -1838,31 +1859,39 @@
     }
 
 function renderSlaGauge(sla){
-  const el = document.getElementById('slaGauge');
-  if (!el) return;
+      const el = document.getElementById('slaGauge');
+      if (!el) return;
 
-  const cx = 110;
-  const cy = 108;
-  const r = 72;
-  const stroke = 22;
+      const cx = 110;
+      const cy = 108;
+      const r = 72;
+      const stroke = 22;
 
-  const minGauge = 80;
-  const maxGauge = 100;
+      const criticalColor = '#ff4545';
+      const attentionColor = '#f59e0b';
+      const excellentColor = '#22c55e';
 
-  const slaNumber = Number(String(sla).replace('%','').replace(',','.')) || 0;
-  const safeSla = Math.max(minGauge, Math.min(maxGauge, slaNumber));
-  const percentGauge = (safeSla - minGauge) / (maxGauge - minGauge);
+      const minGauge = 80;
+      const maxGauge = 100;
 
-  const needleAngle = -90 + (percentGauge * 180);
-  const needleLength = r - 16;
-  const angleRad = (needleAngle - 90) * Math.PI / 180;
+      const slaNumber = Number(String(sla ?? '').replace('%','').replace(',','.'));
+      const hasSla = Number.isFinite(slaNumber);
+      const valueForGauge = hasSla ? slaNumber : minGauge;
+      const safeSla = Math.max(minGauge, Math.min(maxGauge, valueForGauge));
+      const percentGauge = (safeSla - minGauge) / (maxGauge - minGauge);
 
-  const needle = {
-    x: cx + needleLength * Math.cos(angleRad),
-    y: cy + needleLength * Math.sin(angleRad)
-  };
+      // Escala do velocímetro: -90° = 80% / 0° = 90% / 45° = 95% / 90° = 100%.
+      const needleAngle = -90 + (percentGauge * 180);
+      const needleLength = r - 16;
+      const angleRad = (needleAngle - 90) * Math.PI / 180;
 
-  const color = slaColor(slaNumber);
+      const needle = {
+        x: cx + needleLength * Math.cos(angleRad),
+        y: cy + needleLength * Math.sin(angleRad)
+      };
+
+      const color = hasSla ? slaColor(slaNumber) : '#9aa4c0';
+      const baseValue = hasSla ? pctText(slaNumber) : '—';
 
       el.innerHTML = `
         <svg viewBox="0 0 220 166" role="img" aria-label="Performance em formato de velocímetro">
@@ -1874,7 +1903,6 @@ function renderSlaGauge(sla){
               <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b1020" flood-opacity="0.32"/>
             </filter>
           </defs>
-
 
           <path d="${describeArc(cx, cy, r, -90, 90)}" fill="none" stroke="rgba(11,27,58,.09)" stroke-width="${stroke + 8}" stroke-linecap="round"/>
           <g filter="url(#gaugeShadow)">
