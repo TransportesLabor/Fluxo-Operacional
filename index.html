@@ -1846,14 +1846,21 @@ function renderSlaGauge(sla){
 
       const minGauge = 80;
       const maxGauge = 100;
+
+      // Converte SLA mesmo quando vier como texto: "94,90%", "94.90" ou número.
       const slaNumber = Number(String(sla ?? '').replace('%','').replace(',','.'));
       const displayValue = Number.isFinite(slaNumber) ? slaNumber : NaN;
       const safeSla = Math.max(minGauge, Math.min(maxGauge, Number.isFinite(slaNumber) ? slaNumber : minGauge));
       const percentGauge = (safeSla - minGauge) / (maxGauge - minGauge);
 
+      // Escala visual: 80% = esquerda/vermelho | 90% = topo | 95% = amarelo próximo do verde | 100% = direita/verde.
       const needleAngle = -90 + (percentGauge * 180);
-      const needleLength = r - 16;
+      const needleLength = r - 18;
       const needle = polarToCartesian(cx, cy, needleLength, needleAngle);
+
+      // Ponteiro em formato de agulha: mais visível que uma linha simples.
+      const baseLeft = polarToCartesian(cx, cy, 7, needleAngle - 90);
+      const baseRight = polarToCartesian(cx, cy, 7, needleAngle + 90);
 
       const criticalColor = '#ef4444';
       const attentionColor = '#f59e0b';
@@ -1868,7 +1875,7 @@ function renderSlaGauge(sla){
               <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0b1020" flood-opacity="0.20"/>
             </filter>
             <filter id="needleShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b1020" flood-opacity="0.32"/>
+              <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b1020" flood-opacity="0.36"/>
             </filter>
           </defs>
 
@@ -1882,7 +1889,10 @@ function renderSlaGauge(sla){
           <text x="32" y="128" class="slaScaleText">80,00%</text>
           <text x="188" y="128" class="slaScaleText">100,00%</text>
 
-          <line id="slaNeedle" x1="${cx}" y1="${cy}" x2="${needle.x}" y2="${needle.y}" stroke="#0b1b3a" stroke-width="6" stroke-linecap="round" filter="url(#needleShadow)"/>
+          <g id="slaNeedle" filter="url(#needleShadow)">
+            <polygon points="${needle.x},${needle.y} ${baseLeft.x},${baseLeft.y} ${baseRight.x},${baseRight.y}" fill="#0b1b3a"/>
+            <line x1="${cx}" y1="${cy}" x2="${needle.x}" y2="${needle.y}" stroke="#0b1b3a" stroke-width="4" stroke-linecap="round"/>
+          </g>
           <circle cx="${cx}" cy="${cy}" r="14" fill="#0b1b3a" filter="url(#needleShadow)"/>
           <circle cx="${cx}" cy="${cy}" r="6" fill="rgba(255,255,255,.20)"/>
 
