@@ -1934,7 +1934,7 @@
       const freteBruto = list.reduce((acc, it) => acc + (Number(it.frete_bruto) || 0), 0);
       const sla = entregues.length ? (noPrazo.length / entregues.length) * 100 : NaN;
       const repasse = fretePago > 0 ? (freteRepassado / fretePago) * 100 : NaN;
-      const freteSobreFaturamento = fretePago > 0 ? (fretePago / faturamento) * 100 : NaN;
+      const freteSobreFaturamento = fretePago > 0 ? (fretePago / faturamento) * 100 : 0;
 
       return { list, entregues, noPrazo, fretePago, freteRepassado, freteBruto, sla, repasse, freteSobreFaturamento };
     }
