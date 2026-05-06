@@ -790,6 +790,61 @@
       white-space:nowrap;
     }
 
+    .freteFatKpi{
+      border-radius: 14px;
+      background: linear-gradient(180deg, #142137, #0d1728);
+      color: rgba(233,236,245,.96);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 20px rgba(0,0,0,.22);
+      padding: 10px 12px;
+      min-height: 68px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .freteFatTitle{
+      text-align:center;
+      font-size: 13px;
+      color: rgba(233,236,245,.78);
+      font-weight: 850;
+      letter-spacing:.2px;
+      margin-bottom: 8px;
+    }
+
+    .freteFatRow{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .freteFatBar{
+      height: 20px;
+      width: 100%;
+      border-radius: 3px;
+      overflow:hidden;
+      background: rgba(210,210,210,.66);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+
+    .freteFatFill{
+      height:100%;
+      width:0%;
+      background: #7a0610;
+      transition: width .6s ease;
+    }
+
+    .freteFatValue{
+      min-width: 64px;
+      text-align:right;
+      font-size: clamp(18px, 1.35vw, 24px);
+      line-height:1;
+      color: rgba(233,236,245,.92);
+      font-weight: 950;
+      white-space:nowrap;
+    }
+
     .gerencialGrid{
       flex:1 1 auto;
       min-height:0;
@@ -1202,23 +1257,28 @@
 
       <div class="panel panelDark painelGerencial" id="panelGerencial">
         <div class="ph">
-          <div class="ttl">Transportes</div>
+          <div class="ttl">Performance Gerencial</div>
           <div class="badge" id="gerencialPeriodo">—</div>
         </div>
 
         <div class="gerencialBody">
           <div class="gerencialTop">
             <div class="gerencialKpi">
-              <div class="gerencialKpiLabel">Frete Bruto</div>
+              <div class="gerencialKpiLabel">Frete Pago</div>
               <div class="gerencialKpiValue" id="fretePagoKpi">—</div>
             </div>
             <div class="gerencialKpi">
               <div class="gerencialKpiLabel">R$ Frete Repassado</div>
               <div class="gerencialKpiValue" id="freteRepassadoValorKpi">—</div>
             </div>
-            <div class="gerencialKpi">
-              <div class="gerencialKpiLabel">% Frete Repassado</div>
-              <div class="gerencialKpiValue" id="freteRepassadoKpi">—</div>
+            <div class="freteFatKpi">
+              <div class="freteFatTitle">% Frete Sobre Faturamento</div>
+              <div class="freteFatRow">
+                <div class="freteFatBar" aria-label="Percentual de frete bruto sobre frete pago">
+                  <div class="freteFatFill" id="freteSobreFatFill"></div>
+                </div>
+                <div class="freteFatValue" id="freteSobreFatKpi">—</div>
+              </div>
             </div>
           </div>
 
@@ -1855,6 +1915,7 @@
         previsao_entrega: parseDateFlex(item.previsao_entrega ?? item.previsao ?? item.previsao_sla ?? ''),
         frete: parseBRLValue(item.frete ?? item.valor_frete ?? item.frete_pago ?? 0),
         frete_repassado: parseBRLValue(item.frete_repassado ?? item.valor_frete_repassado ?? item.repassado ?? 0),
+        frete_bruto: parseBRLValue(item.frete_bruto ?? item.valor_frete_bruto ?? item.freteBruto ?? 0),
         estado: String(item.estado ?? item.uf ?? item.cidade_destino ?? item.uf_destino ?? '').trim().toUpperCase(),
         transportador: normalizeCarrier(item.transportador ?? item.transportadora ?? '')
       };
@@ -1870,10 +1931,12 @@
       const noPrazo = entregues.filter(entregaNoPrazo);
       const fretePago = list.reduce((acc, it) => acc + (Number(it.frete) || 0), 0);
       const freteRepassado = list.reduce((acc, it) => acc + (Number(it.frete_repassado) || 0), 0);
+      const freteBruto = list.reduce((acc, it) => acc + (Number(it.frete_bruto) || 0), 0);
       const sla = entregues.length ? (noPrazo.length / entregues.length) * 100 : NaN;
       const repasse = fretePago > 0 ? (freteRepassado / fretePago) * 100 : NaN;
+      const freteSobreFaturamento = fretePago > 0 ? (freteBruto / fretePago) * 100 : NaN;
 
-      return { list, entregues, noPrazo, fretePago, freteRepassado, sla, repasse };
+      return { list, entregues, noPrazo, fretePago, freteRepassado, freteBruto, sla, repasse, freteSobreFaturamento };
     }
 
     function topEstadosForMonth(list){
@@ -1998,6 +2061,7 @@ function renderSlaGauge(sla){
       const normalizeAgg = (obj) => {
         const fretePago = parseBRLValue(obj.frete_pago ?? obj.frete ?? obj.valor_frete_pago ?? 0);
         const freteRepassado = parseBRLValue(obj.frete_repassado ?? obj.valor_frete_repassado ?? obj.repassado ?? 0);
+        const freteBruto = parseBRLValue(obj.frete_bruto ?? obj.valor_frete_bruto ?? obj.freteBruto ?? obj.faturamento ?? 0);
         const entregas = parseBRLValue(obj.entrega_realizada ?? obj.entregas_realizadas ?? obj.entregues ?? obj.total_entregas ?? obj.qtd_notas_fiscais ?? obj.total_notas_fiscais ?? 0);
         const noPrazo = parseBRLValue(obj.entrega_no_prazo ?? obj.entregas_no_prazo ?? obj.no_prazo ?? 0);
         const foraPrazoInformado = parseBRLValue(obj.entrega_fora_prazo ?? obj.entregas_fora_prazo ?? obj.fora_prazo ?? obj.notas_em_atraso ?? 0);
@@ -2005,16 +2069,19 @@ function renderSlaGauge(sla){
         const qtdNotasFiscais = parseBRLValue(obj.qtd_notas_fiscais ?? obj.total_notas_fiscais ?? obj.notas_fiscais ?? entregas);
         const sla = entregas > 0 ? (noPrazo / entregas) * 100 : NaN;
         const repasse = fretePago > 0 ? (freteRepassado / fretePago) * 100 : NaN;
+        const freteSobreFaturamento = fretePago > 0 ? (freteBruto / fretePago) * 100 : NaN;
         return {
           periodo: obj.periodo || obj.mes || '',
           fretePago,
           freteRepassado,
+          freteBruto,
           entregues: { length: entregas },
           noPrazo: { length: noPrazo },
           foraPrazo: { length: foraPrazo },
           qtdNotasFiscais,
           sla,
-          repasse
+          repasse,
+          freteSobreFaturamento
         };
       };
 
@@ -2070,8 +2137,16 @@ function renderSlaGauge(sla){
       document.getElementById('fretePagoKpi').textContent = fmtBRL.format(current.fretePago || 0);
       const repassadoValorEl = document.getElementById('freteRepassadoValorKpi');
       if (repassadoValorEl) repassadoValorEl.textContent = fmtBRL.format(current.freteRepassado || 0);
-      const repassePctEl = document.getElementById('freteRepassadoKpi');
-      if (repassePctEl) repassePctEl.textContent = pctText(current.repasse);
+      const freteSobreFatEl = document.getElementById('freteSobreFatKpi');
+      const freteSobreFatFill = document.getElementById('freteSobreFatFill');
+      const freteSobreFat = current.freteSobreFaturamento;
+      if (freteSobreFatEl) freteSobreFatEl.textContent = pctText(freteSobreFat);
+      if (freteSobreFatFill){
+        // Escala visual: 10% ocupa a barra inteira; acima disso trava em 100%.
+        const maxVisual = 10;
+        const barWidth = Number.isFinite(freteSobreFat) ? Math.max(0, Math.min(100, (freteSobreFat / maxVisual) * 100)) : 0;
+        freteSobreFatFill.style.width = barWidth + '%';
+      }
 
       renderSlaGauge(current.sla);
 
