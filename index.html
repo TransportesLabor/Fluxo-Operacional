@@ -1915,7 +1915,7 @@
         previsao_entrega: parseDateFlex(item.previsao_entrega ?? item.previsao ?? item.previsao_sla ?? ''),
         frete: parseBRLValue(item.frete ?? item.valor_frete ?? item.frete_pago ?? 0),
         frete_repassado: parseBRLValue(item.frete_repassado ?? item.valor_frete_repassado ?? item.repassado ?? 0),
-        frete_bruto: parseBRLValue(item.frete_bruto ?? item.valor_frete_bruto ?? item.freteBruto ?? 0),
+        frete_pago: parseBRLValue(item.frete_pago ?? item.valor_frete_pago ?? item.fretepago ?? 0),
         estado: String(item.estado ?? item.uf ?? item.cidade_destino ?? item.uf_destino ?? '').trim().toUpperCase(),
         transportador: normalizeCarrier(item.transportador ?? item.transportadora ?? '')
       };
