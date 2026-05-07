@@ -1172,17 +1172,17 @@
     }
 
     #panelExpedicao .expPh{
-      padding:5px 22px;
-      min-height:36px;
-      background:#171717;
-      border-bottom:0;
+      padding:12px 14px;
+      min-height:auto;
+      background:rgba(0,0,0,.14);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
 
     #panelExpedicao .ttl{
-      font-size:22px;
-      line-height:1.1;
-      color:rgba(233,236,245,.88);
-      font-weight:500;
+      font-size:inherit;
+      line-height:normal;
+      color:inherit;
+      font-weight:800;
     }
 
     .expedicaoPanelBody{
@@ -1195,25 +1195,26 @@
     }
 
     .expedicaoResumo{
-      min-height:138px;
+      flex:0 0 50%;
+      min-height:225px;
       display:grid;
-      grid-template-columns: 1.05fr 1px 1.05fr 1px 1.15fr;
+      grid-template-columns: 1.08fr 1px 1.08fr 1px 1.16fr;
       align-items:center;
-      padding:10px 18px 8px 22px;
+      padding:24px 22px 18px 24px;
       gap:0;
     }
 
     .expedicaoMetric{
       display:grid;
-      grid-template-columns:60px 1fr;
+      grid-template-columns:78px 1fr;
       align-items:center;
-      gap:14px;
+      gap:18px;
       min-width:0;
     }
 
     .expedicaoIcon{
-      width:58px;
-      height:58px;
+      width:72px;
+      height:72px;
       border-radius:50%;
       display:flex;
       align-items:center;
@@ -1238,10 +1239,10 @@
 
     .expedicaoLabel{
       color:rgba(233,236,245,.78);
-      font-size:15px;
+      font-size:17px;
       line-height:1.28;
       font-weight:500;
-      min-height:38px;
+      min-height:44px;
     }
 
     .expedicaoLabel.single{
@@ -1250,8 +1251,8 @@
     }
 
     .expedicaoNumber{
-      margin-top:4px;
-      font-size:36px;
+      margin-top:5px;
+      font-size:52px;
       line-height:1;
       font-weight:950;
       letter-spacing:.2px;
@@ -1259,14 +1260,14 @@
     }
 
     .expedicaoSub{
-      margin-top:6px;
+      margin-top:8px;
       color:rgba(233,236,245,.78);
-      font-size:13px;
+      font-size:15px;
       font-weight:900;
     }
 
     .expedicaoVDivider{
-      height:128px;
+      height:185px;
       border-right:1px dashed rgba(255,255,255,.18);
     }
 
@@ -1281,7 +1282,7 @@
 
     .expedicaoValorLabel{
       color:rgba(233,236,245,.80);
-      font-size:15px;
+      font-size:17px;
       line-height:1.2;
       font-weight:500;
       white-space:nowrap;
@@ -1289,8 +1290,8 @@
 
     .expedicaoValorOk,
     .expedicaoValorBad{
-      margin-top:3px;
-      font-size:18px;
+      margin-top:5px;
+      font-size:22px;
       line-height:1.1;
       font-weight:500;
       white-space:nowrap;
@@ -1391,7 +1392,7 @@
           <div class="expedicaoResumo">
             <div class="expedicaoMetric">
               <div class="expedicaoIcon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" width="36" height="36">
+                <svg viewBox="0 0 64 64" width="44" height="44">
                   <path d="M10 18h30v22H10z" fill="none" stroke="currentColor" stroke-width="2.2"/>
                   <path d="M40 26h9l7 8v6H40z" fill="none" stroke="currentColor" stroke-width="2.2"/>
                   <path d="M18 44a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm28 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" fill="none" stroke="currentColor" stroke-width="2.2"/>
@@ -1409,12 +1410,13 @@
 
             <div class="expedicaoMetric">
               <div class="expedicaoIcon strong" aria-hidden="true">
-                <svg viewBox="0 0 64 64" width="36" height="36">
-                  <path d="M10 22h28v20H10z" fill="currentColor" opacity=".24"/>
-                  <path d="M38 28h10l7 7v7H38z" fill="currentColor" opacity=".24"/>
-                  <path d="M14 26h20m-20 8h13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-                  <path d="M20 48a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm28 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" fill="currentColor"/>
-                  <path d="M21 16c2.5 0 4 1.4 4 3.2 0 3.8-5.6 5.2-9.3 7.4C13.2 24.4 12 22.4 12 20.4c0-2 1.6-3.4 3.7-3.4 1.3 0 2.5.5 3.3 1.5.5-1.4 1.3-2.5 2-2.5z" fill="#fff" opacity=".9"/>
+                <svg viewBox="0 0 64 64" width="44" height="44">
+                  <path d="M10 18h30v22H10z" fill="currentColor" opacity=".95"/>
+                  <path d="M40 26h9l7 8v6H40z" fill="currentColor" opacity=".95"/>
+                  <path d="M18 44a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm28 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" fill="currentColor"/>
+                  <path d="M10 40h3m10 0h18m10 0h5" stroke="#ffd0aa" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="23" cy="25" r="8" fill="#fff" opacity=".92"/>
+                  <path d="M19.5 25.2l2.4 2.3 5-5.2" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="expedicaoText">
