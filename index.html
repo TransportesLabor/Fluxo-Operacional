@@ -1139,6 +1139,155 @@
       font-weight: 800;
     }
 
+
+
+    /* ===== QUADRO EXPEDIÇÃO ===== */
+    .expedicaoPanel{
+      min-height: var(--bottomPanelH);
+      height: var(--bottomPanelH);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+    }
+
+    .expedicaoPanel .ph{
+      background: rgba(0,0,0,.14);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      padding: 12px 14px;
+      min-height: 48px;
+    }
+
+    .expedicaoBody{
+      flex: 1 1 auto;
+      min-height: 0;
+      background: #1f2b3a;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .expedicaoIndicadores{
+      height: 50%;
+      min-height: 210px;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1.08fr;
+      align-items: stretch;
+      padding: 10px 18px 12px;
+      border-bottom: 1px dashed rgba(255,255,255,.22);
+    }
+
+    .expedicaoDivisor{
+      width: 1px;
+      height: 100%;
+      border-right: 1px dashed rgba(255,255,255,.20);
+      align-self: stretch;
+    }
+
+    .expedicaoKpi{
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 0 18px;
+    }
+
+    .expedicaoIcone{
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #ffd5b8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .expedicaoIcone svg{
+      width: 38px;
+      height: 38px;
+      display:block;
+    }
+
+    .expedicaoTitulo{
+      font-size: clamp(15px, 1vw, 18px);
+      line-height: 1.25;
+      color: rgba(233,236,245,.84);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .expedicaoNumero{
+      font-size: clamp(42px, 3.5vw, 62px);
+      line-height: .95;
+      color: #ffb27c;
+      font-weight: 950;
+      letter-spacing: .2px;
+    }
+
+    .expedicaoSub{
+      margin-top: 8px;
+      font-size: 15px;
+      color: rgba(233,236,245,.82);
+      font-weight: 800;
+    }
+
+    .expedicaoValores{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 24px;
+      padding: 0 20px;
+    }
+
+    .expedicaoValorTitulo{
+      color: rgba(233,236,245,.82);
+      font-size: clamp(15px, 1vw, 18px);
+      line-height: 1.2;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    .expedicaoValor{
+      font-size: clamp(18px, 1.45vw, 26px);
+      line-height: 1.05;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .expedicaoValor.ok{ color: #9bd98a; }
+    .expedicaoValor.bad{ color: #ff3b3b; }
+
+    .expedicaoAreaLivre{
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    @media (max-width: 1200px){
+      .expedicaoIndicadores{
+        height: auto;
+        min-height: 0;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+
+      .expedicaoDivisor{ display:none; }
+
+      .expedicaoKpi{
+        grid-template-columns: 64px 1fr;
+        justify-content:start;
+        padding: 0;
+      }
+
+      .expedicaoValores{
+        padding: 0;
+      }
+    }
+
     @media (max-width: 980px){
       .gerencialTop{ grid-template-columns: 1fr; }
       .gerencialGrid{ grid-template-columns: 1fr; }
@@ -1159,156 +1308,6 @@
         height:auto !important;
         min-height: 360px !important;
       }
-    }
-
-
-
-    /* Quadro Expedição */
-    #panelExpedicao{
-      background:#1f2937;
-      border:1px solid rgba(255,255,255,.10);
-      min-height:var(--bottomPanelH);
-      height:var(--bottomPanelH);
-    }
-
-    #panelExpedicao .expPh{
-      padding:12px 14px;
-      min-height:auto;
-      background:rgba(0,0,0,.14);
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
-
-    #panelExpedicao .ttl{
-      font-size:inherit;
-      line-height:normal;
-      color:inherit;
-      font-weight:800;
-    }
-
-    .expedicaoPanelBody{
-      flex:1 1 auto;
-      min-height:0;
-      display:flex;
-      flex-direction:column;
-      background:#1f2937;
-      color:rgba(233,236,245,.92);
-    }
-
-    .expedicaoResumo{
-      flex:0 0 50%;
-      min-height:225px;
-      display:grid;
-      grid-template-columns: 1.08fr 1px 1.08fr 1px 1.16fr;
-      align-items:center;
-      padding:24px 22px 18px 24px;
-      gap:0;
-    }
-
-    .expedicaoMetric{
-      display:grid;
-      grid-template-columns:78px 1fr;
-      align-items:center;
-      gap:18px;
-      min-width:0;
-    }
-
-    .expedicaoIcon{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#c25d1e;
-      background:#ffd0aa;
-      box-shadow:0 8px 18px rgba(0,0,0,.14);
-      flex:0 0 auto;
-    }
-
-    .expedicaoIcon.strong{
-      background:#ffd0aa;
-      color:#c95f1f;
-    }
-
-    .expedicaoText{
-      min-width:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .expedicaoLabel{
-      color:rgba(233,236,245,.78);
-      font-size:17px;
-      line-height:1.28;
-      font-weight:500;
-      min-height:44px;
-    }
-
-    .expedicaoLabel.single{
-      display:flex;
-      align-items:flex-end;
-    }
-
-    .expedicaoNumber{
-      margin-top:5px;
-      font-size:52px;
-      line-height:1;
-      font-weight:950;
-      letter-spacing:.2px;
-      color:#ffb07a;
-    }
-
-    .expedicaoSub{
-      margin-top:8px;
-      color:rgba(233,236,245,.78);
-      font-size:15px;
-      font-weight:900;
-    }
-
-    .expedicaoVDivider{
-      height:185px;
-      border-right:1px dashed rgba(255,255,255,.18);
-    }
-
-    .expedicaoValores{
-      padding-left:18px;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      justify-content:center;
-      min-width:0;
-    }
-
-    .expedicaoValorLabel{
-      color:rgba(233,236,245,.80);
-      font-size:17px;
-      line-height:1.2;
-      font-weight:500;
-      white-space:nowrap;
-    }
-
-    .expedicaoValorOk,
-    .expedicaoValorBad{
-      margin-top:5px;
-      font-size:22px;
-      line-height:1.1;
-      font-weight:500;
-      white-space:nowrap;
-    }
-
-    .expedicaoValorOk{ color:#a7d681; }
-    .expedicaoValorBad{ color:#ff3535; }
-
-    .expedicaoHDivider{
-      margin:0 8px;
-      border-top:1px dashed rgba(255,255,255,.18);
-      flex:0 0 auto;
-    }
-
-    .expedicaoEmptySpace{
-      flex:1 1 auto;
-      min-height:0;
     }
 
     @media (max-width: 980px){
@@ -1383,70 +1382,76 @@
     </section>
 
     <section class="grid2">
-      <div class="panel panelDark" id="panelExpedicao">
-        <div class="ph expPh">
+<div class="panel panelDark expedicaoPanel" id="panelExpedicao">
+        <div class="ph">
           <div class="ttl">Expedição</div>
+          <div class="badge" id="expedicaoPeriodo">—</div>
         </div>
 
-        <div class="expedicaoPanelBody">
-          <div class="expedicaoResumo">
-            <div class="expedicaoMetric">
-              <div class="expedicaoIcon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" width="44" height="44">
-                  <path d="M10 18h30v22H10z" fill="none" stroke="currentColor" stroke-width="2.2"/>
-                  <path d="M40 26h9l7 8v6H40z" fill="none" stroke="currentColor" stroke-width="2.2"/>
-                  <path d="M18 44a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm28 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" fill="none" stroke="currentColor" stroke-width="2.2"/>
-                  <path d="M10 40h3m10 0h18m10 0h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <div class="expedicaoBody">
+          <div class="expedicaoIndicadores">
+            <div class="expedicaoKpi">
+              <div class="expedicaoIcone" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 24H36V45H10V24Z" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M36 31H47L54 38V45H36V31Z" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M47 31V38H54" stroke="#d36524" stroke-width="2.4"/>
+                  <circle cx="21" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
+                  <circle cx="45" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
                 </svg>
               </div>
-              <div class="expedicaoText">
-                <div class="expedicaoLabel">Aguardando<br>Coleta</div>
-                <div class="expedicaoNumber" id="expAguardandoColeta">—</div>
+
+              <div class="expedicaoTexto">
+                <div class="expedicaoTitulo">Aguardando<br/>Coleta</div>
+                <div class="expedicaoNumero" id="aguardandoColeta">—</div>
                 <div class="expedicaoSub">pedidos</div>
               </div>
             </div>
 
-            <div class="expedicaoVDivider"></div>
+            <div class="expedicaoDivisor"></div>
 
-            <div class="expedicaoMetric">
-              <div class="expedicaoIcon strong" aria-hidden="true">
-                <svg viewBox="0 0 64 64" width="44" height="44">
-                  <path d="M10 18h30v22H10z" fill="currentColor" opacity=".95"/>
-                  <path d="M40 26h9l7 8v6H40z" fill="currentColor" opacity=".95"/>
-                  <path d="M18 44a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm28 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" fill="currentColor"/>
-                  <path d="M10 40h3m10 0h18m10 0h5" stroke="#ffd0aa" stroke-width="2.2" stroke-linecap="round"/>
-                  <circle cx="23" cy="25" r="8" fill="#fff" opacity=".92"/>
-                  <path d="M19.5 25.2l2.4 2.3 5-5.2" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <div class="expedicaoKpi">
+              <div class="expedicaoIcone" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 24H36V45H10V24Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M36 31H47L54 38V45H36V31Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M47 31V38H54" stroke="#ffd5b8" stroke-width="2.2"/>
+                  <circle cx="21" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
+                  <circle cx="45" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
+                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="25" cy="29" r="9" fill="#ffd5b8"/>
+                  <path d="M20.5 28.8L23.7 32L30.5 25.5" stroke="#d36524" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <div class="expedicaoText">
-                <div class="expedicaoLabel single">Coletado</div>
-                <div class="expedicaoNumber" id="expColetado">—</div>
+
+              <div class="expedicaoTexto">
+                <div class="expedicaoTitulo">Coletado</div>
+                <div class="expedicaoNumero" id="coletado">—</div>
                 <div class="expedicaoSub">pedidos</div>
               </div>
             </div>
 
-            <div class="expedicaoVDivider"></div>
+            <div class="expedicaoDivisor"></div>
 
             <div class="expedicaoValores">
-              <div class="expedicaoValorBox">
-                <div class="expedicaoValorLabel">Valor coletado</div>
-                <div class="expedicaoValorOk" id="expValorColetado">—</div>
+              <div>
+                <div class="expedicaoValorTitulo">Valor coletado</div>
+                <div class="expedicaoValor ok" id="valorColetado">—</div>
               </div>
 
-              <div class="expedicaoValorBox">
-                <div class="expedicaoValorLabel">Valor Pendente de coleta</div>
-                <div class="expedicaoValorBad" id="expValorPendenteColeta">—</div>
+              <div>
+                <div class="expedicaoValorTitulo">Valor Pendente de coleta</div>
+                <div class="expedicaoValor bad" id="valorPendente">—</div>
               </div>
             </div>
           </div>
 
-          <div class="expedicaoHDivider"></div>
-          <div class="expedicaoEmptySpace" aria-hidden="true"></div>
+          <div class="expedicaoAreaLivre"></div>
         </div>
       </div>
 
-      <div class="panel panelDark painelGerencial" id="panelGerencial">
+            <div class="panel panelDark painelGerencial" id="panelGerencial">
         <div class="ph">
           <div class="ttl">Transportes</div>
           <div class="badge" id="gerencialPeriodo">—</div>
@@ -2040,8 +2045,37 @@
     }
 
     function renderTables(data, carrier){
-      // Quadro de Notas em Atraso substituído por Expedição.
-      return;
+      const now = parseUpdatedDate(data.updated_at);
+
+      const atrasoAll = (data.notas_em_atraso || []).slice()
+        .sort((a,b) => String(a.previsao_entrega || '').localeCompare(String(b.previsao_entrega || '')));
+
+      const atrasoList = applyCarrierFilter(atrasoAll, carrier);
+
+      const atrasoCountEl = document.getElementById('atrasoCount');
+      const atrasoBody = document.getElementById('tbodyAtraso');
+      if (!atrasoCountEl || !atrasoBody) return;
+
+      atrasoCountEl.textContent = `${atrasoList.length} itens`;
+      atrasoBody.innerHTML = '';
+
+      for (const it of atrasoList){
+        const prev = parseDateFlex(it.previsao_entrega);
+        const lateDays = prev ? Math.max(0, daysDiff(now, prev)) : 0;
+        const pillClass = lateDays >= 10 ? 'pill bad' : (lateDays >= 5 ? 'pill' : 'pill good');
+        const ocorr = (it.ocorrencia && String(it.ocorrencia).trim()) ? String(it.ocorrencia).trim() : '—';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${String(it.nota_fiscal ?? '—').trim()}</strong></td>
+          <td>${String(it.destinatario ?? '—').trim()}</td>
+          <td><span class="muted">${String(it.transportador ?? '—').trim()}</span></td>
+          <td>${formatBRDateFlex(it.previsao_entrega)}</td>
+          <td>${ocorr}</td>
+          <td><span class="${pillClass}">${lateDays}d</span></td>
+        `;
+        atrasoBody.appendChild(tr);
+      }
     }
 
     function pctText(value){
@@ -2423,6 +2457,28 @@ function renderSlaGauge(sla){
       document.getElementById('pedidosModal').style.display = 'flex';
     }
 
+
+
+    function renderExpedicao(data){
+      const expedicao = data.expedicao || {};
+      const aguardando = Number(expedicao.aguardando_coleta ?? 0);
+      const coletado = Number(expedicao.coletado ?? 0);
+      const valorColetado = parseBRLValue(expedicao.valor_coletado ?? 0);
+      const valorPendente = parseBRLValue(expedicao.valor_pendente_coleta ?? 0);
+
+      const aguardandoEl = document.getElementById('aguardandoColeta');
+      const coletadoEl = document.getElementById('coletado');
+      const valorColetadoEl = document.getElementById('valorColetado');
+      const valorPendenteEl = document.getElementById('valorPendente');
+      const periodoEl = document.getElementById('expedicaoPeriodo');
+
+      if (aguardandoEl) aguardandoEl.textContent = aguardando.toLocaleString('pt-BR');
+      if (coletadoEl) coletadoEl.textContent = coletado.toLocaleString('pt-BR');
+      if (valorColetadoEl) valorColetadoEl.textContent = fmtBRL.format(valorColetado);
+      if (valorPendenteEl) valorPendenteEl.textContent = fmtBRL.format(valorPendente);
+      if (periodoEl) periodoEl.textContent = expedicao.periodo || 'Atual';
+    }
+
     function syncLeftToPedidosHeight(){
       const panelPedidos = document.getElementById('panelPedidos');
       const leftCol = document.getElementById('leftCol');
@@ -2441,55 +2497,6 @@ function renderSlaGauge(sla){
       const ph = panelRecebimento.querySelector('.ph');
       const phH = ph ? ph.offsetHeight : 56;
       scrollRecebimento.style.maxHeight = Math.max(120, pedidosH - phH) + 'px';
-    }
-
-
-
-    function getNestedNumber(obj, keys, fallback = 0){
-      for (const key of keys){
-        const value = key.split('.').reduce((acc, part) => acc && acc[part], obj);
-        const n = parseBRLValue(value);
-        if (Number.isFinite(n) && n !== 0) return n;
-      }
-      return fallback;
-    }
-
-    function renderExpedicao(data){
-      const exp = data?.expedicao || {};
-
-      const aguardando = getNestedNumber(data, [
-        'expedicao.aguardando_coleta',
-        'expedicao.aguardandoColeta',
-        'aguardando_coleta'
-      ]);
-
-      const coletado = getNestedNumber(data, [
-        'expedicao.coletado',
-        'expedicao.pedidos_coletados',
-        'coletado'
-      ]);
-
-      const valorColetado = getNestedNumber(data, [
-        'expedicao.valor_coletado',
-        'expedicao.valorColetado',
-        'valor_coletado'
-      ]);
-
-      const valorPendente = getNestedNumber(data, [
-        'expedicao.valor_pendente_coleta',
-        'expedicao.valorPendenteColeta',
-        'valor_pendente_coleta'
-      ]);
-
-      const setText = (id, value) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-      };
-
-      setText('expAguardandoColeta', aguardando.toLocaleString('pt-BR'));
-      setText('expColetado', coletado.toLocaleString('pt-BR'));
-      setText('expValorColetado', fmtBRL.format(valorColetado));
-      setText('expValorPendenteColeta', fmtBRL.format(valorPendente));
     }
 
     function syncNotesToPedidosHeight(){
