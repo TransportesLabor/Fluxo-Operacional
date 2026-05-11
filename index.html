@@ -1266,6 +1266,57 @@
       min-height: 0;
     }
 
+
+    /* ===== AJUSTE: TOPO SEM ESPAÇO OCIOSO ===== */
+    .topRow{
+      min-height: 0;
+      align-items: start;
+    }
+
+    .leftCol{
+      height: auto;
+      min-height: 0;
+    }
+
+    #panelPedidos,
+    #panelRecebimento{
+      min-height: 0;
+      height: auto;
+    }
+
+    #scrollPedidos{
+      flex: 0 0 auto !important;
+    }
+
+    /* ===== EXPEDIÇÃO EM DESENVOLVIMENTO ===== */
+    .expedicaoPlaceholder{
+      flex: 1 1 auto;
+      min-height: 0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      color: rgba(233,236,245,.38);
+      background: #1f2b3a;
+      text-align:center;
+      letter-spacing:.2px;
+    }
+
+    .expedicaoPlaceholder svg{
+      width: 58px;
+      height: 58px;
+      opacity:.42;
+      color: rgba(233,236,245,.55);
+    }
+
+    .expedicaoPlaceholderText{
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+
     @media (max-width: 1200px){
       .expedicaoIndicadores{
         height: auto;
@@ -1389,67 +1440,16 @@
         </div>
 
         <div class="expedicaoBody">
-          <div class="expedicaoIndicadores">
-            <div class="expedicaoKpi">
-              <div class="expedicaoIcone" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 24H36V45H10V24Z" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M36 31H47L54 38V45H36V31Z" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M47 31V38H54" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="21" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="45" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
-                </svg>
-              </div>
-
-              <div class="expedicaoTexto">
-                <div class="expedicaoTitulo">Aguardando<br/>Coleta</div>
-                <div class="expedicaoNumero" id="aguardandoColeta">—</div>
-                <div class="expedicaoSub">pedidos</div>
-              </div>
-            </div>
-
-            <div class="expedicaoDivisor"></div>
-
-            <div class="expedicaoKpi">
-              <div class="expedicaoIcone" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 24H36V45H10V24Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M36 31H47L54 38V45H36V31Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M47 31V38H54" stroke="#ffd5b8" stroke-width="2.2"/>
-                  <circle cx="21" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="45" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="25" cy="29" r="9" fill="#ffd5b8"/>
-                  <path d="M20.5 28.8L23.7 32L30.5 25.5" stroke="#d36524" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-
-              <div class="expedicaoTexto">
-                <div class="expedicaoTitulo">Coletado</div>
-                <div class="expedicaoNumero" id="coletado">—</div>
-                <div class="expedicaoSub">pedidos</div>
-              </div>
-            </div>
-
-            <div class="expedicaoDivisor"></div>
-
-            <div class="expedicaoValores">
-              <div>
-                <div class="expedicaoValorTitulo">Valor coletado</div>
-                <div class="expedicaoValor ok" id="valorColetado">—</div>
-              </div>
-
-              <div>
-                <div class="expedicaoValorTitulo">Valor Pendente de coleta</div>
-                <div class="expedicaoValor bad" id="valorPendente">—</div>
-              </div>
-            </div>
+          <div class="expedicaoPlaceholder" aria-label="Expedição em desenvolvimento">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M30 10H34L43 49H21L30 10Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M25 30H39" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+              <path d="M23 41H41" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+              <path d="M17 54H47" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <div class="expedicaoPlaceholderText">Em desenvolvimento</div>
           </div>
-
-          <div class="expedicaoAreaLivre"></div>
         </div>
-      </div>
 
             <div class="panel panelDark painelGerencial" id="panelGerencial">
         <div class="ph">
@@ -1579,7 +1579,8 @@
       speedPxPerTick = 1,
       tickMs = 90,
       pauseAtEndMs = 2200,
-      pauseAtTopMs = 900
+      pauseAtTopMs = 900,
+      resetToTopAtEnd = false
     } = {}){
       if (!el) return null;
 
@@ -1600,9 +1601,17 @@
 
           if (el.scrollTop >= maxScroll){
             el.scrollTop = maxScroll;
-            direction = -1;
             pause = true;
-            setTimeout(() => { pause = false; }, pauseAtEndMs);
+
+            setTimeout(() => {
+              if (resetToTopAtEnd) {
+                el.scrollTop = 0;
+                direction = 1;
+              } else {
+                direction = -1;
+              }
+              pause = false;
+            }, pauseAtEndMs);
           } else if (el.scrollTop <= 0){
             el.scrollTop = 0;
             direction = 1;
@@ -1628,7 +1637,7 @@
         startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 })
       );
       autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 2200, pauseAtTopMs: 900 })
+        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 1400, pauseAtTopMs: 600, resetToTopAtEnd: true })
       );
     }
 
@@ -2476,7 +2485,7 @@ function renderSlaGauge(sla){
       if (coletadoEl) coletadoEl.textContent = coletado.toLocaleString('pt-BR');
       if (valorColetadoEl) valorColetadoEl.textContent = fmtBRL.format(valorColetado);
       if (valorPendenteEl) valorPendenteEl.textContent = fmtBRL.format(valorPendente);
-      if (periodoEl) periodoEl.textContent = expedicao.periodo || 'Atual';
+      if (periodoEl) periodoEl.textContent = 'Em desenvolvimento';
     }
 
     function syncLeftToPedidosHeight(){
@@ -2484,19 +2493,42 @@ function renderSlaGauge(sla){
       const leftCol = document.getElementById('leftCol');
       const panelRecebimento = document.getElementById('panelRecebimento');
       const scrollRecebimento = document.getElementById('scrollRecebimento');
+      const scrollPedidos = document.getElementById('scrollPedidos');
 
-      if (!panelPedidos || !leftCol || !panelRecebimento || !scrollRecebimento) return;
-      if (window.innerWidth <= 1200) return;
+      if (!panelPedidos || !leftCol || !panelRecebimento || !scrollRecebimento || !scrollPedidos) return;
 
-      const pedidosH = panelPedidos.offsetHeight;
+      if (window.innerWidth <= 1200) {
+        leftCol.style.height = '';
+        leftCol.style.minHeight = '';
+        panelPedidos.style.height = '';
+        panelPedidos.style.minHeight = '';
+        panelRecebimento.style.height = '';
+        panelRecebimento.style.minHeight = '';
+        scrollRecebimento.style.maxHeight = '';
+        return;
+      }
+
+      panelPedidos.style.height = 'auto';
+      panelPedidos.style.minHeight = '0px';
+      leftCol.style.height = 'auto';
+      leftCol.style.minHeight = '0px';
+      panelRecebimento.style.height = 'auto';
+      panelRecebimento.style.minHeight = '0px';
+
+      const pedidosHead = panelPedidos.querySelector('.ph');
+      const pedidosTable = scrollPedidos.querySelector('table');
+      const pedidosH = Math.ceil((pedidosHead?.offsetHeight || 0) + (pedidosTable?.offsetHeight || scrollPedidos.scrollHeight || 0));
+
+      panelPedidos.style.height = pedidosH + 'px';
+      panelPedidos.style.minHeight = pedidosH + 'px';
       leftCol.style.height = pedidosH + 'px';
       leftCol.style.minHeight = pedidosH + 'px';
       panelRecebimento.style.height = pedidosH + 'px';
       panelRecebimento.style.minHeight = pedidosH + 'px';
 
-      const ph = panelRecebimento.querySelector('.ph');
-      const phH = ph ? ph.offsetHeight : 56;
-      scrollRecebimento.style.maxHeight = Math.max(120, pedidosH - phH) + 'px';
+      const recebimentoHead = panelRecebimento.querySelector('.ph');
+      const recebimentoHeadH = recebimentoHead ? recebimentoHead.offsetHeight : 56;
+      scrollRecebimento.style.maxHeight = Math.max(120, pedidosH - recebimentoHeadH) + 'px';
     }
 
     function syncNotesToPedidosHeight(){
