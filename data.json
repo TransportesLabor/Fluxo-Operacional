@@ -303,7 +303,7 @@
     }
 },
     "expedicao":  {
-     "aguardando_coleta"; "0",
+     "aguardando_coleta": "0",
      "coletado": "0",
      "valor_coletado": "0",
      "valor_pendente_coleta": "0"
