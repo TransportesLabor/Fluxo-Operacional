@@ -1599,16 +1599,13 @@
           el.scrollTop += speedPxPerTick * direction;
 
           if (el.scrollTop >= maxScroll){
-            el.scrollTop = maxScroll;
-            direction = -1;
-            pause = true;
-            setTimeout(() => { pause = false; }, pauseAtEndMs);
-          } else if (el.scrollTop <= 0){
-            el.scrollTop = 0;
-            direction = 1;
-            pause = true;
-            setTimeout(() => { pause = false; }, pauseAtTopMs);
-          }
+          pause = true;
+
+          setTimeout(() => {
+          el.scrollTop = 0;
+          pause = false;
+          }, pauseAtEndMs);
+        }
         }, tickMs);
       };
 
