@@ -1,281 +1,1356 @@
 {
-  "updated_at": "11/05/2026 15:56",
+  "updated_at": "06/05/2026 11:59",
   "kpis": {
-    "notas_em_atraso": 28,
-    "previstas_para_hoje": 98,
-    "entregues_hoje": 77
+    "notas_em_atraso": 29,
+    "previstas_para_hoje": 118,
+    "entregues_hoje": 75
   },
   "pedidos_status": [
-    { "status": "Aguardando Liberação", "quantidade": 2, "valor": "9863" },
-    { "status": "Alvará Sanitário", "quantidade": 7, "valor": "15449,47" },
-    { "status": "Bloqueado por regra", "quantidade": 2, "valor": "7702,65" },
-    { "status": "Análise de Crédito", "quantidade": 16, "valor": "162994,8" },
-    { "status": "Total em Disputa", "quantidade": 27, "valor": "196009,92" },
-    { "status": "Aguard. Envio Separação", "quantidade": 4, "valor": "1638,49" },
-    { "status": "Em Separação", "quantidade": 1, "valor": "4627,69" },
-    { "status": "Separado", "quantidade": 0, "valor": "0" },
-    { "status": "Faturado", "quantidade": 0, "valor": "0" },
-    { "status": "Total", "quantidade": 5, "valor": "6266,18" }
- ],
- "recebimento_produtos": [
-   { "embarque": "25.03-PHOENIX",  "tipo": "Container", "data_recebimento": "04/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Finalizado" },
-   { "embarque": "25.07-WEIGAO",  "tipo": "Container", "data_recebimento": "05/05/26", "confirmado": "SIM", "chegou_cd": "Previsto",  "status": "Em trânsito para o CD" },
-   { "embarque": "25.05-WEIGAO",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
-   { "embarque": "25.07-SHA",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
-   { "embarque": "25.03-TIANDI",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Aguardando NF Mãe" },
-   { "embarque": "25.06-DAILY",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Aguardando NF Mãe" },
-   { "embarque": "25.01-TIANDA",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Aguardando NF Mãe" },
-   { "embarque": "25.07-NOVEL",  "tipo": "Container", "data_recebimento": "06/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Aguardando NF Mãe" },
-   { "embarque": "25.04 - AYSET",  "tipo": "Container", "data_recebimento": "07/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
-   { "embarque": "25.04 - PHOENIX",  "tipo": "Container", "data_recebimento": "08/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" }
-
-
-
+    {
+      "status": "Aguardando Liberação",
+      "quantidade": 0,
+      "valor": "0"
+    },
+    {
+      "status": "Alvará Sanitário",
+      "quantidade": 8,
+      "valor": "99545,8"
+    },
+    {
+      "status": "Bloqueado por regra",
+      "quantidade": 4,
+      "valor": "8084,58"
+    },
+    {
+      "status": "Análise de Crédito",
+      "quantidade": 8,
+      "valor": "125993,37"
+    },
+    {
+      "status": "Total em Disputa",
+      "quantidade": 20,
+      "valor": "233623,75"
+    },
+    {
+      "status": "Aguard. Envio Separação",
+      "quantidade": 3,
+      "valor": "9832,55"
+    },
+    {
+      "status": "Em Separação",
+      "quantidade": 8,
+      "valor": "49711,04"
+    },
+    {
+      "status": "Separado",
+      "quantidade": 6,
+      "valor": "24906,46"
+    },
+    {
+      "status": "Faturado",
+      "quantidade": 9,
+      "valor": "28473,85"
+    },
+    {
+      "status": "Total",
+      "quantidade": 26,
+      "valor": "112923,9"
+    }
   ],
- "notas_em_atraso": [
-   {"nota_fiscal": "205632 ", "destinatario": "18588224000121 - NACIONAL COMERCIO E REPRESENTACAO EIRELLI ", "transportador": "LOGDI ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206744 ", "destinatario": "60961968000106 - HOSPITAL A C CAMARGO ", "transportador": "JAMEF ", "previsao_entrega": "07/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205368 ", "destinatario": "20839886000179 - TNH CLINICA RADIOLOGICA EIRELI ", "transportador": "LATAM ", "previsao_entrega": "29/04/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205947 ", "destinatario": "45030413000157 - V R P OLIV COM REPR EQUIP MEDICO HOSP LT ", "transportador": "LATAM ", "previsao_entrega": "07/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206770 ", "destinatario": "00814559001208 - SURYA DENTAL COMERCIO DE PRODUTOS ODONTO ", "transportador": "TGL ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205311 ", "destinatario": "24564626000199 - TEMPO COML DISTRIB MEDICAMENTOS EIRELI ", "transportador": "TECMAR ", "previsao_entrega": "06/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "203935 ", "destinatario": "46336879000148 - DISMA DISTRIBUIDORA MARANHAO LTDA ", "transportador": "LOGDI ", "previsao_entrega": "17/04/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205899 ", "destinatario": "12147888000179 - SUPER MEDICO COM. DE MATERIAL MEDICO ", "transportador": "AZURELOG ", "previsao_entrega": "04/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "204536 ", "destinatario": "08309283000160 - O A LIMA ME ", "transportador": "LOGDI ", "previsao_entrega": "24/04/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "204953 ", "destinatario": "12219083000193 - CLINICA DE IMAGENOLOGIA CODO LTDA ", "transportador": "LOGDI ", "previsao_entrega": "04/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205409 ", "destinatario": "18588224000121 - NACIONAL COMERCIO E REPRESENTACAO EIRELLI ", "transportador": "TECMAR ", "previsao_entrega": "06/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206041 ", "destinatario": "00970175000121 - M.S. DIAGNOSTICA LTDA ", "transportador": "AZURELOG ", "previsao_entrega": "05/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206708 ", "destinatario": "04539279019407 - CIENTIFICALAB PRODUTOS LABORATORIAIS E S ", "transportador": "JAMEF ", "previsao_entrega": "07/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206783 ", "destinatario": "61051942000193 - MOSAICO COMERCIAL E SERVICOS LTDA ", "transportador": "AZUL ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "203731 ", "destinatario": "49197316000104 - GUANAMBI DISTRIB INSUMOS HOSP LTDA ", "transportador": "AZUL ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "204723 ", "destinatario": "02770479000170 - DYNAMIC MED DISTRIBUIDORA DE MEDICAMENTO ", "transportador": "LOGDI ", "previsao_entrega": "28/04/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205050 ", "destinatario": "46336879000148 - DISMA DISTRIBUIDORA MARANHAO LTDA ", "transportador": "LOGDI ", "previsao_entrega": "07/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205285 ", "destinatario": "34577439000101 - BRASIL SHOPPING EIRELI ", "transportador": "LOGDI ", "previsao_entrega": "04/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205975 ", "destinatario": "08765948000140 - GIL FARMA COMERCIAL FARMACEUTICOS LTDA - ", "transportador": "PATRUS ", "previsao_entrega": "06/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206339 ", "destinatario": "10274670000150 - G F FREIRE PRODUTOS MEDICOS VETERINARIOS ", "transportador": "AZUL ", "previsao_entrega": "06/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206416 ", "destinatario": "91687376001810 - LABORATORIO EXAME DE ANALISES CLINICAS LTDA ", "transportador": "ARLETE ", "previsao_entrega": "05/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205334 ", "destinatario": "08309283000160 - O A LIMA ME ", "transportador": "LOGDI ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205636 ", "destinatario": "05073321000130 - M F L PINTO EIRELI ", "transportador": "LOGDI ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "205684 ", "destinatario": "26896160000154 - A K M M VASCONCELOS EIRELI ", "transportador": "TECMAR ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206401 ", "destinatario": "37556213000104 - AHCOR COM PRODUTOS ODONTOLOGICOS LTDA ", "transportador": "AZUL ", "previsao_entrega": "08/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206626 ", "destinatario": "04539279019407 - CIENTIFICALAB PRODUTOS LABORATORIAIS E S ", "transportador": "JAMEF ", "previsao_entrega": "06/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "206578 ", "destinatario": "04539279019407 - CIENTIFICALAB PRODUTOS LABORATORIAIS E S ", "transportador": "JAMEF ", "previsao_entrega": "05/05/2026","ocorrencia": "Atrasado" },
-   {"nota_fiscal": "207020 ", "destinatario": "31187519839 - WAGNER GAMA FILHO ", "transportador": "ATIVA ", "previsao_entrega": "00/01/1900","ocorrencia": "Atrasado" }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "recebimento_produtos": [
+    {
+      "embarque": "25.03-PHOENIX",
+      "tipo": "Container",
+      "data_recebimento": "04/05/26",
+      "confirmado": "SIM",
+      "chegou_cd": "Finalizado",
+      "status": "Finalizado"
+    },
+    {
+      "embarque": "25.07-WEIGAO",
+      "tipo": "Container",
+      "data_recebimento": "05/05/26",
+      "confirmado": "SIM",
+      "chegou_cd": "Previsto",
+      "status": "Em trânsito para o CD"
+    },
+    {
+      "embarque": "25.05-WEIGAO",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.07-SHA",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.03-TIANDI",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.06-DAILY",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.01-TIANDA",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.07-NOVEL",
+      "tipo": "Container",
+      "data_recebimento": "06/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.04 - AYSET",
+      "tipo": "Container",
+      "data_recebimento": "07/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    },
+    {
+      "embarque": "25.04 - PHOENIX",
+      "tipo": "Container",
+      "data_recebimento": "08/05/26",
+      "confirmado": "Não",
+      "chegou_cd": "Previsto",
+      "status": "Aguardando Programação"
+    }
+  ],
+  "notas_em_atraso": [
+    {
+      "nota_fiscal": "205229 ",
+      "destinatario": "11006293000130 - HOSPITAL SAO DOMINGOS LTDA. ",
+      "transportador": "TECMAR ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205368 ",
+      "destinatario": "20839886000179 - TNH CLINICA RADIOLOGICA EIRELI ",
+      "transportador": "LATAM ",
+      "previsao_entrega": "29/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205825 ",
+      "destinatario": "12392848000192 - OPCAO DISTRIBUIDORA DE MATERIAIS HOSPITALARES LTDA ME ",
+      "transportador": "AZURELOG ",
+      "previsao_entrega": "30/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205796 ",
+      "destinatario": "11516136000175 - BRASIL MEDICO LABORATORIAL EIRELI ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "203935 ",
+      "destinatario": "46336879000148 - DISMA DISTRIBUIDORA MARANHAO LTDA ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "17/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205501 ",
+      "destinatario": "61486650020532 - DIAGNOSTICOS DA AMERICA S.A. ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "27/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205749 ",
+      "destinatario": "11984323000183 - CF CARE MATERIAL HOSPITALAR EIRELI - ME ",
+      "transportador": "AZURELOG ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205899 ",
+      "destinatario": "12147888000179 - SUPER MEDICO COM. DE MATERIAL MEDICO ",
+      "transportador": "AZURELOG ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "204953 ",
+      "destinatario": "12219083000193 - CLINICA DE IMAGENOLOGIA CODO LTDA ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205408 ",
+      "destinatario": "07778939000120 - LABORATORIO CEARENSE LTDA ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205059 ",
+      "destinatario": "10212250000149 - W. S. COMERCIO E SERVICOS EIRELI ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206320 ",
+      "destinatario": "04165404000196 - RAD LABORATORIO DE ANALISES CLINICAS LTD ",
+      "transportador": "AZUL ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205090 ",
+      "destinatario": "40934820000175 - INSTITUTO DE PATOLOGIA CLINICA LTDA ",
+      "transportador": "TECMAR ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206096 ",
+      "destinatario": "27325768000191 - PREMIUM HOSPITALAR EIRELE-ME ",
+      "transportador": "JAMEF ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "204536 ",
+      "destinatario": "08309283000160 - O A LIMA ME ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "24/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205897 ",
+      "destinatario": "54714055000192 - ES PRODUTOS PARA SAUDE LTDA ",
+      "transportador": "AZURELOG ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206495 ",
+      "destinatario": "57147318000117 - CLINIFLEX DISTRIBUIDORA DE PROD MED LTDA ",
+      "transportador": "ARLETE ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "203731 ",
+      "destinatario": "49197316000104 - GUANAMBI DISTRIB INSUMOS HOSP LTDA ",
+      "transportador": "AZUL ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205111 ",
+      "destinatario": "09435344000106 - CIRURGICA SPEDO LTDA ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "17/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205285 ",
+      "destinatario": "34577439000101 - BRASIL SHOPPING EIRELI ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205882 ",
+      "destinatario": "61486650020532 - DIAGNOSTICOS DA AMERICA S.A. ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "30/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "204723 ",
+      "destinatario": "02770479000170 - DYNAMIC MED DISTRIBUIDORA DE MEDICAMENTO ",
+      "transportador": "LOGDI ",
+      "previsao_entrega": "28/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205324 ",
+      "destinatario": "15138557000241 - ANDRADE E SCHNEIDER LTDA ",
+      "transportador": "JAMEF ",
+      "previsao_entrega": "29/04/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205488 ",
+      "destinatario": "40948968000169 - SENSORIAL SAUDE DISTRIBUIDORA LTDA ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "205795 ",
+      "destinatario": "13694036000164 - EMENALLI MEDICAL LTDA ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206014 ",
+      "destinatario": "14504853000175 - PASSOS COMERCIAL HOSPITALAR EIRELI - EPP ",
+      "transportador": "PATRUS ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206272 ",
+      "destinatario": "22060305861 - FERNANDO LUIZ ZANONI ",
+      "transportador": "AZUL ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206244 ",
+      "destinatario": "61486650073814 - DIAGNOSTICOS DAS AMERICAS S.A. ",
+      "transportador": "JAMEF ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    },
+    {
+      "nota_fiscal": "206388 ",
+      "destinatario": "61486650124583 - LABORATORIO SANTA LUZIA ",
+      "transportador": "SCHREIBER ",
+      "previsao_entrega": "04/05/2026",
+      "ocorrencia": "Atrasado"
+    }
   ],
   "notas_previstas_hoje": [
-   {"nota_fiscal": "206572 ", "destinatario": "03206558000116 - HELCIO SALLES ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "205373 ", "destinatario": "29042618000104 - T A A SANTOS DISTRIBUIDORA EIRELI ME ", "transportador": "TECMAR ", "cidade_destino": "MA ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "205617 ", "destinatario": "17227485000153 - L G PRODUTOS HOSPITALARES LTDA - ME ", "transportador": "TECMAR ", "cidade_destino": "PB ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206860 ", "destinatario": "59629519000186 - UDIMED COMERCIAL HOSPITALAR LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "205814 ", "destinatario": "04811428000175 - LABORATORIO GUADALUPE S S LTDA ", "transportador": "LOGDI ", "cidade_destino": "PA ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206387 ", "destinatario": "05905525000190 - BIOSUL PROD DIAGNOSTICOS LTDA - EPP ", "transportador": "LATAM ", "cidade_destino": "MG ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206944 ", "destinatario": "01838331000168 - LABORATORIO SANTE. ", "transportador": "SCHREIBER ", "cidade_destino": "SC ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206453 ", "destinatario": "43307039000169 - ALAMO DIST MEDICO HOSPITALAR LTDA ", "transportador": "LATAM ", "cidade_destino": "RO ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "205807 ", "destinatario": "29042618000104 - T A A SANTOS DISTRIBUIDORA EIRELI ME ", "transportador": "LOGDI ", "cidade_destino": "MA ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206421 ", "destinatario": "52653703000112 - VOLPE MED DISTRIB MEDICAMENTOS LTDA ", "transportador": "PATRUS ", "cidade_destino": "BA ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206423 ", "destinatario": "05876102000199 - PARAMED PROD MEDICO HOSPITALARES LTDA ", "transportador": "LATAM ", "cidade_destino": "MG ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "205896 ", "destinatario": "21245728000153 - LABLUZ SERVICOS LABORATORIAIS LTDA ", "transportador": "PATRUS ", "cidade_destino": "CE ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206076 ", "destinatario": "06106401000107 - DIMENSAO DISTRIBUIDORA HOSPITALAR EIRELI ", "transportador": "PATRUS ", "cidade_destino": "BA ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206655 ", "destinatario": "03738854000168 - GLEIDSON RODRIGUES RANULFO EIRELI ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206855 ", "destinatario": "10267695000126 - MEDICALL FARMA DISTRIBUIDORA DE MEDIC LTDA ME ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "11/05/2026" },
-   {"nota_fiscal": "206910 ", "destinatario": "40015746000193 - LOCAMED CIRURGICA LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206849 ", "destinatario": "88665914000112 - ASSOC CULT CIENTIF VIRVI RAMOS ", "transportador": "TGL ", "cidade_destino": "RS ", "data_entrega": "" },
-   {"nota_fiscal": "206789 ", "destinatario": "07830549000152 - ALTPREST COMERCIO E REPRESENTACOES DE PRODUTOS E S ", "transportador": "JAMEF ", "cidade_destino": "RJ ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206222 ", "destinatario": "35792484000133 - JET DIST MEDIC E MATL MED HOSP LTDA ", "transportador": "AZURELOG ", "cidade_destino": "ES ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206499 ", "destinatario": "26457348000104 - C.A DISTRIBUIDORA DE PRODUTOS HOSPITALAR ", "transportador": "LATAM ", "cidade_destino": "GO ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206680 ", "destinatario": "31498120000194 - A. M. A. P. DEL VECCHIO ", "transportador": "PATRUS ", "cidade_destino": "SP ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206699 ", "destinatario": "25164814000192 - MUNDO MEDICO PRODS HOSPS EIRELI-EPP ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206809 ", "destinatario": "74400052000191 - COMERCIAL 3ALBE LTDA ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206889 ", "destinatario": "05133297000187 - DISLAB COMERCIO DE PRODUTOS PARA LABORATORIOS ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "" },
-   {"nota_fiscal": "206396 ", "destinatario": "35957522000160 - DENTAL PROODONTO LTDA ", "transportador": "PATRUS ", "cidade_destino": "MG ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206449 ", "destinatario": "31797141000100 - XTEC MATERIAL HOSPITALAR LTDA ", "transportador": "LATAM ", "cidade_destino": "RJ ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206587 ", "destinatario": "27634076000125 - REMORA PRODUTOS PARA SAUDE EIRELI ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "205518 ", "destinatario": "01163981000150 - AMAZONIA HOSPITALAR LTDA ", "transportador": "LOGDI ", "cidade_destino": "MA ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206583 ", "destinatario": "33056353000162 - R2 MED DISTRIBUIDORA MEDICAMENTOS LTDA ", "transportador": "AZURELOG ", "cidade_destino": "DF ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "205635 ", "destinatario": "15218561000139 - NNMED DISTRIBUICAO IMP. E EXP. DE MED LT ", "transportador": "TECMAR ", "cidade_destino": "PB ", "data_entrega": "" },
-   {"nota_fiscal": "206201 ", "destinatario": "61486650020532 - DIAGNOSTICOS DA AMERICA S.A. ", "transportador": "PATRUS ", "cidade_destino": "RJ ", "data_entrega": "" },
-   {"nota_fiscal": "206881 ", "destinatario": "61844783000184 - KOURO'S MEDICINA DIAGNOSTICA EIRELI ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "09/05/2026" },
-   {"nota_fiscal": "206928 ", "destinatario": "16996080000117 - DELTAMED-H COMERCIO E SERVICOS LTDA - ME ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206165 ", "destinatario": "13741966000121 - W L COM PRODUTOS FARMACEUTICOS LTDA ", "transportador": "LATAM ", "cidade_destino": "AM ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206409 ", "destinatario": "45734817000121 - UNNI MEDICAL LTDA ", "transportador": "LATAM ", "cidade_destino": "MA ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206667 ", "destinatario": "53414825000119 - LOPES COSTA COMERCIAL LTDA ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206547 ", "destinatario": "16917181000155 - CCAF COMERCIO DE MEDICAMENTOS E MATERIAL HOSPIT EI ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206648 ", "destinatario": "02986234000428 - SUPERMIX VALE DISTRIBUIDORA S A ", "transportador": "PATRUS ", "cidade_destino": "SP ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206340 ", "destinatario": "02362983000131 - VISUAL COMER DE MATER HOSP LTD ", "transportador": "PATRUS ", "cidade_destino": "MG ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206440 ", "destinatario": "37647559000118 - L M EQUIP HOSPITALARES LTDA EPP ", "transportador": "LATAM ", "cidade_destino": "GO ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206542 ", "destinatario": "22860037000122 - W J RITSON COM PRODUTOS HOSPITALARES ", "transportador": "PATRUS ", "cidade_destino": "RJ ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206382 ", "destinatario": "22122781000120 - I O COSTA COMERCIO DE EQUIPAMENTOS EM GE ", "transportador": "AZURELOG ", "cidade_destino": "RJ ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206326 ", "destinatario": "10377864000180 - CARE MED DIST MED PRODUTOS PARA SAUDE LT ", "transportador": "AZURELOG ", "cidade_destino": "RJ ", "data_entrega": "" },
-   {"nota_fiscal": "206650 ", "destinatario": "33721226000998 - SAMO SA SO ASSISTENCIA MEDI ODON CIRURGI ", "transportador": "AZURELOG ", "cidade_destino": "RJ ", "data_entrega": "" },
-   {"nota_fiscal": "206609 ", "destinatario": "18479160000120 - PERSEVERANTE MEDICAMENTO CORRELATO HO LT ", "transportador": "AZURELOG ", "cidade_destino": "RJ ", "data_entrega": "" },
-   {"nota_fiscal": "206691 ", "destinatario": "39960498000170 - RICCO FARMA DISTRIBUIDORA LTDA ", "transportador": "AZUL ", "cidade_destino": "MA ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206891 ", "destinatario": "61844783000184 - KOURO'S MEDICINA DIAGNOSTICA EIRELI ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "11/05/2026" },
-   {"nota_fiscal": "206929 ", "destinatario": "35174786000148 - CANEM ARTIGOS MEDICOS HOSPITALARES LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206882 ", "destinatario": "21726285000112 - LABTECH ABC COMERCIO DE MATERIAIS DE EQUIPAMENTOS PARA HOSPI ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206869 ", "destinatario": "36613003000148 - AFLUI ARTIGOS MEDICOS LTDA ", "transportador": "JAMEF ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206973 ", "destinatario": "37438064000189 - WIMED  SOLUCOES EM DIAGNOSTICOS, TESTES ", "transportador": "TGL ", "cidade_destino": "PR ", "data_entrega": "" },
-   {"nota_fiscal": "206259 ", "destinatario": "05574072000166 - BIOMED CENTRO DE SAUDE LTDA ", "transportador": "AZUL ", "cidade_destino": "MT ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206402 ", "destinatario": "03037899000105 - DIAGNOSTICO ANALISES CLINICAS MT LTDA ", "transportador": "LATAM ", "cidade_destino": "MT ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206514 ", "destinatario": "60437949000185 - Saude Express ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206982 ", "destinatario": "60915760000150 - CIRURGICA PRIMEIRAMED ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "205638 ", "destinatario": "11249698000108 - F E N DENTAL COM LTDA ME ", "transportador": "TECMAR ", "cidade_destino": "PE ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "205646 ", "destinatario": "40787152000109 - CIRUFARMA COMERCIAL LTDA ", "transportador": "LOGDI ", "cidade_destino": "RN ", "data_entrega": "" },
-   {"nota_fiscal": "205986 ", "destinatario": "23397337000180 - BRUNO NOEMAR RODRIGUES MOLINA EIRELI - ME ", "transportador": "PATRUS ", "cidade_destino": "BA ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206676 ", "destinatario": "08734023000131 - E L MACHADO E L D MATOS LTDA ME ", "transportador": "PATRUS ", "cidade_destino": "SP ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206884 ", "destinatario": "07788510000114 - IN-DENTAL PROD.ODONT.MED.HOSP.LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206943 ", "destinatario": "12021151000105 - VENDRAMINI E TREVIZAN LTDA ME ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "11/05/2026" },
-   {"nota_fiscal": "205967 ", "destinatario": "12478186000178 - LABORATORIO DE ANALISES CLINICAS VICENTE ", "transportador": "PATRUS ", "cidade_destino": "CE ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "205903 ", "destinatario": "03335054000104 - CENTRO DE DIAGNOSTICO DR CUSTODIO AZEVEDO LTDA ME ", "transportador": "PATRUS ", "cidade_destino": "CE ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206149 ", "destinatario": "05900468000156 - MODELO COM DE MATERIAL HOSP LTDA ME ", "transportador": "LATAM ", "cidade_destino": "MS ", "data_entrega": "27/04/2026" },
-   {"nota_fiscal": "206126 ", "destinatario": "08704711000159 - POMBAL MED DIST DE MEDICAMENTOS E PROD HOSPITALARE ", "transportador": "PATRUS ", "cidade_destino": "BA ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206084 ", "destinatario": "34456947000123 - MINAS DIST DE PROD FARM E PERF LTDA ", "transportador": "CARVALIMA ", "cidade_destino": "RO ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206418 ", "destinatario": "15325249000144 - VAP SOL EMPRESARIAIS HOSPITALAR LTDA ", "transportador": "LATAM ", "cidade_destino": "DF ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206593 ", "destinatario": "04192876000138 - CRISMED COMERCIAL HOSPITALAR LTDA ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206709 ", "destinatario": "38471773000129 - JD SAUDE HOSPITALAR EIRELI ", "transportador": "AZUL ", "cidade_destino": "BA ", "data_entrega": "" },
-   {"nota_fiscal": "4176 ", "destinatario": "01005728001140 - LABOR - HEALTH SUPPLY ", "transportador": "ATIVA ", "cidade_destino": "SC ", "data_entrega": "28/04/2026" },
-   {"nota_fiscal": "206748 ", "destinatario": "21820133000184 - R.R. FERREIRA MATERIAIS HOSPITALARES E ELETRICOS ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "205809 ", "destinatario": "01163981000150 - AMAZONIA HOSPITALAR LTDA ", "transportador": "LOGDI ", "cidade_destino": "MA ", "data_entrega": "" },
-   {"nota_fiscal": "206131 ", "destinatario": "13741966000121 - W L COM PRODUTOS FARMACEUTICOS LTDA ", "transportador": "LATAM ", "cidade_destino": "AM ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206330 ", "destinatario": "65122590000170 - DUARTE DENTAL EIRELI ", "transportador": "AZURELOG ", "cidade_destino": "MG ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206289 ", "destinatario": "17507373000156 - BIONORTE DIST MED LTDA ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206500 ", "destinatario": "01443380000100 - CLINICA MEDICA PRODIGEST LTDA ", "transportador": "LATAM ", "cidade_destino": "DF ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206483 ", "destinatario": "37751411000129 - SEMPRE HOSPITALAR LTDA ", "transportador": "LATAM ", "cidade_destino": "GO ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206411 ", "destinatario": "08298936000152 - SINERGIA ATACADISTA EIRELI ", "transportador": "AZURELOG ", "cidade_destino": "ES ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206561 ", "destinatario": "61486650088412 - DIAGNOSTICOS DA AMERICA S.A . ", "transportador": "JAMEF ", "cidade_destino": "PE ", "data_entrega": "" },
-   {"nota_fiscal": "206557 ", "destinatario": "35536845000180 - FESTMED COMERCIO E IMPORTACAO LTDA ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206517 ", "destinatario": "31889349801 - MARCUS VINICIUS MORAES ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206590 ", "destinatario": "21036417000184 - NOVA HOSPITALAR COML E IMP EIRELI ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "04/05/2026" },
-   {"nota_fiscal": "206570 ", "destinatario": "20423730000102 - ALFA EXCELENCIA DIAGNOSTICA LTDA ", "transportador": "ATIVA ", "cidade_destino": "SP ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206828 ", "destinatario": "21670010000104 - COMERCIAL CIRURGICA IPERO LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "206819 ", "destinatario": "34412925000161 - Athena Comercio de Produtos ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "07/05/2026" },
-   {"nota_fiscal": "206872 ", "destinatario": "51960220000106 - RMP DISTRIBUIDORA LTDA ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206848 ", "destinatario": "24248295000188 - TALKER REPRESENTACAO COMERCIAL LTDA ", "transportador": "AZUL ", "cidade_destino": "SP ", "data_entrega": "" },
-   {"nota_fiscal": "206899 ", "destinatario": "41051435000142 - JESSYCA LAYANE SAVIO MAZUR ", "transportador": "ARLETE ", "cidade_destino": "PR ", "data_entrega": "08/05/2026" },
-   {"nota_fiscal": "205637 ", "destinatario": "39320582000129 - ML FARMA COMERCIO DE MEDICAMENTOS E MATE ", "transportador": "LOGDI ", "cidade_destino": "CE ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206031 ", "destinatario": "41238269000198 - MED TECH EIRELI ", "transportador": "PATRUS ", "cidade_destino": "BA ", "data_entrega": "" },
-   {"nota_fiscal": "206375 ", "destinatario": "27871587000160 - PLUG MED HOSPITALAR LTDA ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "06/05/2026" },
-   {"nota_fiscal": "206310 ", "destinatario": "07718963000174 - ADVAITA COM REP DE PROD MED HOSPITALARES LTDA ", "transportador": "AZURELOG ", "cidade_destino": "RJ ", "data_entrega": "11/05/2026" },
-   {"nota_fiscal": "206474 ", "destinatario": "05768154000141 - CIRURGICA PAULISTA COMERCIO DE MATERIAIS MED HOSP ", "transportador": "PATRUS ", "cidade_destino": "SP ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206591 ", "destinatario": "24702356000135 - CAPITAL MEDH IMP DIST REP COMERCIAL LTDA ", "transportador": "AZURELOG ", "cidade_destino": "DF ", "data_entrega": "05/05/2026" },
-   {"nota_fiscal": "206672 ", "destinatario": "09034672000192 - MAEVE PRODUTOS HOSPITALARES LTDA ", "transportador": "AZURELOG ", "cidade_destino": "GO ", "data_entrega": "" },
-   {"nota_fiscal": "206941 ", "destinatario": "07726133000199 - CICLA DIST PROD DIAGNOSTICOS LTDA ", "transportador": "TGL ", "cidade_destino": "RS ", "data_entrega": "" },
-   {"nota_fiscal": "206925 ", "destinatario": "43944092000170 - BAKKEN HOSPITALAR LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "11/05/2026" },
-   {"nota_fiscal": "206996 ", "destinatario": "44842829000107 - DAFMED COM MAT CIRURGICOS HOSP LTDA ", "transportador": "SCHREIBER ", "cidade_destino": "SP ", "data_entrega": "11/05/2026" }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- ],
-"pedidos_nao_faturados": [
-  {"numero_pedido":"688149 ", "emissao_pv": "16/04/2026 ", "vlr_total_produtos": "1532,16 ", "margem": "29,06 ", "nome_cliente": "VILLE LAB CENTRO DIA ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "DENNYS SANTOS ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690227 ", "emissao_pv": "29/04/2026 ", "vlr_total_produtos": "835,01 ", "margem": "32,44 ", "nome_cliente": "MACIEL SUPRIMENTOS M ", "uf_cliente": "PA ", "tipo_cliente": "REVENDEDOR ","vendedor": "DENNYS SANTOS ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690408 ", "emissao_pv": "30/04/2026 ", "vlr_total_produtos": "15830,41 ", "margem": "16,53 ", "nome_cliente": "JD SAUDE HOSPITALAR ", "uf_cliente": "BA ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690481 ", "emissao_pv": "04/05/2026 ", "vlr_total_produtos": "77771,2 ", "margem": "22,84 ", "nome_cliente": "LINEHOSP MEDICAL COM ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690599 ", "emissao_pv": "04/05/2026 ", "vlr_total_produtos": "10715,1 ", "margem": "51,24 ", "nome_cliente": "ODONTOMEDICA ", "uf_cliente": "MA ", "tipo_cliente": "REVENDEDOR ","vendedor": "ALEXANDRA RIBEIRO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690625 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "816 ", "margem": "42,98 ", "nome_cliente": "INSTITUTO DE BIOMEDI ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690634 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "7400 ", "margem": "35,54 ", "nome_cliente": "MAIS COMERCIO DE MAT ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. CAREMED ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690656 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "4400 ", "margem": "33,1 ", "nome_cliente": "DISTRIB ALIANCA ", "uf_cliente": "MA ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. H.F ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690668 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "6688,5 ", "margem": "36,34 ", "nome_cliente": "EXITO MEDICAMENTOS ", "uf_cliente": "GO ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. SUPREMO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690674 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "2722,5 ", "margem": "27,89 ", "nome_cliente": "MIRAFARMA PRODUTOS F ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690710 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "1554,3 ", "margem": "36,9 ", "nome_cliente": "SAFE DIAGNOSTICOS ", "uf_cliente": "BA ", "tipo_cliente": "CONS.FINAL ","vendedor": "JOELMA NUNES ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690722 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "815,07 ", "margem": "32,67 ", "nome_cliente": "DDM  DIAGNOSTICOS DE ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690741 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "1445 ", "margem": "31,41 ", "nome_cliente": "QUALILAB SHPA LABORA ", "uf_cliente": "RJ ", "tipo_cliente": "CONS.FINAL ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690744 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "7212,6 ", "margem": "10,19 ", "nome_cliente": "CRUZEL COMERCIAL ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. HELEIDA ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690754 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "889 ", "margem": "35,8 ", "nome_cliente": "HEMATOCENTER ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "JOICE MENDES ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690787 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "6920 ", "margem": "25,52 ", "nome_cliente": "TECH PROL ", "uf_cliente": "RN ", "tipo_cliente": "REVENDEDOR ","vendedor": "APARECIDA BRESSAN ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690801 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "6770,92 ", "margem": "47,03 ", "nome_cliente": "LABORATORIO CENTRAL ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690803 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "10919,2 ", "margem": "33,38 ", "nome_cliente": "DENTAL AMAZONIA ", "uf_cliente": "PA ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690804 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "2309 ", "margem": "28,69 ", "nome_cliente": "SAUDE COMERCIO PRODU ", "uf_cliente": "DF ", "tipo_cliente": "REVENDEDOR ","vendedor": "ELIZANGELA GRACA ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690824 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "2088 ", "margem": "40,87 ", "nome_cliente": "JPMED DISTRIBUICAO E ", "uf_cliente": "AC ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA GUIMARAES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690826 ", "emissao_pv": "05/05/2026 ", "vlr_total_produtos": "900,3 ", "margem": "33,09 ", "nome_cliente": "ALTPREST COMERCIO E ", "uf_cliente": "RJ ", "tipo_cliente": "REVENDEDOR ","vendedor": "LUCIA FLORESTA ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"690834 ", "emissao_pv": "06/05/2026 ", "vlr_total_produtos": "1410 ", "margem": "29,37 ", "nome_cliente": "BRASIL SHOPPING ", "uf_cliente": "PA ", "tipo_cliente": "REVENDEDOR ","vendedor": "DENNYS SANTOS ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"690838 ", "emissao_pv": "06/05/2026 ", "vlr_total_produtos": "6500 ", "margem": "44,27 ", "nome_cliente": "MED TECH ", "uf_cliente": "BA ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOELMA NUNES ", "ultimo_status": "Análise de Crédito" }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-],
-"tv_alert": {
+    {
+      "nota_fiscal": "206532 ",
+      "destinatario": "01565698000155 - PETFARMA COM PRODUTOS VETERINARIOS LTDA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "205254 ",
+      "destinatario": "33921374000107 - M M SOUSA PRODUTOS HOSPITALARES EIRELI ",
+      "transportador": "TECMAR ",
+      "cidade_destino": "PE ",
+      "data_entrega": "23/04/2026"
+    },
+    {
+      "nota_fiscal": "205762 ",
+      "destinatario": "58843031000194 - ADONAIMED DISTRIBUIDORA DE PRODUTOS HOSP ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206177 ",
+      "destinatario": "04539279019407 - CIENTIFICALAB PRODUTOS LABORATORIAIS E S ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205672 ",
+      "destinatario": "02209788000176 - ESTRELA COMERCIO DE PROD MEDICOS E HOSP ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "SE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205806 ",
+      "destinatario": "34957154000198 - J F COM.PROD MEDICOS E HOSP. ",
+      "transportador": "LATAM ",
+      "cidade_destino": "AM ",
+      "data_entrega": "27/04/2026"
+    },
+    {
+      "nota_fiscal": "206265 ",
+      "destinatario": "39365257000182 - MEDSEN REPR COM PROD HOSPITALARES LTDA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "RS ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206417 ",
+      "destinatario": "21487927000178 - NEUPHARMA DISTRIBUICAO DE MAT. MED. HOSPITALAR LTD ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206361 ",
+      "destinatario": "31503342840 - LIA GONCALVES REZENDE ",
+      "transportador": "ATIVA ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206633 ",
+      "destinatario": "51639559000105 - CIRURGICA ULTRAMED COMERCIO DE EQUIPAMEN ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206581 ",
+      "destinatario": "22109976000130 - MED ESTETIC COMERCIO LTDA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "205184 ",
+      "destinatario": "40258475000105 - I VASCONCELOS CAVALCANTE ",
+      "transportador": "TECMAR ",
+      "cidade_destino": "MA ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205525 ",
+      "destinatario": "23397337000180 - BRUNO NOEMAR RODRIGUES MOLINA EIRELI - ME ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205890 ",
+      "destinatario": "61486650041378 - DIAGNOSTICOS DA AMERICA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206133 ",
+      "destinatario": "04177256000120 - LABORCARE CENTRO DE APOIO E DIAGNOSTICO VETERINARIO LTDA ME ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206281 ",
+      "destinatario": "42108639000135 - MED PRO COMERCIO DE PRODUTOS HOSPITALARE ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "RJ ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206354 ",
+      "destinatario": "60840055040869 - FLEURY S.A. ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "RS ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206452 ",
+      "destinatario": "55632777000160 - BETEL PODO SHOP LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "205477 ",
+      "destinatario": "07790343000146 - ODONTOMAX COM ODONT MED HOSPITALAR LT ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "BA ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205644 ",
+      "destinatario": "19378769019861 - INSTITUTO HERMES PARDINI SA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "CE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205976 ",
+      "destinatario": "09156358000182 - NELIO TEIXEIRA DE ANDRADE ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MG ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "205984 ",
+      "destinatario": "15167207000122 - MULTILABOR COM DE PROD LABORATORIAIS LTD ",
+      "transportador": "LATAM ",
+      "cidade_destino": "PE ",
+      "data_entrega": "27/04/2026"
+    },
+    {
+      "nota_fiscal": "206016 ",
+      "destinatario": "33549309000194 - RCH DISTRIBUIDORA PRODUTOS GERAIS LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "RJ ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206004 ",
+      "destinatario": "42108639000135 - MED PRO COMERCIO DE PRODUTOS HOSPITALARE ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "RJ ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206127 ",
+      "destinatario": "08093976000168 - HOFFMANN E GOMES LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206573 ",
+      "destinatario": "46242310000113 - IMPACTA MED DISTRI MEDICAMENTO MA HOS LT ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206553 ",
+      "destinatario": "05785002000157 - BOEGE MED PRODUTOS HOSPITALARES LTDA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SC ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206537 ",
+      "destinatario": "26821143000158 - DIMMEX COMERCIO DE PRODUTOS HOSPITALARES ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206617 ",
+      "destinatario": "48791685000168 - CBS MEDICO CIENTIFICA COMERCIO ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206642 ",
+      "destinatario": "10945562000161 - BRUNO FERREIRA DA SILVA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205642 ",
+      "destinatario": "41600953000178 - BIOFARMACE DISTRIB MEDICAMENTOS LTDA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "CE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205704 ",
+      "destinatario": "97537944000134 - PAULO GAMA RIBEIRO ME ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "206312 ",
+      "destinatario": "03581320000170 - LABIVIDA - LAB. DE ANALISES CLINICAS LTD ",
+      "transportador": "TGL ",
+      "cidade_destino": "RS ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206447 ",
+      "destinatario": "29426310000154 - CIRURGICA ITAMARATY COMERCIAL - EIRELI ",
+      "transportador": "TGL ",
+      "cidade_destino": "PR ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205597 ",
+      "destinatario": "06106401000107 - DIMENSAO DISTRIBUIDORA HOSPITALAR EIRELI ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205619 ",
+      "destinatario": "06106401000107 - DIMENSAO DISTRIBUIDORA HOSPITALAR EIRELI ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205719 ",
+      "destinatario": "01193818000130 - EQUIPOS MEDICOS COMERCIO REP.LTDA. ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "CE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206102 ",
+      "destinatario": "91991471000164 - GRACE ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "RS ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205468 ",
+      "destinatario": "05048534000101 - NORTEMED DISTRIBUIDORA DE PRODUTOS MEDICOS LTDA ME ",
+      "transportador": "CARVALIMA ",
+      "cidade_destino": "PA ",
+      "data_entrega": "23/04/2026"
+    },
+    {
+      "nota_fiscal": "205836 ",
+      "destinatario": "20309458000134 - LAB SANTA ISABEL LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MG ",
+      "data_entrega": "01/05/2026"
+    },
+    {
+      "nota_fiscal": "206041 ",
+      "destinatario": "00970175000121 - M.S. DIAGNOSTICA LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MS ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206569 ",
+      "destinatario": "61486650035300 - DIAGNOSTICOS DA AMERICA S.A ",
+      "transportador": "TGL ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "205530 ",
+      "destinatario": "54001674000130 - G S GARCIA COM PRODUTOS PARA SAUDE LTDA ",
+      "transportador": "CARVALIMA ",
+      "cidade_destino": "PA ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "206129 ",
+      "destinatario": "48791685000168 - CBS MEDICO CIENTIFICA COMERCIO ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206168 ",
+      "destinatario": "53305207000130 - CENTRO ANALISES CLINICAS UNILAB SS LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206371 ",
+      "destinatario": "13839148000166 - SINEZIO DE OLIVEIRA PINTO - ME ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205520 ",
+      "destinatario": "13414166000104 - CMF DIST DE MEDICAMENTOS LTDA EPP ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "CE ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205663 ",
+      "destinatario": "27986353000169 - ATTACKMED COM MAT MEDICOS REPR LTDA ",
+      "transportador": "LATAM ",
+      "cidade_destino": "AM ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "206005 ",
+      "destinatario": "31732431000176 - CIRURGICA CONFIANCA LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "ES ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "206303 ",
+      "destinatario": "57806594000140 - DIREZIONE PRESTACAO DE SERVICOS LTDA ",
+      "transportador": "ATIVA ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206468 ",
+      "destinatario": "19513279000135 - CENTRO MEDICO VETERINARIO ANCHIETA LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206506 ",
+      "destinatario": "28731351000191 - COML CAV COM PROD HOSPITALARES EIRELI ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205948 ",
+      "destinatario": "48991292000106 - JS MEDICAL COM MAT MEDICOS HOSP LTDA ",
+      "transportador": "LATAM ",
+      "cidade_destino": "RJ ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "205840 ",
+      "destinatario": "35231609000156 - GR HOSPITALAR E SERVICOS EIRELI ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "GO ",
+      "data_entrega": "27/04/2026"
+    },
+    {
+      "nota_fiscal": "205992 ",
+      "destinatario": "13366959000197 - CIRURGICA SANTA MARIA DE JANAUBA LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MG ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206471 ",
+      "destinatario": "46242310000113 - IMPACTA MED DISTRI MEDICAMENTO MA HOS LT ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206660 ",
+      "destinatario": "44842829000107 - DAFMED COM MAT CIRURGICOS HOSP LTDA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205164 ",
+      "destinatario": "11475720000120 - CEDILA - CENTRO DE DIAGNOSTICO CLINICO ",
+      "transportador": "TECMAR ",
+      "cidade_destino": "PE ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "205906 ",
+      "destinatario": "07539171000132 - INTI NASCENTE EQUIPAMENTOS MEDICOS LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "MT ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205844 ",
+      "destinatario": "02820673000113 - ALL CLEAN EMBALAGENS E PRODUTOS DE HIGIENE LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MT ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206011 ",
+      "destinatario": "53588462000138 - 53 588 462 MARIA EDUARDA DOS SANTOS VICE ",
+      "transportador": "LATAM ",
+      "cidade_destino": "PB ",
+      "data_entrega": "27/04/2026"
+    },
+    {
+      "nota_fiscal": "206007 ",
+      "destinatario": "24980102000189 - LOGGEN PRODUTOS PARA SAUDE EIRELI ME ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "206098 ",
+      "destinatario": "25310308830 - CRISTIANE MUSCARI ALBERTI ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "206235 ",
+      "destinatario": "53878403000102 - WB SAUDE E BEM ESTAR LTDA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206548 ",
+      "destinatario": "57834398000189 - LOGAN COMERCIO DE PRODUTOS LTDA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SC ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206639 ",
+      "destinatario": "74377607000121 - PLUSVET COM PROD PA LABOR VETERINARIO LT ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205194 ",
+      "destinatario": "00236193000184 - CIRURGICA RECIFE COMERCIO LTDA - EPP ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "PE ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "205260 ",
+      "destinatario": "04614288000145 - DISK LIFE COM DE PRODUTOS CIRURGICOS LTD ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "PE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205385 ",
+      "destinatario": "00992657000182 - EMBRAMEDICA PRODUTOS DE LABORATORIOS LTDA ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "MA ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205387 ",
+      "destinatario": "48958907000194 - E S G SUPER MEDICA LTDA ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "MA ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "206190 ",
+      "destinatario": "60105331000118 - BRAZMED DISTRIBUIDORA HOSPITALAR LTDA ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "PR ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205498 ",
+      "destinatario": "03817043000152 - PHARMAPLUS LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "PE ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "205592 ",
+      "destinatario": "13414166000104 - CMF DIST DE MEDICAMENTOS LTDA EPP ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "CE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205549 ",
+      "destinatario": "25175351000164 - ANA LUCIA TEIXEIRA JESUS FERREIRA LTDA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "BA ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205703 ",
+      "destinatario": "26396672000151 - BRASMED COMERCIO DE PRODUTOS HOSPITALARES EIRELI M ",
+      "transportador": "LATAM ",
+      "cidade_destino": "MS ",
+      "data_entrega": "23/04/2026"
+    },
+    {
+      "nota_fiscal": "205660 ",
+      "destinatario": "02209788000176 - ESTRELA COMERCIO DE PROD MEDICOS E HOSP ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "SE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205700 ",
+      "destinatario": "07292903000132 - SANTA MONICA DISTRIBUIDORA DE PROD. FARMACEUTICOS LTDA EPP ",
+      "transportador": "LATAM ",
+      "cidade_destino": "AM ",
+      "data_entrega": "22/04/2026"
+    },
+    {
+      "nota_fiscal": "206077 ",
+      "destinatario": "22803038000135 - FEMAP COMERCIO DE PRODUTOS HOSPITALARES ",
+      "transportador": "AZUL ",
+      "cidade_destino": "GO ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205415 ",
+      "destinatario": "24678896000120 - NORTE SAUDE HOSP ODONTOLOGICOS LTDA ",
+      "transportador": "CARVALIMA ",
+      "cidade_destino": "PA ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "205503 ",
+      "destinatario": "24338436000153 - REVANIL COM PRODUTOS CIRURGICOS EIRELI ",
+      "transportador": "LOGDI ",
+      "cidade_destino": "PE ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205475 ",
+      "destinatario": "07936090000176 - BIOMED DIST.HOSP.LAB.N SRA CONCEICAO LTDA ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "PB ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "205326 ",
+      "destinatario": "29230269000146 - R F BARILE LTDA ",
+      "transportador": "CARVALIMA ",
+      "cidade_destino": "PA ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "205536 ",
+      "destinatario": "70005855000190 - HORMOCLINICA LTDA ME ",
+      "transportador": "TECMAR ",
+      "cidade_destino": "AL ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205712 ",
+      "destinatario": "54369540000176 - T T F DOS SANTOS ",
+      "transportador": "AZUL ",
+      "cidade_destino": "PI ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "205745 ",
+      "destinatario": "34363564000100 - FLORA MARIA NASCIMENTO E CIA LTDA ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "BA ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205721 ",
+      "destinatario": "04214086000106 - INSTRUMENTAL TECNICO LTDA ",
+      "transportador": "LATAM ",
+      "cidade_destino": "AM ",
+      "data_entrega": "24/04/2026"
+    },
+    {
+      "nota_fiscal": "205799 ",
+      "destinatario": "21330796000110 - ESSENCIAL COMERCIO DE PRODUTOS PARA SAUDE LTDA ",
+      "transportador": "LATAM ",
+      "cidade_destino": "AM ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "205878 ",
+      "destinatario": "50477639000130 - ITA PHARMA LTDA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "RJ ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205965 ",
+      "destinatario": "43121365000187 - MG FLEX LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "MG ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "205895 ",
+      "destinatario": "38370336000119 - LINEHOSP MEDICAL COM PROD HOSP LTDA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "MG ",
+      "data_entrega": "27/04/2026"
+    },
+    {
+      "nota_fiscal": "205926 ",
+      "destinatario": "27343602000106 - JLM DISTRIBUIDORA EIRELI ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "MG ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "205949 ",
+      "destinatario": "49851154000186 - JABOQUE DISTRIBUIDORA DE PRODUTOS HOSPIT ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "SP ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "206132 ",
+      "destinatario": "05694890000100 - CIRURGICA GRANDMED LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "MG ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206209 ",
+      "destinatario": "48791685000168 - CBS MEDICO CIENTIFICA COMERCIO ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206092 ",
+      "destinatario": "10729492000104 - QUIMICENTER PROD PARA LABORATORIOS LTDA ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206227 ",
+      "destinatario": "20956481000110 - NEO MEDICAL COMERCIAL HOSPITALAR LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206282 ",
+      "destinatario": "18274996000199 - RIO DE JANEIRO MEDICINA LABORATORIAL EIRELI - ME ",
+      "transportador": "PATRUS ",
+      "cidade_destino": "RJ ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206029 ",
+      "destinatario": "43090089000137 - BIOVIX ARTIGOS PARA LABORATORIOS LTDA ",
+      "transportador": "AZURELOG ",
+      "cidade_destino": "ES ",
+      "data_entrega": "28/04/2026"
+    },
+    {
+      "nota_fiscal": "206200 ",
+      "destinatario": "29032903000136 - PLENA MEDICA HOSPITALAR EIRELI ",
+      "transportador": "ATIVA ",
+      "cidade_destino": "PR ",
+      "data_entrega": "29/04/2026"
+    },
+    {
+      "nota_fiscal": "206343 ",
+      "destinatario": "14658976000160 - SAO ROQUE DIST. MEDIC. MAT. HOSPITALARES ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206437 ",
+      "destinatario": "01854654000145 - PONTUAL COMERCIAL EIRELI ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206446 ",
+      "destinatario": "55943546000178 - 55 943 546 DELNER JULIANO DOS SANTOS XAVIER ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206385 ",
+      "destinatario": "50955459000117 - ABS LAB ANALISES CLINICAS LTDA ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206438 ",
+      "destinatario": "35143547000120 - LCCP LABORATORIO ANALISES CLINICAS LTDA ",
+      "transportador": "TGL ",
+      "cidade_destino": "PR ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206386 ",
+      "destinatario": "26521574000107 - RA VET DIAGNOSTICO VETERINARIO LTDA - ME ",
+      "transportador": "ATIVA ",
+      "cidade_destino": "SP ",
+      "data_entrega": "30/04/2026"
+    },
+    {
+      "nota_fiscal": "206416 ",
+      "destinatario": "91687376001810 - LABORATORIO EXAME DE ANALISES CLINICAS LTDA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "RS ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206426 ",
+      "destinatario": "47770425000143 - BIOLABOR LABORATORIO DE ANALISES CLINICA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206441 ",
+      "destinatario": "21360700889 - ALINE VARRICCHIO ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206478 ",
+      "destinatario": "21287068000173 - DELUMA COMERCIAL LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206443 ",
+      "destinatario": "65944753000109 - LUCENA COMERCIO DE EQUIPAMENTOS MEDICOS LTDA ",
+      "transportador": "AZUL ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206564 ",
+      "destinatario": "60840055003319 - FLEURY S A ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206578 ",
+      "destinatario": "04539279019407 - CIENTIFICALAB PRODUTOS LABORATORIAIS E S ",
+      "transportador": "JAMEF ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206518 ",
+      "destinatario": "07298851000101 - MONTE ALTO COM MED CORRELATOS LTDA EPP ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206571 ",
+      "destinatario": "52672952000155 - VIA PHARMA DISTRIBUIDORA FARMACEUTICA LT ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206497 ",
+      "destinatario": "61447600000197 - LIFE MEDICAL LTDA ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206632 ",
+      "destinatario": "22244722000124 - VS COMERCIO DE PRODUTOS HOSPITALARES LTDA. ",
+      "transportador": "SCHREIBER ",
+      "cidade_destino": "SP ",
+      "data_entrega": ""
+    },
+    {
+      "nota_fiscal": "206663 ",
+      "destinatario": "35211065000160 - MARCOS ANTONIO WALSKI ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "PR ",
+      "data_entrega": "04/05/2026"
+    },
+    {
+      "nota_fiscal": "206677 ",
+      "destinatario": "30736605000106 - CIRURGICA SANTA CATARINA COM AT DE MED E ",
+      "transportador": "ARLETE ",
+      "cidade_destino": "SC ",
+      "data_entrega": ""
+    }
+  ],
+  "pedidos_nao_faturados": [
+    {
+      "numero_pedido": "690227 ",
+      "emissao_pv": "29/04/2026 ",
+      "vlr_total_produtos": "835,01 ",
+      "margem": "32,44 ",
+      "nome_cliente": "MACIEL SUPRIMENTOS M ",
+      "uf_cliente": "PA ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "DENNYS SANTOS ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690408 ",
+      "emissao_pv": "30/04/2026 ",
+      "vlr_total_produtos": "15830,41 ",
+      "margem": "16,53 ",
+      "nome_cliente": "JD SAUDE HOSPITALAR ",
+      "uf_cliente": "BA ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "FLAVIA VELIS ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690416 ",
+      "emissao_pv": "30/04/2026 ",
+      "vlr_total_produtos": "5350 ",
+      "margem": "38,39 ",
+      "nome_cliente": "ONIX HOSPITALAR LTDA ",
+      "uf_cliente": "RJ ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "JOAO NETO ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690481 ",
+      "emissao_pv": "04/05/2026 ",
+      "vlr_total_produtos": "77771,2 ",
+      "margem": "22,84 ",
+      "nome_cliente": "LINEHOSP MEDICAL COM ",
+      "uf_cliente": "MG ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "DIEGO RICARDO ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690500 ",
+      "emissao_pv": "04/05/2026 ",
+      "vlr_total_produtos": "5886,87 ",
+      "margem": "20,28 ",
+      "nome_cliente": "PLATINA HOSPITALARES ",
+      "uf_cliente": "TO ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "FERNANDA MIRIAN ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690582 ",
+      "emissao_pv": "04/05/2026 ",
+      "vlr_total_produtos": "24415 ",
+      "margem": "9,64 ",
+      "nome_cliente": "MED PRO COMERCIO PRO ",
+      "uf_cliente": "RJ ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "FERNANDA MIRIAN ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690599 ",
+      "emissao_pv": "04/05/2026 ",
+      "vlr_total_produtos": "10715,1 ",
+      "margem": "51,24 ",
+      "nome_cliente": "ODONTOMEDICA ",
+      "uf_cliente": "MA ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "ALEXANDRA RIBEIRO ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690618 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "8135,04 ",
+      "margem": "22,24 ",
+      "nome_cliente": "NORTEPHARMA ",
+      "uf_cliente": "PE ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "DENNYS SANTOS ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690625 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "816 ",
+      "margem": "42,98 ",
+      "nome_cliente": "INSTITUTO DE BIOMEDI ",
+      "uf_cliente": "SP ",
+      "tipo_cliente": "CONS.FINAL ",
+      "vendedor": "DIEGO RICARDO ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690634 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "7400 ",
+      "margem": "35,54 ",
+      "nome_cliente": "MAIS COMERCIO DE MAT ",
+      "uf_cliente": "MG ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "REP. CAREMED ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690642 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "1422,16 ",
+      "margem": "24,11 ",
+      "nome_cliente": "HF COMERCIO DE PRODU ",
+      "uf_cliente": "GO ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "ERICA BARNES ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690656 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "4400 ",
+      "margem": "33,1 ",
+      "nome_cliente": "DISTRIB ALIANCA ",
+      "uf_cliente": "MA ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "REP. H.F ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690660 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "304,94 ",
+      "margem": "0 ",
+      "nome_cliente": "LUIZ CLAUDIO DOS SAN ",
+      "uf_cliente": "MG ",
+      "tipo_cliente": "CONS.FINAL ",
+      "vendedor": "E-COMMERCE ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690668 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "6688,5 ",
+      "margem": "36,34 ",
+      "nome_cliente": "EXITO MEDICAMENTOS ",
+      "uf_cliente": "GO ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "REP. SUPREMO ",
+      "ultimo_status": "Análise de Crédito"
+    },
+    {
+      "numero_pedido": "690670 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "4750 ",
+      "margem": "32,51 ",
+      "nome_cliente": "RINECON COMERCIO PRO ",
+      "uf_cliente": "RJ ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "FLAVIA VELIS ",
+      "ultimo_status": "Alvará Sanitário"
+    },
+    {
+      "numero_pedido": "690678 ",
+      "emissao_pv": "05/05/2026 ",
+      "vlr_total_produtos": "50818,94 ",
+      "margem": "29,25 ",
+      "nome_cliente": "SURGEON COMERCIO MAT ",
+      "uf_cliente": "RS ",
+      "tipo_cliente": "REVENDEDOR ",
+      "vendedor": "DENNYS SANTOS ",
+      "ultimo_status": "Alvará Sanitário"
+    }
+  ],
+  "tv_alert": {
     "enabled": false,
     "id": "Nova Transportadora: JAMEF",
     "title": "Atenção",
@@ -283,26 +1358,28 @@
     "duration_seconds": 25,
     "created_at": "2026-02-23T11:10:00-03:00",
     "ttl_minutes": 720
-},
-"performance_gerencial": {
-    "periodo": "maio/2026",
-    "frete_pago": "94596,94",
-    "faturamento": "2749687,84",
-    "frete_repassado": "91644,99",
-    "entrega_realizada": "132",
-    "entrega_no_prazo": "128",
-    "qtd_notas_fiscais": "459",
-    "entrega_fora_prazo": "4"
-},
-"mês_anterior": {
-    "perido": "abril/2026",
-    "entrega_realizada" "1814",
-    "entrega_no_prazo": "1810"
-}
-},
-    "expedicao": {
-     "aguardando_coleta": "0",
-     "coletado": "0",
-     "valor_coletado": "0",
-     "valor_pendente_coleta": "0"
+  },
+  "performance_gerencial": {
+    "mes_atual": {
+      "periodo": "Maio/2026",
+      "frete_pago": "39419,89",
+      "faturamento": "1170139,32",
+      "frete_repassado": "40970,24",
+      "entrega_realizada": "14",
+      "entrega_no_prazo": "14",
+      "qtd_notas_fiscais": "144",
+      "entrega_fora_prazo": "0"
+    },
+    "mes_anterior": {
+      "periodo": "Abril/2026",
+      "entrega_realizada": "1704",
+      "entrega_no_prazo": "1639"
     }
+  },
+  "expedicao": {
+    "aguardando_coleta": 87,
+    "coletado": 67,
+    "valor_coletado": 45235.62,
+    "valor_pendente_coleta": 62337.44
+  }
+}
