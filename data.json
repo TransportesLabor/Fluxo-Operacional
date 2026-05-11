@@ -284,8 +284,8 @@
     "created_at": "2026-02-23T11:10:00-03:00",
     "ttl_minutes": 720
 },
-  "performance_gerencial":  {
-    "mes_atual":  {
+  "performance_gerencial": {
+    "mes_atual": {
      "periodo": "maio/2026",
      "frete_pago": "94596,94",
      "faturamento": "2749687,84",
@@ -295,17 +295,16 @@
      "qtd_notas_fiscais": "459",
      "entrega_fora_prazo": "4"
     },
-
-    "mês_anterior":  {
+    "mês_anterior": {
      "perido": "abril/2026",
      "entrega_realizada" "1814",
      "entrega_no_prazo": "1810"
     }
 },
-    "expedicao":  {
-     "aguardando_coleta": "0",
-     "coletado": "0",
-     "valor_coletado": "0",
-     "valor_pendente_coleta": "0"
+    "expedicao": {
+     "aguardando_coleta": 0,
+     "coletado": 0,
+     "valor_coletado": 0,
+     "valor_pendente_coleta": 0
     }
 }
