@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/05/2026 16:22",
+  "updated_at": "11/05/2026 16:35",
   "kpis": {
     "notas_em_atraso": 28,
     "previstas_para_hoje": 98,
@@ -294,17 +294,17 @@
      "entrega_no_prazo": "128",
      "qtd_notas_fiscais": "459",
      "entrega_fora_prazo": "4"
-    },
-    "mês_anterior": {
-     "perido": "abril/2026",
-     "entrega_realizada" "1814",
-     "entrega_no_prazo": "1810"
-    }
 },
-    "expedicao": {
+  "mes_anterior": {
+     "periodo": "abril/2026",
+     "entrega_realizada": "1814",
+     "entrega_no_prazo": "1810"
+  }
+},
+  "expedicao": {
      "aguardando_coleta": 0,
      "coletado": 0,
      "valor_coletado": 0,
      "valor_pendente_coleta": 0
-    }
+  }
 }
