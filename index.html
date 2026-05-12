@@ -1384,70 +1384,24 @@
     <section class="grid2">
 <div class="panel panelDark expedicaoPanel" id="panelExpedicao">
         <div class="ph">
-          <div class="ttl">Expedição</div>
-          <div class="badge" id="expedicaoPeriodo">—</div>
+          <div class="ttl">Notas em Atraso</div>
+          <div class="badge" id="atrasoCount">— itens</div>
         </div>
 
-        <div class="expedicaoBody">
-          <div class="expedicaoIndicadores">
-            <div class="expedicaoKpi">
-              <div class="expedicaoIcone" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 24H36V45H10V24Z" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M36 31H47L54 38V45H36V31Z" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M47 31V38H54" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="21" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="45" cy="47" r="5" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
-                </svg>
-              </div>
-
-              <div class="expedicaoTexto">
-                <div class="expedicaoTitulo">Aguardando<br/>Coleta</div>
-                <div class="expedicaoNumero" id="aguardandoColeta">—</div>
-                <div class="expedicaoSub">pedidos</div>
-              </div>
-            </div>
-
-            <div class="expedicaoDivisor"></div>
-
-            <div class="expedicaoKpi">
-              <div class="expedicaoIcone" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 24H36V45H10V24Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M36 31H47L54 38V45H36V31Z" fill="#d36524" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M47 31V38H54" stroke="#ffd5b8" stroke-width="2.2"/>
-                  <circle cx="21" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
-                  <circle cx="45" cy="47" r="5" fill="#ffd5b8" stroke="#d36524" stroke-width="2.4"/>
-                  <path d="M8 45H16M26 45H40M50 45H56" stroke="#d36524" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="25" cy="29" r="9" fill="#ffd5b8"/>
-                  <path d="M20.5 28.8L23.7 32L30.5 25.5" stroke="#d36524" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-
-              <div class="expedicaoTexto">
-                <div class="expedicaoTitulo">Coletado</div>
-                <div class="expedicaoNumero" id="coletado">—</div>
-                <div class="expedicaoSub">pedidos</div>
-              </div>
-            </div>
-
-            <div class="expedicaoDivisor"></div>
-
-            <div class="expedicaoValores">
-              <div>
-                <div class="expedicaoValorTitulo">Valor coletado</div>
-                <div class="expedicaoValor ok" id="valorColetado">—</div>
-              </div>
-
-              <div>
-                <div class="expedicaoValorTitulo">Valor Pendente de coleta</div>
-                <div class="expedicaoValor bad" id="valorPendente">—</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="expedicaoAreaLivre"></div>
+        <div class="scroll" id="scrollAtraso" style="flex:1 1 auto; min-height:0;">
+          <table class="headDark">
+            <thead>
+              <tr>
+                <th>NF</th>
+                <th>Destinatário</th>
+                <th>Transportador</th>
+                <th>Previsão</th>
+                <th>Ocorrência</th>
+                <th>Dias</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyAtraso"></tbody>
+          </table>
         </div>
       </div>
 
@@ -1577,35 +1531,24 @@
 
     function startAutoScroll(el, {
       speedPxPerTick = 1,
-      tickMs = 90,
-      pauseAtEndMs = 2200,
-      pauseAtTopMs = 900
+      tickMs = 45
     } = {}){
       if (!el) return null;
 
       let timer = null;
-      let pause = false;
-      let direction = 1;
 
       const run = () => {
         clearInterval(timer);
 
         timer = setInterval(() => {
-          if (pause) return;
-
           const maxScroll = el.scrollHeight - el.clientHeight;
           if (maxScroll <= 0) return;
 
-          el.scrollTop += speedPxPerTick * direction;
+          el.scrollTop += speedPxPerTick;
 
           if (el.scrollTop >= maxScroll){
-          pause = true;
-
-          setTimeout(() => {
-          el.scrollTop = 0;
-          pause = false;
-          }, pauseAtEndMs);
-        }
+            el.scrollTop = 0;
+          }
         }, tickMs);
       };
 
@@ -1622,10 +1565,10 @@
       stopAllAutoScroll();
 
       autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 92, pauseAtEndMs: 2400, pauseAtTopMs: 900 })
+        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 45 })
       );
       autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 95, pauseAtEndMs: 2200, pauseAtTopMs: 900 })
+        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 45 })
       );
     }
 
