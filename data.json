@@ -1,5 +1,5 @@
 {
-  "updated_at": "13/05/2026 17:16",
+  "updated_at": "13/05/2026 17:43",
   "kpis": {
     "notas_em_atraso": 24,
     "previstas_para_hoje": 104,
@@ -290,15 +290,15 @@
      "frete_pago": "172987,84",
      "faturamento": "4490068,01",
      "frete_repassado": "139091,69",
-#REF!
-     "entrega_no_prazo": "270",
+     "entrega_realizada": "270",
+     "entrega_no_prazo": "262",
      "qtd_notas_fiscais": "702",
-     "entrega_fora_prazo": "8"
+     "entrega_fora_prazo": "8",
 },
   "mes_anterior": {
      "periodo": "abril/2026",
-#REF!
-#REF!
+     "entrega_realizada": "1936",
+     "entrega_no_prazo": "1862",
   }
 },
   "expedicao": {
