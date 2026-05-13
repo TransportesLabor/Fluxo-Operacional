@@ -1529,64 +1529,46 @@
       autoScrollInstances = [];
     }
 
-function startAutoScroll(el, {
-  speedPxPerTick = 1,
-  tickMs = 35,
-  pauseOnReset = 700
-} = {}) {
+    function startAutoScroll(el, {
+      speedPxPerTick = 1,
+      tickMs = 45
+    } = {}){
+      if (!el) return null;
 
-  if (!el) return null;
+      let timer = null;
 
-  let timer = null;
-  let resetting = false;
+      const run = () => {
+        clearInterval(timer);
 
-  const run = () => {
+        timer = setInterval(() => {
+          const maxScroll = el.scrollHeight - el.clientHeight;
+          if (maxScroll <= 0) return;
 
-    clearInterval(timer);
+          el.scrollTop += speedPxPerTick;
 
-    timer = setInterval(() => {
+          if (el.scrollTop >= maxScroll){
+            el.scrollTop = 0;
+          }
+        }, tickMs);
+      };
 
-      if (resetting) return;
+      run();
 
-      const maxScroll = el.scrollHeight - el.clientHeight;
-
-      if (maxScroll <= 0) return;
-
-      el.scrollTop += speedPxPerTick;
-
-      // chegou no final
-      if (el.scrollTop >= (maxScroll - 2)) {
-
-        resetting = true;
-
-        setTimeout(() => {
-          el.scrollTop = 0;
-          resetting = false;
-        }, pauseOnReset);
-
-      }
-
-    }, tickMs);
-
-  };
-
-  run();
-
-  return {
-    stop(){
-      clearInterval(timer);
+      return {
+        stop(){
+          clearInterval(timer);
+        }
+      };
     }
-  };
-}
 
     function initAutoScrollTV() {
       stopAllAutoScroll();
 
       autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 50 })
+        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 45 })
       );
       autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 50 })
+        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 45 })
       );
     }
 
