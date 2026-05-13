@@ -1529,37 +1529,55 @@
       autoScrollInstances = [];
     }
 
-    function startAutoScroll(el, {
-      speedPxPerTick = 1,
-      tickMs = 45
-    } = {}){
-      if (!el) return null;
+function startAutoScroll(el, {
+  speedPxPerTick = 1,
+  tickMs = 35,
+  pauseOnReset = 700
+} = {}) {
 
-      let timer = null;
+  if (!el) return null;
 
-      const run = () => {
-        clearInterval(timer);
+  let timer = null;
+  let resetting = false;
 
-        timer = setInterval(() => {
-          const maxScroll = el.scrollHeight - el.clientHeight;
-          if (maxScroll <= 0) return;
+  const run = () => {
 
-          el.scrollTop += speedPxPerTick;
+    clearInterval(timer);
 
-          if (el.scrollTop >= maxScroll){
-            el.scrollTop = 0;
-          }
-        }, tickMs);
-      };
+    timer = setInterval(() => {
 
-      run();
+      if (resetting) return;
 
-      return {
-        stop(){
-          clearInterval(timer);
-        }
-      };
+      const maxScroll = el.scrollHeight - el.clientHeight;
+
+      if (maxScroll <= 0) return;
+
+      el.scrollTop += speedPxPerTick;
+
+      // chegou no final
+      if (el.scrollTop >= (maxScroll - 2)) {
+
+        resetting = true;
+
+        setTimeout(() => {
+          el.scrollTop = 0;
+          resetting = false;
+        }, pauseOnReset);
+
+      }
+
+    }, tickMs);
+
+  };
+
+  run();
+
+  return {
+    stop(){
+      clearInterval(timer);
     }
+  };
+}
 
     function initAutoScrollTV() {
       stopAllAutoScroll();
