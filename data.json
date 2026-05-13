@@ -293,12 +293,12 @@
      "entrega_realizada": "270",
      "entrega_no_prazo": "262",
      "qtd_notas_fiscais": "702",
-     "entrega_fora_prazo": "8",
+     "entrega_fora_prazo": "8"
 },
   "mes_anterior": {
      "periodo": "abril/2026",
      "entrega_realizada": "1936",
-     "entrega_no_prazo": "1862",
+     "entrega_no_prazo": "1862"
   }
 },
   "expedicao": {
