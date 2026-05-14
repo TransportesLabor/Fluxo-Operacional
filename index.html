@@ -1580,15 +1580,29 @@ function startAutoScroll(el, {
 }
 
     function initAutoScrollTV() {
-      stopAllAutoScroll();
+  stopAllAutoScroll();
 
-      autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollAtraso'), { speedPxPerTick: 1, tickMs: 45 })
-      );
-      autoScrollInstances.push(
-        startAutoScroll(document.getElementById('scrollRecebimento'), { speedPxPerTick: 1, tickMs: 45 })
-      );
-    }
+  autoScrollInstances.push(
+    startAutoScroll(document.getElementById('scrollAtraso'), {
+      speedPxPerTick: 1,
+      tickMs: 45
+    })
+  );
+
+  autoScrollInstances.push(
+    startAutoScroll(document.getElementById('scrollRecebimento'), {
+      speedPxPerTick: 1,
+      tickMs: 45
+    })
+  );
+
+  autoScrollInstances.push(
+    startAutoScroll(document.getElementById('scrollPedidos'), {
+      speedPxPerTick: 1,
+      tickMs: 45
+    })
+  );
+}
 
     function parseDateFlex(s){
       if(!s) return null;
