@@ -1415,6 +1415,7 @@
       background: linear-gradient(180deg, rgba(11,27,58,.035), rgba(11,27,58,.015));
       display:flex;
       flex-direction:column;
+      justify-content:center;
       gap: 14px;
       overflow:hidden;
     }
@@ -1482,8 +1483,8 @@
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      flex: 1 1 auto;
-      min-height:0;
+      flex: 0 0 auto;
+      min-height:220px;
     }
 
     .metaCard{
@@ -1515,7 +1516,7 @@
 
     .metaCardValue{
       margin-top: 8px;
-      font-size: clamp(20px, 1.75vw, 31px);
+      font-size: clamp(25px, 2.25vw, 40px);
       line-height:1.05;
       font-weight: 950;
       white-space:nowrap;
@@ -1608,23 +1609,9 @@
         <div class="panel panelLight metaPanel" id="panelRecebimento" style="min-height:0; flex:1 1 auto;">
           <div class="ph">
             <div class="ttl">Na Rota da Meta</div>
-            <div class="badge" id="recebimentoCount">Meta: —</div>
           </div>
 
           <div class="metaBody" id="scrollRecebimento">
-            <div class="metaHero">
-              <div class="metaHeroTop">
-                <div>
-                  <div class="metaLabel">Faturamento atual</div>
-                  <div class="metaValorAtual" id="metaFaturamentoAtual">—</div>
-                </div>
-                <div class="metaPercent" id="metaPercentAtual">—%</div>
-              </div>
-              <div class="metaBar" aria-label="Percentual realizado da meta">
-                <div class="metaFill" id="metaFillAtual"></div>
-              </div>
-            </div>
-
             <div class="metaGrid">
               <div class="metaCard">
                 <div class="metaCardLabel">Falta para atingir o objetivo</div>
@@ -2139,13 +2126,8 @@ function startAutoScroll(el, {
       const faturamentoProjetado = faturamentoAtual + faturamentoPrevisto;
       const faltaAtual = Math.max(0, meta - faturamentoAtual);
       const faltaComPrevisto = Math.max(0, meta - faturamentoProjetado);
-      const percentualAtual = pctMeta(faturamentoAtual, meta);
       const percentualProjetado = pctMeta(faturamentoProjetado, meta);
 
-      document.getElementById('recebimentoCount').textContent = `Meta: ${fmtBRL.format(meta)}`;
-      document.getElementById('metaFaturamentoAtual').textContent = fmtBRL.format(faturamentoAtual);
-      document.getElementById('metaPercentAtual').textContent = `${percentualAtual.toFixed(2).replace('.', ',')}%`;
-      document.getElementById('metaFillAtual').style.width = `${percentualAtual}%`;
       document.getElementById('metaFaltaAtual').textContent = fmtBRL.format(faltaAtual);
       document.getElementById('metaFaltaPrevisto').textContent = fmtBRL.format(faltaComPrevisto);
       document.getElementById('metaPrevistoSub').textContent = `Previsto: ${fmtBRL.format(faturamentoPrevisto)} • Projeção: ${percentualProjetado.toFixed(2).replace('.', ',')}% da meta`;
