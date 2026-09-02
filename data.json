@@ -1,20 +1,224 @@
 {
-  "updated_at": "29/07/2026 08:56",
+  "updated_at": "02/09/2026 15:17",
   "kpis": {
+    "notas_em_atraso": 55,
+    "previstas_para_hoje": 0,
+    "entregues_hoje": 0
   },
   "pedidos_status": [
-    { "status": "Aguardando Liberação", "quantidade": 1, "valor": "4842,61" },
-    { "status": "Alvará Sanitário", "quantidade": 4, "valor": "25144" },
-    { "status": "Bloqueado por regra", "quantidade": 3, "valor": "2378,17" },
-    { "status": "Análise de Crédito", "quantidade": 16, "valor": "163027,52" },
-    { "status": "Total em Disputa", "quantidade": 24, "valor": "195392,3" },
-    { "status": "Aguard. Envio Separação", "quantidade": 4, "valor": "104466,45" },
-    { "status": "Em Separação", "quantidade": 2, "valor": "19680,8" },
-    { "status": "Separado", "quantidade": 1, "valor": "37293,46" },
+    { "status": "Aguardando Liberação", "quantidade": 3, "valor": "7425,6" },
+    { "status": "Alvará Sanitário", "quantidade": 8, "valor": "25352,49" },
+    { "status": "Bloqueado por regra", "quantidade": 1, "valor": "478,42" },
+    { "status": "Análise de Crédito", "quantidade": 15, "valor": "209890,24" },
+    { "status": "Total em Disputa", "quantidade": 27, "valor": "243146,75" },
+    { "status": "Aguard. Envio Separação", "quantidade": 1, "valor": "915" },
+    { "status": "Em Separação", "quantidade": 4, "valor": "9985,1" },
+    { "status": "Separado", "quantidade": 3, "valor": "6321,7" },
     { "status": "Faturado", "quantidade": 0, "valor": "0" },
-    { "status": "Total", "quantidade": 7, "valor": "161440,71" }
+    { "status": "Total", "quantidade": 8, "valor": "17221,8" }
  ],
  "recebimento_produtos": [
+   { "embarque": "25.04-AYSET",  "tipo": "Container", "data_recebimento": "12/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Finalizado" },
+   { "embarque": "26.02-MEQ-1",  "tipo": "Container", "data_recebimento": "13/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Finalizado" },
+   { "embarque": "2026I047",  "tipo": "Container", "data_recebimento": "14/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "2026I045",  "tipo": "Container", "data_recebimento": "15/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "IMP00011-BIOMED",  "tipo": "Container", "data_recebimento": "15/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Finalizado" },
+   { "embarque": "IMP00001-POLYMED",  "tipo": "Container", "data_recebimento": "19/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "IMP00004-POLYMED",  "tipo": "Container", "data_recebimento": "19/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "IMP00007-VITROMED",  "tipo": "Container", "data_recebimento": "19/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "25.16-VITRO",  "tipo": "Container", "data_recebimento": "19/05/26", "confirmado": "Não", "chegou_cd": "Previsto",  "status": "Aguardando Programação" },
+   { "embarque": "25.04-PHOENIX",  "tipo": "Container", "data_recebimento": "20/05/26", "confirmado": "SIM", "chegou_cd": "Finalizado",  "status": "Finalizado" }
+
+
+
+  ],
+ "notas_em_atraso": [
+   {"nota_fiscal": "207539 ", "destinatario": "03743294000130 - MEGATONS SAUDE LTDA ", "transportador": "LATAM ", "previsao_entrega": "29/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207646 ", "destinatario": "57646098000176 - JBF DISTRIBUICAO COMERCIO REPRESENTACAO E IMPORTAC ", "transportador": "AZURELOG ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207723 ", "destinatario": "04361467000118 - ARTMED COMERCIAL LTDA ", "transportador": "LOGDI ", "previsao_entrega": "05/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207749 ", "destinatario": "39621705000161 - LACVET  LABORATORIO DE ANALISES CLINICAS ", "transportador": "PATRUS ", "previsao_entrega": "29/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207842 ", "destinatario": "51837171000100 - F R HOSPITALAR IMPORTACAO  EXPORTACAO E DISTRIBUIC ", "transportador": "AZURELOG ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207877 ", "destinatario": "19362617000185 - VERE SAUDE BRASIL LTDA ", "transportador": "AZUL ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207915 ", "destinatario": "07293786000121 - LCI PRODUTOS DIAGNÓSTICOS LTDA ", "transportador": "TGL ", "previsao_entrega": "22/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207869 ", "destinatario": "26821143000158 - DIMMEX COMERCIO DE PRODUTOS HOSPITALARES ", "transportador": "ARLETE ", "previsao_entrega": "25/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207504 ", "destinatario": "24607646000108 - EXAM COM. DE PRODUTOS LABORATORAIS E HOS ", "transportador": "AZURELOG ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207711 ", "destinatario": "61486650124583 - LABORATORIO SANTA LUZIA ", "transportador": "SCHREIBER ", "previsao_entrega": "21/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207641 ", "destinatario": "21692188000156 - IMPACTO TELECOMUNICACOES LTDA ", "transportador": "AZUL ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207732 ", "destinatario": "08766992000174 - METHABIO FARMACEUTICA DO BRASIL LTDA ", "transportador": "AZURELOG ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207858 ", "destinatario": "39588602000147 - CARVALHOS COMERCIO E SERVICOS LTDA ", "transportador": "AZUL ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207905 ", "destinatario": "61486650088412 - DIAGNOSTICOS DA AMERICA S.A . ", "transportador": "LOGDI ", "previsao_entrega": "05/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208045 ", "destinatario": "08080032000156 - NCA MEDICAL-COMERCIO DE PROD HOSPIT LTDA ", "transportador": "AZURELOG ", "previsao_entrega": "16/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207265 ", "destinatario": "04614288000145 - DISK LIFE COM DE PRODUTOS CIRURGICOS LTD ", "transportador": "TECMAR ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207326 ", "destinatario": "15161670000167 - FACIMED COMERCIO E REPRESENTACOES LTDA ", "transportador": "TECMAR ", "previsao_entrega": "03/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207431 ", "destinatario": "17668769000185 - LAB. SAO LUCAS DE A. CLIN (66470) ", "transportador": "PATRUS ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207589 ", "destinatario": "60765823000130 - SOCIEDADE BENEF ISRAELITABRAS ", "transportador": "AZUL ", "previsao_entrega": "21/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207808 ", "destinatario": "21812728000198 - C N ALMEIDA JUNIOR DISTRIBUIDORA MEDICAM ", "transportador": "PATRUS ", "previsao_entrega": "29/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207930 ", "destinatario": "37751411000129 - SEMPRE HOSPITALAR LTDA ", "transportador": "JAMEF ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207834 ", "destinatario": "41600953000178 - BIOFARMACE DISTRIB MEDICAMENTOS LTDA ", "transportador": "LOGDI ", "previsao_entrega": "08/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207909 ", "destinatario": "02986234000428 - SUPERMIX VALE DISTRIBUIDORA S A ", "transportador": "PATRUS ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207968 ", "destinatario": "13447000000186 - DISTRIBUIDORA CANABARRO LTDA ME ", "transportador": "LATAM ", "previsao_entrega": "03/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208028 ", "destinatario": "52672952000155 - VIA PHARMA DISTRIBUIDORA FARMACEUTICA LT ", "transportador": "SCHREIBER ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "206253 ", "destinatario": "48722366000109 - RC DISTRIBUIDORA DE MEDICAMENTOS LTDA ", "transportador": "JAMEF ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "206986 ", "destinatario": "09293267000199 - PROMEDICA CLINICAS DE ANALISE MEDICAS ", "transportador": "TECMAR ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207003 ", "destinatario": "06097687000101 - CASA DE SAUDE E MATERNIDADE DE CAXIAS LTDA ", "transportador": "JAMEF ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207288 ", "destinatario": "63807473000115 - LABORATORIO DR EDVALDO SILVEIRA LTDA ", "transportador": "LOGDI ", "previsao_entrega": "29/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207199 ", "destinatario": "03817043000152 - PHARMAPLUS LTDA ", "transportador": "LOGDI ", "previsao_entrega": "03/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207497 ", "destinatario": "33891594000127 - EXCLUSIVE PRODUTOS HOSPITALARES EIRELI ", "transportador": "LOGDI ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207598 ", "destinatario": "08309283000160 - O A LIMA ME ", "transportador": "TECMAR ", "previsao_entrega": "09/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207540 ", "destinatario": "12478186000178 - LABORATORIO DE ANALISES CLINICAS VICENTE ", "transportador": "PATRUS ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207634 ", "destinatario": "29731564000186 - OLIVEIRA E GUIMARAES COMERCIO DE PRODUTO ", "transportador": "AZURELOG ", "previsao_entrega": "29/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207624 ", "destinatario": "04679119000193 - CRM COMERCIAL LTDA ", "transportador": "LOGDI ", "previsao_entrega": "04/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207546 ", "destinatario": "31806925000158 - VETLAB ARACATUBA ", "transportador": "PATRUS ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207118 ", "destinatario": "36433053000143 - PADRAO MED DISTRIB MEDICAMENTOS LTDA ", "transportador": "AZUL ", "previsao_entrega": "18/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "206751 ", "destinatario": "27718661000103 - ARMAZEM DOS MEDICAMENTOS EIRELI ", "transportador": "AZURELOG ", "previsao_entrega": "31/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "206987 ", "destinatario": "03894963000174 - SAO MARCOS DIST DE MED, EQUIP E MAT HOSP ", "transportador": "LOGDI ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207380 ", "destinatario": "24152052000141 - A C B MONTEIRO LIMA ", "transportador": "AZURELOG ", "previsao_entrega": "02/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207402 ", "destinatario": "29544048000142 - MSI COMERCIO DE MAT E EQUIP HOSPITALARES ", "transportador": "TECMAR ", "previsao_entrega": "08/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207477 ", "destinatario": "10463662000151 - DISFARMOC DIST DE PROD FARMACEUTICOS LTD ", "transportador": "AZUL ", "previsao_entrega": "25/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207571 ", "destinatario": "41703093000106 - MED LAGOS CIRURGICA IMPORT EXPORT LTDA ", "transportador": "PATRUS ", "previsao_entrega": "26/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207668 ", "destinatario": "27083042000190 - FARMAFACIL MEDICAMENTOS EIRELI ", "transportador": "AZURELOG ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207689 ", "destinatario": "07206435000136 - JOAO HILDS PORTO PEREIRA EIRELI ", "transportador": "PATRUS ", "previsao_entrega": "01/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207792 ", "destinatario": "07258781000168 - ANIMAL LABOR ESPECIALIDADES LABORATORIAI ", "transportador": "AZUL ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207762 ", "destinatario": "04372020000144 - WERBRAN - PR ", "transportador": "JAMEF ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207751 ", "destinatario": "61486650020532 - DIAGNOSTICOS DA AMERICA S.A. ", "transportador": "PATRUS ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207795 ", "destinatario": "34720738000145 - LUCAS ALVES DE MELO DA SILVA 46041480827 ", "transportador": "AZUL ", "previsao_entrega": "28/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207868 ", "destinatario": "20956481000110 - NEO MEDICAL COMERCIAL HOSPITALAR LTDA ", "transportador": "AZUL ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "207973 ", "destinatario": "02800122000198 - CIRURGICA BEZERRA DISTRIBUIDORA LTDA ", "transportador": "LOGDI ", "previsao_entrega": "09/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208009 ", "destinatario": "06325154000130 - ALBMED COMERCIO PRODUTOS HOSPITALARES LT ", "transportador": "LATAM ", "previsao_entrega": "05/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208077 ", "destinatario": "18633316000186 - A.M.R SANTOS PRODUTOS VETERINARIOS LTDA ", "transportador": "AZUL ", "previsao_entrega": "27/05/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208064 ", "destinatario": "34228786880 - CYRO MODE ", "transportador": "AZUL ", "previsao_entrega": "01/06/2026","ocorrencia": "Atrasado" },
+   {"nota_fiscal": "208076 ", "destinatario": "24702356000135 - CAPITAL MEDH IMP DIST REP COMERCIAL LTDA ", "transportador": "AZURELOG ", "previsao_entrega": "01/06/2026","ocorrencia": "Atrasado" }
+
+
+
+
+
+  ],
+  "notas_previstas_hoje": [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -33,29 +237,29 @@
 
  ],
 "pedidos_nao_faturados": [
-  {"numero_pedido":"702347 ", "emissao_pv": "24/07/2026 ", "vlr_total_produtos": "7632 ", "margem": "35,22 ", "nome_cliente": "IMEDIATTA ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOELMA NUNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702368 ", "emissao_pv": "24/07/2026 ", "vlr_total_produtos": "9540 ", "margem": "34,21 ", "nome_cliente": "MONTALVAO COMERCIAL ", "uf_cliente": "SE ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOELMA NUNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702400 ", "emissao_pv": "24/07/2026 ", "vlr_total_produtos": "23850 ", "margem": "30,44 ", "nome_cliente": "DISTRIMEDICA ", "uf_cliente": "CE ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702617 ", "emissao_pv": "27/07/2026 ", "vlr_total_produtos": "3215,96 ", "margem": "0 ", "nome_cliente": "MEDTOUR SAUDE ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "E-COMMERCE ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702626 ", "emissao_pv": "27/07/2026 ", "vlr_total_produtos": "4046 ", "margem": "49,84 ", "nome_cliente": "MERCOSUL DISTRIBUIDO ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702688 ", "emissao_pv": "27/07/2026 ", "vlr_total_produtos": "46704,36 ", "margem": "22,22 ", "nome_cliente": "PRATEC SERVICOS ", "uf_cliente": "CE ", "tipo_cliente": "REVENDEDOR ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702705 ", "emissao_pv": "27/07/2026 ", "vlr_total_produtos": "4046 ", "margem": "53,4 ", "nome_cliente": "MERCOSUL DISTRIBUIDO ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702726 ", "emissao_pv": "27/07/2026 ", "vlr_total_produtos": "11560 ", "margem": "20,48 ", "nome_cliente": "HISHOO COMERCIO IMPO ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOAO NETO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702740 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "2075 ", "margem": "50,45 ", "nome_cliente": "PROMEDIX ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA GUIMARAES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702770 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "545 ", "margem": "40,44 ", "nome_cliente": "CENTERLAB ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "ELIZANGELA GRACA ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702776 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "2752,9 ", "margem": "14,99 ", "nome_cliente": "AMPLAMED GESTAO E SE ", "uf_cliente": "BA ", "tipo_cliente": "REVENDEDOR ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702783 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "13450 ", "margem": "36,52 ", "nome_cliente": "MED CENTER COMERCIAL ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. CAREMED ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702785 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "5386 ", "margem": "40,8 ", "nome_cliente": "SHOPODONTO DENTAL ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOELMA NUNES ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702830 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "1052,3 ", "margem": "29,62 ", "nome_cliente": "DISTRINOVA ", "uf_cliente": "ES ", "tipo_cliente": "REVENDEDOR ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702838 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "8240 ", "margem": "22,2 ", "nome_cliente": "BASSO E PANCOTTE LTD ", "uf_cliente": "RS ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. LM ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"702851 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "6020 ", "margem": "26,8 ", "nome_cliente": "BONATTO DISTRIBUIDOR ", "uf_cliente": "PR ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. CAOBIANCO ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702904 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "21152 ", "margem": "46,25 ", "nome_cliente": "LABORATORIO CENTRAL ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Análise de Crédito" },
-  {"numero_pedido":"702931 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "5149 ", "margem": "32 ", "nome_cliente": "C E  DISTRIBUIDORA D ", "uf_cliente": "AL ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOAO NETO ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"702933 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "900 ", "margem": "41,16 ", "nome_cliente": "LABORATORIO SAO LOUR ", "uf_cliente": "MG ", "tipo_cliente": "CONS.FINAL ","vendedor": "JOAO NETO ", "ultimo_status": "Alvará Sanitário" },
-  {"numero_pedido":"702936 ", "emissao_pv": "28/07/2026 ", "vlr_total_produtos": "10855 ", "margem": "8,99 ", "nome_cliente": "MEDCLIN RIO COMERCIO ", "uf_cliente": "RJ ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA MIRIAN ", "ultimo_status": "Alvará Sanitário" }
-
-
-
+  {"numero_pedido":"692287 ", "emissao_pv": "14/05/2026 ", "vlr_total_produtos": "896 ", "margem": "32,7 ", "nome_cliente": "TATTO FOREVER SHOPP2 ", "uf_cliente": "MA ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA GUIMARAES ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"692344 ", "emissao_pv": "14/05/2026 ", "vlr_total_produtos": "1086,76 ", "margem": "8,46 ", "nome_cliente": "HOSPITAL SAO MIGUEL ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "REP. WENDER ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"692614 ", "emissao_pv": "18/05/2026 ", "vlr_total_produtos": "3560 ", "margem": "27,11 ", "nome_cliente": "CLINICA & LAB ALBERT ", "uf_cliente": "PA ", "tipo_cliente": "CONS.FINAL ","vendedor": "LUCIANA LIMA ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"692815 ", "emissao_pv": "19/05/2026 ", "vlr_total_produtos": "1770 ", "margem": "34,64 ", "nome_cliente": "VICTA LABORATORIO DE ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "ELIZANGELA GRACA ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"693001 ", "emissao_pv": "20/05/2026 ", "vlr_total_produtos": "816 ", "margem": "15,15 ", "nome_cliente": "P M S SAUDE ", "uf_cliente": "RJ ", "tipo_cliente": "REVENDEDOR ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693111 ", "emissao_pv": "20/05/2026 ", "vlr_total_produtos": "12027,6 ", "margem": "29,35 ", "nome_cliente": "OUR COMPANY ", "uf_cliente": "RJ ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA MIRIAN ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693142 ", "emissao_pv": "20/05/2026 ", "vlr_total_produtos": "7410,14 ", "margem": "33,15 ", "nome_cliente": "EMED ", "uf_cliente": "PA ", "tipo_cliente": "CONS.FINAL ","vendedor": "ERICA BARNES ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693178 ", "emissao_pv": "20/05/2026 ", "vlr_total_produtos": "3905 ", "margem": "30,28 ", "nome_cliente": "IMPACTA MED ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOAO NETO ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"693232 ", "emissao_pv": "20/05/2026 ", "vlr_total_produtos": "4755 ", "margem": "49,72 ", "nome_cliente": "CENTROMED ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "JOELMA NUNES ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693315 ", "emissao_pv": "21/05/2026 ", "vlr_total_produtos": "2437 ", "margem": "43,81 ", "nome_cliente": "DR  ESTOQUE COMERCIO ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "ELIZANGELA GRACA ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693445 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "2517,5 ", "margem": "17,53 ", "nome_cliente": "IN SAUDE INNOVATION ", "uf_cliente": "GO ", "tipo_cliente": "CONS.FINAL ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693451 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "13458,3 ", "margem": "36,77 ", "nome_cliente": "ITAPEMA LABORATORIO ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "JOAO NETO ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693477 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "9510 ", "margem": "14,59 ", "nome_cliente": "MEDSEG DISTRIBUIDORA ", "uf_cliente": "PI ", "tipo_cliente": "REVENDEDOR ","vendedor": "FLAVIA VELIS ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"693499 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "24325 ", "margem": "36,6 ", "nome_cliente": "FERREIRA COMERCIO ", "uf_cliente": "PE ", "tipo_cliente": "REVENDEDOR ","vendedor": "DENNYS SANTOS ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693556 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "6046,8 ", "margem": "19,21 ", "nome_cliente": "VETSHOP COMERCIO DE ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "DIEGO RICARDO ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693558 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "833 ", "margem": "31,12 ", "nome_cliente": "HOSPCARE UTILIDADES ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "LUCIA FLORESTA ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693582 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "21774,6 ", "margem": "30,4 ", "nome_cliente": "ENDRAMED HOSPITALAR ", "uf_cliente": "SP ", "tipo_cliente": "REVENDEDOR ","vendedor": "LUCIANA LIMA ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693586 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "37205,72 ", "margem": "26,22 ", "nome_cliente": "GRIGORIO MEDICAMENTO ", "uf_cliente": "RJ ", "tipo_cliente": "REVENDEDOR ","vendedor": "DENNYS SANTOS ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693590 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "2642,96 ", "margem": "35,33 ", "nome_cliente": "MINAS DISTRIBUIDORA ", "uf_cliente": "RO ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. FEMA ", "ultimo_status": "Alvará Sanitário" },
+  {"numero_pedido":"693596 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "10228,68 ", "margem": "26,1 ", "nome_cliente": "MEDMAIS C.  DE  M. ", "uf_cliente": "BA ", "tipo_cliente": "REVENDEDOR ","vendedor": "FERNANDA MIRIAN ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693616 ", "emissao_pv": "22/05/2026 ", "vlr_total_produtos": "15546,8 ", "margem": "23,97 ", "nome_cliente": "POUSO FARMA ", "uf_cliente": "MG ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. CAREMED ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693626 ", "emissao_pv": "23/05/2026 ", "vlr_total_produtos": "50508,1 ", "margem": "34,14 ", "nome_cliente": "AR DISTRIBUIDORA HOS ", "uf_cliente": "PA ", "tipo_cliente": "REVENDEDOR ","vendedor": "REP. CA BENTO ", "ultimo_status": "Análise de Crédito" },
+  {"numero_pedido":"693628 ", "emissao_pv": "24/05/2026 ", "vlr_total_produtos": "1981,77 ", "margem": "18,7 ", "nome_cliente": "LABORATORIO DE ANALI ", "uf_cliente": "SP ", "tipo_cliente": "CONS.FINAL ","vendedor": "FERNANDA GUIMARAES ", "ultimo_status": "Alvará Sanitário" }
 
 
 
@@ -82,19 +286,19 @@
 },
   "performance_gerencial": {
     "mes_atual": {
-     "periodo": "julho/2026",
-     "frete_pago": "494604,66",
-     "faturamento": "11547037,27",
-     "frete_repassado": "385484,79",
-     "entrega_realizada": "1298",
-     "entrega_no_prazo": "1273",
-     "qtd_notas_fiscais": "1778",
-     "entrega_fora_prazo": "25"
+     "periodo": "setembro/2026",
+     "frete_pago": "0",
+#CALC!
+     "frete_repassado": "0",
+     "entrega_realizada": "2",
+     "entrega_no_prazo": "1",
+     "qtd_notas_fiscais": "1",
+     "entrega_fora_prazo": "0"
 },
   "mes_anterior": {
-     "periodo": "junho/2026",
-     "entrega_realizada": "1989",
-     "entrega_no_prazo": "1876"
+     "periodo": "agosto/2026",
+     "entrega_realizada": "2",
+     "entrega_no_prazo": "1"
   }
 },
   "expedicao": {
@@ -102,25 +306,5 @@
      "coletado": 0,
      "valor_coletado": 0,
      "valor_pendente_coleta": 0
-},
-
-
-"estoque": {
-  "ocupacao_total_armazem": 59.61,
-  "ocupacao_operacional": 64.16,
-  "areas": [
-    { "nome": "Picking", "taxa": 81.99},
-    { "nome": "Pulmão de Abastecimento", "taxa": 61.00},
-    { "nome": "Flowrack", "taxa": 44.11},
-    { "nome": "Área de Qualidade", "taxa": 17.78},
-    { "nome": "Área de Amostra", "taxa": 0.00},
-    { "nome": "Área de Avarias", "taxa": 39.53}
-]
-
-},
-     "na_rota_da_meta": {
-     "meta": 3380619.18,
-     "faturamento_atual": 0,
-     "faturamento_previsto": 161440.71
   }
 }
