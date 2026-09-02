@@ -287,8 +287,8 @@
   "performance_gerencial": {
     "mes_atual": {
      "periodo": "setembro/2026",
-     "frete_pago": "0",
-#CALC!
+     "frete_pago": "0"
+    }
      "frete_repassado": "0",
      "entrega_realizada": "2",
      "entrega_no_prazo": "1",
