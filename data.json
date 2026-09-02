@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/09/2026 15:17",
+  "updated_at": "02/09/2026 15:24",
   "kpis": {
     "notas_em_atraso": 55,
     "previstas_para_hoje": 0,
@@ -287,8 +287,8 @@
   "performance_gerencial": {
     "mes_atual": {
      "periodo": "setembro/2026",
-     "frete_pago": "0"
-    }
+     "frete_pago": "0",
+     "faturamento": "2000",
      "frete_repassado": "0",
      "entrega_realizada": "2",
      "entrega_no_prazo": "1",
